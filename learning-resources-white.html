@@ -23,6 +23,7 @@
   <link href="https://www.polymer-project.org/components/paper-dropdown/paper-dropdown.html" rel="import">
   <link href="https://www.polymer-project.org/components/paper-icon-button/paper-icon-button.html" rel="import">
   <link href="https://www.polymer-project.org/components/paper-item/paper-item.html" rel="import">
+  <link rel="import" href="https://www.polymer-project.org/components/paper-toast/paper-toast.html">
 
   <link href="https://www.polymer-project.org/components/paper-menu-button/paper-menu-button.html" rel="import">
 
@@ -149,7 +150,7 @@
 <core-toolbar>
   
     <paper-icon-button icon="menu"></paper-icon-button>
-    <div flex style="font-size:24px;font-weight:300">Your Learning Resources</div>
+    <div flex style="font-size:24px;font-weight:300">Learning Resources</div>
     <paper-icon-button icon="search"></paper-icon-button>
     <paper-icon-button icon="more-vert"></paper-icon-button>
     
@@ -190,15 +191,15 @@
         <paper-shadow class="card" z="1">
           <h1 style="font-size:20px;font-weight:300;padding: 4px 0px 0px 16px;">Study Help</h1>
           <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">
-          <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer"><core-icon src="sign.svg" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> All Library Subject Guides</h2>
+          <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer"  onclick="document.querySelector('#libguides-toast').show()"><core-icon src="sign.svg" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> All Library Subject Guides</h2>
           <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">
-          <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer"><core-icon icon="extension" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> Library 101</h2>
+          <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer" onclick="document.querySelector('#lib101-toast').show()"><core-icon icon="extension" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> Library 101</h2>
           <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">
           <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer"><core-icon icon="description" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> Assignment Planner</h2>
           <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">
           <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer"><core-icon src="bb.png" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> Learn.UQ</h2>
           <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">
-          <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer"><core-icon icon="event" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> Exam Schedule</h2>
+          <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#448AFF;vertical-align:middle;cursor:pointer"  onclick="document.querySelector('#exam-toast').show()"><core-icon icon="event" style="width: 17px; height: 17px;color:#448AFF; margin-top:-2px;"></core-icon> Exam Schedule</h2>
         </paper-shadow>
 
       </swipeable-card>
@@ -331,6 +332,15 @@
     });
 
   </script>
+
+  <paper-toast id="exam-toast" role="alert" text="Did you know there are past exam papers for ENGG1100?">
+    <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW ALL</div></paper-toast>
+
+  <paper-toast id="libguides-toast" role="alert" text="Have you seen the ENGG1100 Library Guide? We've put together great resources for you.">
+    <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW</div></paper-toast>
+
+  <paper-toast id="lib101-toast" text="New to UQ? Get acquainted with Library 101!">
+    <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW</div></paper-toast>
   
 </body>
 </html>
