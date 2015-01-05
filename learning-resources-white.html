@@ -316,6 +316,7 @@
   <script>
     document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
       e.target.parentNode.removeChild(e.target);
+      document.querySelector('#undoswipe-toast').show();
     });
 
     document.querySelector('#mediaQuery').addEventListener('core-media-change',
@@ -341,6 +342,9 @@
 
   <paper-toast id="lib101-toast" text="New to UQ? Get acquainted with Library 101!">
     <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW</div></paper-toast>
+
+  <paper-toast id="undoswipe-toast" role="alert" text="Done for now">
+    <div style="color: #8BC34A;" onclick="console.log('RETRY')">UNDO</div></paper-toast>
   
 </body>
 </html>
