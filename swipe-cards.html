@@ -43,27 +43,22 @@
     <swipeable-card>1st one!</swipeable-card>
     <swipeable-card>This is 2!</swipeable-card>
     <swipeable-card>Howdy, I'm 3.</swipeable-card>
-    <!-- <swipeable-card>Swipe 4!</swipeable-card>
-    <swipeable-card>5</swipeable-card> -->
+    <!-- 
+    <swipeable-card>Swipe 4!</swipeable-card>
+    <swipeable-card>5</swipeable-card>
+    -->
     
   </div>
   
   <script>
     document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
-      // e.target.style = "opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotate(0deg); transform: translate3d(0px, 0px, 0px) rotate(0deg);";
-      // console.log(e.target.parentNode.appendChild(e.target));
-      // e.target.parentNode.appendChild(e.target);
-      // var savedCard = e.target;
       e.target.parentNode.removeChild(e.target);
       document.querySelector('#cards').appendChild(e.target);
       setTimeout(function(){
         e.target.style.opacity = 1;
         e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
         e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-      },100);
-
-      // savedCard.style = "opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotate(0deg); transform: translate3d(0px, 0px, 0px) rotate(0deg);";
-      
+      },50);
     });
   </script>
   
