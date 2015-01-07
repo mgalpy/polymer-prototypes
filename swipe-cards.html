@@ -52,14 +52,18 @@
   
   <script>
     document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
-      e.target.parentNode.removeChild(e.target);
-      document.querySelector('#cards').appendChild(e.target);
+      e.target.parentNode.removeChild(e.target); // removes this card
+      document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
+      
+      // wait for 50ms so the animations can kick in
       setTimeout(function(){
-        e.target.style.opacity = 1;
-        e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+        e.target.style.opacity = 1; // set opacity back to 1 (default)
+        // set it's position and location back to default (and in webkit-based browsers)
+        e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)"; 
         e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
       },50);
     });
+
   </script>
   
 </body>
