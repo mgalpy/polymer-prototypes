@@ -91,14 +91,14 @@
     paper-tabs paper-tab::shadow #ink {
       color: #8BC34A;
     }
-  
-    #cards {
+
+    .deck {
       margin: 0 auto;
-      overflow: auto;
+      overflow: none;
       -webkit-user-select: none;
       -moz-user-select: none;
     }
-    
+  
     swipeable-card {
       /*height: auto;*/
       height: auto;
@@ -203,7 +203,7 @@
     </div>
     
     <div>
-    <div id="cards">
+    <div id="cards2" class="deck">
     
       <swipeable-card>
 
@@ -264,7 +264,7 @@
     </div>
 
     <div>
-    <div id="cards">
+    <div id="cards3" class="deck">
     
        <swipeable-card>
 
@@ -284,7 +284,7 @@
     </div>
 
     <div>
-    <div id="cards">
+    <div id="cards4" class="deck">
     
       <swipeable-card>
 
@@ -308,12 +308,36 @@
   <core-media-query id="mediaQuery" query="max-width: 640px"></core-media-query>
   
   <script>
-    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
-      // console.log(e.target.parentNode); // this equals <div id=cards>
-      console.log(e.target);
-      e.target.parentNode.removeChild(e.target);
-      document.querySelector('#undoswipe-toast').show();
-    });
+
+
+    var decks = document.getElementsByTagName('div');
+      var x = 0;
+
+      while (x < decks.length) {
+        if ((decks[x].id.indexOf("cards")) == 0) {
+          addCardListener(decks[x].id);
+        }
+        x++;
+      }
+
+      function addCardListener(name) {
+        document.querySelector('#' + name).addEventListener('swipeable-card-swipe-away', function(e) {
+          e.target.parentNode.removeChild(e.target); // removes this card
+          document.querySelector('#' + name).appendChild(e.target); // adds this card to the end of the set of cards
+          
+          // wait for 50ms so the animations can kick in
+          setTimeout(function(){
+            e.target.style.opacity = 1; // set opacity back to 1 (default)
+            // set it's position and location back to default (and in webkit-based browsers)
+            e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)"; 
+            e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            document.querySelector('#undoswipe-toast').show();
+          },10);
+        });
+      }
+
+      function undoHideCard() {
+      }
 
     document.querySelector('#mediaQuery').addEventListener('core-media-change',
       function(e) {
@@ -339,11 +363,6 @@
       }
     }
 
-    function showCard() {
-      console.log("undo and show swiped card");
-      document.querySelector('#cards').innerHTML = ('<swipeable-card id="main-card">            <paper-shadow class="card" z="1">            <h1 style="font-size:20px;font-weight:300;padding: 4px 0px 0px 16px;">ENGG1100 - Engineering Design</h1>            <!-- <h3 style="font-size:14px;font-weight:300;padding: 0px 0px 0px 16px; font-style:italic; color: #9f9f9f;margin-top: -5px;">Current enrollment - <span style="color:#4CAF50;font-weight:400">95 students</span></h3> -->            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"><core-icon icon="list" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Reading List (12)</h2>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"><core-icon icon="create" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Past Exam Papers (0)</h2>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"><core-icon src="sign.svg" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Library Guides (3)</h2>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"><core-icon src="uni.svg" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Electronic Course Profile</h2>          </paper-shadow>          </swipeable-card>    <swipeable-card>            <paper-shadow class="card" z="1">            <h1 style="font-size:20px;font-weight:300;padding: 4px 0px 0px 16px;">Study Help</h1>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"  onclick="document.querySelector("#libguides-toast").show()"><core-icon src="sign.svg" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> All Library Subject Guides</h2>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer" onclick="document.querySelector("#lib101-toast").show()"><core-icon icon="extension" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Library 101</h2>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"><core-icon icon="description" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Assignment Planner</h2>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"><core-icon src="bb.svg" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Learn.UQ</h2>            <hr style="height:1px;border:none;color:#ccc;background-color:#ddd;">            <h2 style="font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer"  onclick="document.querySelector("#exam-toast").show()"><core-icon icon="event" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> Exam Schedule</h2>          </paper-shadow>          </swipeable-card>');
-    }
-
   </script>
 
   <!-- alert role is for important, time-sensitive notifications - screenreaders will be interrupted, for example -->
@@ -358,7 +377,7 @@
     <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW</div></paper-toast>
 
   <paper-toast id="undoswipe-toast" role="alert" text="Done for now">
-    <div style="color: #8BC34A;" onclick="showCard()">UNDO</div></paper-toast>
+    <div style="color: #8BC34A;" onclick="undoHideCard()">UNDO</div></paper-toast>
   
 </body>
 </html>
