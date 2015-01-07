@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <title>swipeable-card</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
+  
+  <link rel="import" href="https://www.polymer-project.org/components/swipeable-card/swipeable-card.html">
+
+  <style>
+
+  body {
+    background-color: #eee;
+  }
+
+    #cards {
+      margin: 0 auto;
+      background: #eee;
+      overflow: auto;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+    }
+    
+    swipeable-card {
+      height: 200px;
+      width: 240px;
+      margin: 20px auto;
+      padding: 30px;
+    }
+      
+  </style>
+
+</head>
+<body fullbleed unresolved>
+
+  <div id="cards">
+  
+    <swipeable-card>Swipe Me!</swipeable-card>
+    <swipeable-card>Swipe 2!</swipeable-card>
+    <swipeable-card>3</swipeable-card>
+    <swipeable-card>Swipe 4!</swipeable-card>
+    <swipeable-card>5</swipeable-card>
+    
+  </div>
+  
+  <script>
+    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
+      // e.target.style = "opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotate(0deg); transform: translate3d(0px, 0px, 0px) rotate(0deg);";
+      // console.log(e.target.parentNode.appendChild(e.target));
+      // e.target.parentNode.appendChild(e.target);
+      // var savedCard = e.target;
+      e.target.parentNode.removeChild(e.target);
+      document.querySelector('#cards').appendChild(e.target);
+      e.target.style.opacity = 1;
+      e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+
+      // savedCard.style = "opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px) rotate(0deg); transform: translate3d(0px, 0px, 0px) rotate(0deg);";
+      
+    });
+  </script>
+  
+</body>
+</html>

@@ -309,6 +309,8 @@
   
   <script>
     document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
+      // console.log(e.target.parentNode); // this equals <div id=cards>
+      console.log(e.target);
       e.target.parentNode.removeChild(e.target);
       document.querySelector('#undoswipe-toast').show();
     });
