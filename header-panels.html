@@ -19,6 +19,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <link rel="import" href="https://www.polymer-project.org/components/core-toolbar/core-toolbar.html">
 
+  <link href="https://www.polymer-project.org/components/paper-input/paper-autogrow-textarea.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-input/paper-input-decorator.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-input/paper-input.html" rel="import">
+
   <style shim-shadowdom>
 
     body {
@@ -31,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     .core-header {
       height: 60px;
-      line-height: 90px;
+      line-height: 20px;
       font-size: 18px;
       padding: 0 10px;
       background-color: #fafafa;
@@ -73,7 +77,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
   
   </core-toolbar>
-<span id="search" style="color:#333;font-weight:200">Search</span>
+<!-- <span id="search" style="color:#333;font-weight:200">Search</span> -->
+    <paper-input-decorator label="UQ Library Search" floatingLabel error="input is required!">
+      <input is="core-input" required style="margin:0">
+    </paper-input-decorator>
     </div>
 <!-- 
     <core-toolbar>
@@ -102,10 +109,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   function toggleTall() {
     if (document.querySelector('.core-header').className.indexOf('medium-tall') != 20) {
       document.querySelector('.core-header').className = document.querySelector('.core-header').className + ' medium-tall';
-      document.querySelector('#search').style.display = 'block';
+      document.querySelector('paper-input-decorator').style.display = 'block';
     } else {
       document.querySelector('.core-header').className = 'core-header animate';
-      document.querySelector('#search').style.display = 'none';
+      document.querySelector('paper-input-decorator').style.display = 'none';
     }
 
 
