@@ -1,0 +1,28 @@
+body {
+	background-color: #fafafa;
+	font-family:Roboto, sans-serif;
+	font-size: 14px;
+}
+h1 {
+	font-size:1.5em;
+	font-weight:200;
+	margin:12px;
+	padding:0;
+}
+.banner {
+	height: 56px;
+	background-color:#7B1FA2;
+	color:white;margin:-10px -15px 0 -15px;
+	padding:10px 15px 0 15px;
+}
+.card {
+	max-width: 300px;
+	margin:auto;
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	border-radius:2px;
+	padding:20px;
+	box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.2);
+	background-color: white;
+	font-size: 0.875em;
+}
