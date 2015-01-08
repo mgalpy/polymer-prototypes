@@ -144,10 +144,13 @@
       font-size:20px;font-weight:300;padding: 4px 0px 0px 16px;
     }
     h2 {
-      font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer;
+      font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#333;vertical-align:middle;cursor:pointer;
     }
     h3 {
-      font-size:14px;font-weight:300;padding: 0px 0px 0px 16px; font-style:italic; color: #9f9f9f;
+      font-size:14px;font-weight:300;padding: 0px 0px 0px 16px; font-style:italic; color: #777;
+    }
+    h4 {
+      font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer;
     }
     hr {
       height:1px;border:none;color:#ccc;background-color:#ddd;
@@ -161,7 +164,17 @@
     paper-input-decorator {
       margin: 0 10%;
     }
+    paper-button {
+      margin: 18px;
+      float: right;
+      color: #7B1FA2;
+    }
       
+    .arrow-icon {
+      background-color: #2962FF;
+      border-radius:50%;
+      color: white;
+    }
   </style>
 
 </head>
@@ -189,38 +202,15 @@
       <swipeable-card id="main-card">
 
         <paper-shadow class="card" z="1">
-          <h1 style="font-size:20px;font-weight:300;padding: 4px 0px 0px 16px;">Select your dates</h1>
-          <!-- <h3 style="font-size:14px;font-weight:300;padding: 0px 0px 0px 16px; font-style:italic; color: #9f9f9f;margin-top: -5px;">Current enrollment - <span style="color:#4CAF50;font-weight:400">95 students</span></h3> -->
+          <h1>Select your dates</h1>
           <hr>
-          <paper-input-decorator label="Start date" floatingLabel type="date" error="input is required!">
-            <input is="core-input" required style="margin:0">
+          <paper-input-decorator label="Start date" floatingLabel type="date" error="input is required!" id="start">
+            <input is="core-input" required>
           </paper-input-decorator>
-          <hr>
-          <h2><a href="https://www.library.uq.edu.au/exams/papers.php?stub=ENGG1100"><core-icon icon="create"></core-icon> Past Exam Papers (0)</a></h2>
-          <!-- link https://www.library.uq.edu.au/exams/search.html if no exams available -->
-          <hr>
-          <h2><a href="http://guides.library.uq.edu.au/engg1100"><core-icon src="sign.svg"></core-icon> Library Guides (3)</a></h2>
-          <!-- link rules should be same as in old My Library -->
-          <hr>
-          <h2><a href="http://www.uq.edu.au/study/course.html?course_code=ENGG1100"><core-icon src="uni.svg"></core-icon> Electronic Course Profile</a></h2>
-        </paper-shadow>
-
-      </swipeable-card>
-
-      <swipeable-card onclick="showToast()">
-
-        <paper-shadow class="card" z="1">
-          <h1>Study Help</h1>
-          <hr>
-          <h2><a href="http://guides.library.uq.edu.au/"><core-icon src="sign.svg" style="width: 17px; height: 17px;color:#2962FF; margin-top:-2px;"></core-icon> All Library Subject Guides</a></h2>
-          <hr>
-          <h2><a href="https://learn.uq.edu.au/webapps/login/?new_loc=%2Fwebapps%2Fblackboard%2Fexecute%2FenrollCourse%3Fcontext%3DCourse%26course_id%3D_13002_1"><core-icon icon="extension"></core-icon> Library 101</a></h2>
-          <hr>
-          <h2><a href="https://www.library.uq.edu.au/services/assign/indexmail_tab2.phtml"><core-icon icon="description"></core-icon> Assignment Planner</a></h2>
-          <hr>
-          <h2><a href="https://learn.uq.edu.au/"><core-icon src="bb.svg"></core-icon> Learn.UQ</a></h2>
-          <hr>
-          <h2><a href="https://my.uq.edu.au/my_login_screen.html?id=396"><core-icon icon="event"></core-icon> Exam Schedule</a></h2>
+          <paper-input-decorator label="Due date" floatingLabel type="date" error="input is required!" id="end">
+            <input is="core-input" required>
+          </paper-input-decorator>
+          <paper-button onclick="validateAll()">Calculate</paper-button>
         </paper-shadow>
 
       </swipeable-card>
@@ -230,25 +220,34 @@
     
     <div>
     <div id="cards2" class="deck">
-    
+
       <swipeable-card>
 
         <paper-shadow class="card" z="1">
-          <h1>Reading List</h1>
+          <h1>Step 1</h1>
           <hr>
-          <h2>Design like you give a damn: architectural responses to humanitarian crises</h2>
-          <h3>Cameron Sinclair, Kate Stohr, Architecture for Humanity (Organization) 2006</h3>
-          <h3><span>Book - Required</span></h3>
+          <h2>By Fri Feb 9, 2015:</h2>
+          <h3>Understand your assignment</h3>
           <hr>
-          <h2>Engineering drawing handbook </h2>
-          <h3>Roy A. Williams, Standards Association of Australia, Institution of Engineers, Australia 1993</h3>
-          <h3><span>Book - Recommended</span></h3>
-          <hr>
-          <h2><core-icon icon="arrow-forward"></core-icon> 10 more items</h2>
+          <h4><core-icon icon="arrow-forward" class="arrow-icon" ></core-icon> Suggestions for understanding assignment sheets</h2>
         </paper-shadow>
 
       </swipeable-card>
 
+      <swipeable-card>
+
+        <paper-shadow class="card" z="1">
+          <h1>Step 2</h1>
+          <hr>
+          <h2>By Fri Feb 10, 2015:</h2>
+          <h3>Select and focus topic</h3>
+          <hr>
+          <h4><core-icon icon="arrow-forward" class="arrow-icon" ></core-icon> Refine your topic</h2>
+          <h4><core-icon icon="arrow-forward" class="arrow-icon" ></core-icon> How to begin</h2>
+        </paper-shadow>
+
+      </swipeable-card>
+<!-- 
       <swipeable-card>
 
         <paper-shadow class="card" z="1">
@@ -258,9 +257,9 @@
           <h2><core-icon icon="arrow-forward"></core-icon> Search for other exam papers</h2>
         </paper-shadow>
 
-      </swipeable-card>
+      </swipeable-card> -->
 
-      <swipeable-card style="height:304px">
+     <!--  <swipeable-card style="height:304px">
 
         <paper-shadow class="card" z="1" style="height:304px">
           <h1>Library Guides</h1>
@@ -284,7 +283,7 @@
           <h2><core-icon icon="arrow-forward"></core-icon> Link to ECP</h2>
         </paper-shadow>
 
-      </swipeable-card>
+      </swipeable-card> -->
       
     </div>
     </div>
@@ -297,6 +296,19 @@
   <core-media-query id="mediaQuery" query="max-width: 640px"></core-media-query>
   
   <script>
+
+  function validateAll() {
+
+        var $d = document.querySelectorAll('paper-input-decorator');
+        Array.prototype.forEach.call($d, function(d) {
+          d.isInvalid = !d.querySelector('input').validity.valid;
+        });
+
+       if (!(document.querySelectorAll('paper-input-decorator')[0].isInvalid) && !(document.querySelectorAll('paper-input-decorator')[1].isInvalid)) {
+            tabs.selected=1;
+            pages.selected=1;
+          }
+        }
 
 
     var decks = document.getElementsByTagName('div');
