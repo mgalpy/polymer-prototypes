@@ -1,0 +1,184 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <title>Core Drag Drop</title>
+
+    <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
+
+    <link rel="import" href="https://www.polymer-project.org/components/core-drag-drop/core-drag-drop.html">
+
+    <style>
+    html {
+        font-family: 'Roboto', sans-serif;
+    }
+    body {
+        height: 100vh;
+        margin: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+    .box {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 16px;
+        padding: 16px;
+        position: relative;
+        width: 300px;
+        height: 300px;
+        box-shadow: 2px 2px 15px #333;
+        color: #333;
+    }
+    .dropped {
+        position: absolute;
+        border: 1px solid black;
+        width: 5px;
+        height: 5px;
+    }
+    h1 {
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        font-weight: 500;
+        color: #777;
+    }
+    p {
+        font-size: 12px;
+    }
+    </style>
+
+</head>
+
+<body unresolved>
+
+    <div>
+
+        <core-drag-drop></core-drag-drop>
+
+        <div horizontal center-justified layout>
+            <div id="drop" class="box" draggable="false"></div>
+            <div id="drop" class="box" draggable="false"></div>
+            <div id="drop" class="box" draggable="false"></div>
+        </div>
+
+        <br>
+        <br>
+
+        <hr style="1px dotted silver;">
+
+        <div horizontal center-justified layout>
+            <div id="innocent" class="box" draggable="false">
+                <h1>Innocent</h1>
+                <h2>Traditionalist, na&iuml;ve, mystic, saint, romantic, dreamer</h2>
+                <p>Innocent brands are founded on a spirit of purity and simplicity and believe that life doesn&rsquo;t need to be hard. They are associated with goodness, morality, nostalgia and childhood and often act predictability, preferring safe, comforting environments. Stripping back complexity, they celebrate the simple pleasures and love environments that feel natural, pure and back to basics.</p>
+            </div>
+            <div id="explorer" class="box" draggable="false">
+                <h1>Explorer</h1>
+                <h2>Seeker, wanderer, pilgrim, voyager</h2>
+                <p>Explorer brands hunger for adventure and are restless in their search to experience as much of life as possible. They associate themselves with new ideas and places and yearn for authenticity in their travels. Driven by their sense of never quite belonging, they are powerfully individualistic and self sufficient. Explorer brands typically feel sturdy and rugged, empowering them to venture forth into dangerous, rugged and unknown spaces.</p>
+            </div>
+            <div id="sage" class="box" draggable="false">
+                <h1>Sage</h1>
+                <h2>Philosopher, expert, scholar, mentor, contemplative</h2>
+                <p>Sages are defined by their intelligence, independent thought and natural curiosity. Driven by a desire to make sense of their world, they love to share the truth they discover with those around them. They are natural educators and their knowledge can extend into any realm, from traditional academia to pop culture. Manifesting as Seeker, the Sage can also embark on a journey inwards, engaging in deep self-reflection.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+    addEventListener('drag-start', function(e) {
+        console.log(e.detail);
+        var dragInfo = e.detail;
+        // flaw #2: e vs dragInfo.event
+        var color = dragInfo.event.target.style.backgroundColor;
+
+        // currentNode contains the id of the element containing the card data
+        if (dragInfo.event.target.id == "") {
+            var currentNode = dragInfo.event.target.parentNode.id;
+        } else if (dragInfo.event.target.parentNode.id == "") {
+            var currentNode = dragInfo.event.target.id;
+        }
+        // get the card data text whether the user clicks the text or the card
+        if (dragInfo.event.target.parentNode.id == currentNode) {
+            var content = dragInfo.event.target.parentNode.innerText;
+        } else {
+            var content = dragInfo.event.target.innerText;
+        }
+        dragInfo.avatar.style.cssText = 'width: 240px; height: auto; border-radius: 2px;margin: 20px auto; padding: 30px; background-color:white;box-shadow: 2px 2px 15px #333;color:#333; text-overflow: ellipsis;';
+        var node = document.createTextNode(content);
+        e.detail.avatar.innerText = "";
+        e.detail.avatar.appendChild(node);
+        dragInfo.drag = function() {};
+        dragInfo.drop = drop;
+    });
+    //
+    function drop(dragInfo) {
+        // var color = dragInfo.avatar.style.borderColor;
+        // currentNode contains the id of the element containing the card data
+        if (dragInfo.event.target.id == "") {
+            var currentNode = dragInfo.event.target.parentNode.id;
+        } else if (dragInfo.event.target.parentNode.id == "") {
+            var currentNode = dragInfo.event.target.id;
+        }
+        // get the card data text whether the user clicks the text or the card
+        if (dragInfo.event.target.parentNode.id == currentNode) {
+            var content = dragInfo.event.target.parentNode.innerText;
+        } else {
+            var content = dragInfo.event.target.innerText;
+        }
+        var color = dragInfo.avatar.style.color;
+        var altColor = dragInfo.avatar.style.backgroundColor;
+        var dropTarget = dragInfo.event.relatedTarget;
+        if (color && dropTarget.id === 'drop') {
+            var f = dragInfo.framed;
+            var d = document.createElement('div');
+            d.className = 'dropped';
+            d.style.left = f.x - 4 + 'px';
+            d.style.top = f.y - 4 + 'px';
+            d.style.backgroundColor = color;
+            dropTarget.appendChild(d);
+            dropTarget.style.backgroundColor = altColor;
+            // check if card has already been dropped anywhere else
+            // remove card if it has been dropped somewhere else
+            var x = 0;
+            while (x < document.querySelectorAll('#drop').length) {
+              if (document.querySelectorAll('#drop')[x].innerText == content) {
+                document.querySelectorAll('#drop')[x].innerText = "";
+              }
+              x++;
+            }
+            if (dropTarget.innerText == content) {
+              // console.log('already used!');
+            }
+            dropTarget.innerText = content;
+        }
+    }
+    </script>
+
+</body>
+
+</html>

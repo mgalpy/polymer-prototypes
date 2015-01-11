@@ -1,113 +1,330 @@
 <!doctype html>
 <html>
+
 <head>
-  <title>swipeable-card</title>
+    <title>Lion Brand Survey</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
-  
-  <link rel="import" href="https://www.polymer-project.org/components/swipeable-card/swipeable-card.html">
+    <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
 
-  <style>
+    <link rel="import" href="https://www.polymer-project.org/components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-pages/core-pages.html">
+    <link rel="import" href="https://www.polymer-project.org/components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="https://www.polymer-project.org/components/paper-toast/paper-toast.html">
+    <link href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html" rel="import">
+    <link href="https://www.polymer-project.org/components/core-animated-pages/transitions/slide-from-right.html" rel="import">
+    <link href="https://www.polymer-project.org/components/paper-shadow/paper-shadow.html" rel="import">
+    <link href="https://www.polymer-project.org/components/paper-button/paper-button.html" rel="import">
+    <link href="https://www.polymer-project.org/components/paper-dialog/paper-dialog.html" rel="import">
+    <link href="https://www.polymer-project.org/components/paper-dialog/paper-action-dialog.html" rel="import">
 
-  body {
-    background-color: #eee;
-    font-family: Roboto;
-  }
+    <style>
+    * {
+        /*overflow: none;*/
+    }
+    body {
+        background-color: #eee;
+        font-family: Roboto;
+    }
     .deck {
-      padding: 0 5px;
-      margin: 0 5px;
-      float:left;
-      background: #eee;
-      overflow: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
+        padding: 0 5px;
+        margin: 0 5px;
+        float: left;
+        background: #eee;
+        -webkit-user-select: none;
+        -moz-user-select: none;
     }
-    
     swipeable-card {
-      height: 200px;
-      width: 240px;
-      margin: 20px auto;
-      padding: 30px;
+        /*height: 200px;*/
+        
+        height: auto;
+        width: 240px;
+        /*        height: 150px;
+        width: 180px;*/
+        
+        margin: 20px auto;
+        padding: 30px;
     }
-      
-  </style>
+    paper-tab {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    paper-tabs::shadow #selectionBar {
+        background-color: #4285f4;
+    }
+    paper-tabs paper-tab::shadow #ink {
+        color: #4285f4;
+    }
+    paper-button.colored {
+        color: #4285f4;
+        float: right;
+    }
+    .deckTitle {
+        text-transform: uppercase;
+        text-align: center;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    h1 {
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        font-weight: 500;
+        color: #777;
+    }
+    p {
+      font-size: 12px;
+    }
+    </style>
 
 </head>
+
 <body fullbleed unresolved>
+    <core-toolbar>
 
-<div horizontal center-justified layout>
-  <div>
-    
+        <paper-icon-button icon="menu"></paper-icon-button>
+        <div flex style="font-size:24px;font-weight:300;white-space:nowrap">Lion Survey</div>
+        <paper-icon-button icon="search"></paper-icon-button>
+        <paper-icon-button icon="more-vert"></paper-icon-button>
 
-  <div id="cards" class="deck">
-  
-    <swipeable-card>1st one!</swipeable-card>
-    <swipeable-card>This is 2!</swipeable-card>
-    <swipeable-card>Howdy, I'm 3.</swipeable-card>
-    
-  </div>
 
-  <div id="cards2" class="deck">
-  
-    <swipeable-card>1st one!</swipeable-card>
-    <swipeable-card>This is 2!</swipeable-card>
-    <swipeable-card>Howdy, I'm 3.</swipeable-card>
-    
-  </div>
+    </core-toolbar>
+    <paper-tabs selected="1">
 
-  <div id="cards3" class="deck">
-  
-    <swipeable-card>1st one!</swipeable-card>
-    <swipeable-card>This is 2!</swipeable-card>
-    <swipeable-card>Howdy, I'm 3.</swipeable-card>
-    
-  </div>
+        <paper-tab>Instructions</paper-tab>
+        <paper-tab>Step 1</paper-tab>
+        <paper-tab>Step 2</paper-tab>
+        <paper-tab>Step 3</paper-tab>
+        <paper-tab>Step 4</paper-tab>
 
-  <div id="cards4" class="deck">
-  
-    <swipeable-card>1st one!</swipeable-card>
-    <swipeable-card>This is 2!</swipeable-card>
-    <swipeable-card>Howdy, I'm 3.</swipeable-card>
-    
-  </div>
+    </paper-tabs>
 
-  </div>
+    <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
 
-  </div>
-</div>
-  
-  <script>
+        <div horizontal center-justified layout>
+
+            <paper-action-dialog heading="Survey Instructions" transition="core-transition-center" id="dialog" backdrop autoCloseDisabled layered="false">
+                <p>Looking at the following 12 cards, please select 6 that you feel do not fit your brand.</p>
+                <paper-button dismissive>More Info...</paper-button>
+                <paper-button affirmative>Decline</paper-button>
+                <paper-button affirmative autofocus>Accept</paper-button>
+            </paper-action-dialog>
+
+
+
+            <div id="intro" class="deck">
+
+                <swipeable-card>
+                    <p>Welcome!</p>
+                    <p> Looking at the following 12 cards, please select 6 that you feel do not fit your brand. </p>
+                    <p> Swipe this card away or press Start when you&rsquo;re ready to begin.</p>
+                    <p style="padding-bottom:2px;">
+                        <paper-button affirmative autofocus class="colored" onclick="showDialog('dialog')">Start</paper-button>
+                    </p>
+                </swipeable-card>
+
+            </div>
+        </div>
+
+        <div horizontal center-justified layout>
+
+            <div id="cards1" class="deck">
+                <swipeable-card disableSwipe="true" class="deckTitle">First deck</swipeable-card>
+                <swipeable-card>
+                    <h1>Innocent</h1>
+                    <h2>Traditionalist, na&iuml;ve, mystic, saint, romantic, dreamer</h2>
+                    <p>Innocent brands are founded on a spirit of purity and simplicity and believe that life doesn&rsquo;t need to be hard. They are associated with goodness, morality, nostalgia and childhood and often act predictability, preferring safe, comforting environments. Stripping back complexity, they celebrate the simple pleasures and love environments that feel natural, pure and back to basics.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>Explorer</h1>
+                    <h2>Seeker, wanderer, pilgrim, voyager</h2>
+                    <p>Explorer brands hunger for adventure and are restless in their search to experience as much of life as possible. They associate themselves with new ideas and places and yearn for authenticity in their travels. Driven by their sense of never quite belonging, they are powerfully individualistic and self sufficient. Explorer brands typically feel sturdy and rugged, empowering them to venture forth into dangerous, rugged and unknown spaces.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>Sage</h1>
+                    <h2>Philosopher, expert, scholar, mentor, contemplative</h2>
+                    <p>Sages are defined by their intelligence, independent thought and natural curiosity.  Driven by a desire to make sense of their world, they love to share the truth they discover with those around them.  They are natural educators and their knowledge can extend into any realm, from traditional academia to pop culture.  Manifesting as Seeker, the Sage can also embark on a journey inwards, engaging in deep self-reflection.</p>
+                </swipeable-card>
+
+            </div>
+
+            <div id="cards2" class="deck">
+                <swipeable-card disableSwipe="true" class="deckTitle">Second deck</swipeable-card>
+                <swipeable-card>
+                    <h1>Magician</h1>
+                    <h2>Visionary, catalyst, innovator, healer, medicine man</h2>
+                    <p>From Merlin to Sigmund Freud, Magicians are powerfully transformative figures, with the power to alter and awaken self, world and other.  They blend knowledge of the fundamental laws with intuition, randomness, mysticism and spirituality to precipitate new realities that can appear miraculous. They&rsquo;re active at the cutting edge of science and technology, which makes the impossible suddenly seem possible.  The magician is evoked by products that look or feel exotic or ancient and has a strong visual signature involving sparkles, rainbows, effervescence and shooting stars.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>Outlaw</h1>
+                    <h2>Rebel, revolutionary, villain, wild man, misfit,  agitator</h2>
+                    <p>Outlaw brands are defined by free spirited rebellion and rail against the status quo.  They typically operate at the fringes of society and revel in their power to push boundaries  and  provoke reactions, for this gives them a feeling of power.  They excel at ushering in the new by dismantling the old.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>Hero</h1>
+                    <h2>Warrior, champion, crusader, rescuer, superhero, solider</h2>
+                    <p>Hero brands are courageous, tenacious and will always rise to the challenge, doing whatever it takes to get the job done. They are disciplined and typically strive for mastery, impressing those around them.  Their power is to inspire greatness in others; rallying us all to fight the good fight with a magnetic, can-do spirit.  Crusaders for a cause, they&rsquo;ll protect the weak and strike out at oppression.</p>
+                </swipeable-card>
+
+            </div>
+
+            <div id="cards3" class="deck">
+                <swipeable-card disableSwipe="true" class="deckTitle">Third deck</swipeable-card>
+                <swipeable-card>
+                    <h1>Lover</h1>
+                    <h2>Friends, intimates, enthusiasts, connoisseurs, sensualists</h2>
+                    <p>The lover is defined by their passionate nature: passion for people, places and things.  They are driven by the art of seduction and like nothing more than to throw themselves into deeply enriching experiences, from chocolate to sex to platonic intimacy.  Their passion can make them natural connoisseurs.  To help them build intimacy, lovers like to look and feel good, so are often engaged in self improvement: making fashion and cosmetics ready bedfellows.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>Regular Guy/Gal</h1>
+                    <h2>Girl next door, average Joe</h2>
+                    <p>More than anything, the regular guy just wants to fit in and be accepted.  The group is highly aspirational. They despise artifice, flamboyance and pretention and often have a very down to earth and matter of fact manner.  They&rsquo;ll usually root for the under dog and seek to undermine tall poppies or elitists.  Good politicians often leverage the regular guy archetype, finding common ground with the people, championing their cause.  They value realness, folksiness and authenticity.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>Jester</h1>
+                    <h2>Clown, trickster, entertainer, prankster, joker, satirist</h2>
+                    <p>At their core, Jesters love life and bring a refreshing light heartedness and humour to the world.  They embrace spontaneity and unpredictability in their bid to keep life fresh and they&rsquo;re not averse to bending the rules.  The jester is often the life of the party and is quick to unify the group, blending the mischief of the inner child to put people at ease.  There can also be a real sharpness to the jester&rsquo;s humour and they make good satirists, pointing out our modern ills in a captivating way.</p>
+                </swipeable-card>
+
+            </div>
+
+            <div id="cards4" class="deck">
+                <swipeable-card disableSwipe="true" class="deckTitle">Fourth deck</swipeable-card>
+                <swipeable-card>
+                    <h1>Creator</h1>
+                    <h2>Artist, writer, inventor, entrepreneur, musician, dreamer</h2>
+                    <p>Creator brands are imaginative and curious. They seek the freedom to express their unique vision, often giving them a non-conformist spirit.  This is more about purity of self expression than a desire to rebel. Creator brands are innovators and inventors, capable of changing the status quo by reimagining what is possible.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>Caregiver</h1>
+                    <h2>Caretaker, altruist, saint, parent, helper, supporter</h2>
+                    <p>The classic caregiver is mum or dad, nurturing and protecting the people around them.  At the highest level this extends to community, environment and planet.  Great listeners and communicators they are quick to see things from another&rsquo;s perspective and can make others feel valued and safe.  In a helter-skelter world they help us all re-equilibrate.  Their challenge in life is to not over-extend, but to engage in a little self nurture.</p>
+                </swipeable-card>
+                <swipeable-card>
+                    <h1>RULER</h1>
+                    <h2>Boss, leader, parent, politician, role model, manager</h2>
+                    <p>Rulers are the archetypal power figure: the highly visible king or queen at court. They have a presence that commands attention and that elicits respect. Well organised, they create order out of chaos and foster a generative spirit that engenders reliability and leads to inner and outer growth. They love to take control; first over their own lives before exerting leadership over others. The typical ruler environment is quite lavish, befitting their status.</p>
+                </swipeable-card>
+
+            </div>
+
+            <div id="discard" class="deck">
+                <swipeable-card disableSwipe="true" class="deckTitle">Discard pile</swipeable-card>
+            </div>
+
+        </div>
+
+        <div horizontal center-justified layout>
+            <div id="cards6" class="deck">
+
+                <swipeable-card>Page 2</swipeable-card>
+                <swipeable-card>This is 2!</swipeable-card>
+                <swipeable-card>Howdy, I'm 3.</swipeable-card>
+
+            </div>
+        </div>
+
+        <div horizontal center-justified layout>
+            <div id="cards7" class="deck">
+
+                <swipeable-card>Page 3</swipeable-card>
+                <swipeable-card>This is 2!</swipeable-card>
+                <swipeable-card>Howdy, I'm 3.</swipeable-card>
+
+            </div>
+        </div>
+
+        <div horizontal center-justified layout>
+            <div id="cards8" class="deck">
+
+                <swipeable-card>Page 4</swipeable-card>
+                <swipeable-card>This is 2!</swipeable-card>
+                <swipeable-card>Howdy, I'm 3.</swipeable-card>
+
+            </div>
+        </div>
+    </core-animated-pages>
+
+    <script>
+    var tabs = document.querySelector('paper-tabs');
+    var pages = document.querySelector('core-animated-pages');
+
+    tabs.addEventListener('core-select', function() {
+        pages.selected = tabs.selected;
+    });
 
     var decks = document.getElementsByTagName('div');
     var x = 0;
 
     while (x < decks.length) {
-      if ((decks[x].id.indexOf("cards")) == 0) {
-        addCardListener(decks[x].id);
-      }
-      x++;
+        if ((decks[x].id.indexOf("cards")) == 0) {
+            addCardListener(decks[x].id);
+        }
+        x++;
     }
 
     function addCardListener(name) {
-      document.querySelector('#' + name).addEventListener('swipeable-card-swipe-away', function(e) {
-        e.target.parentNode.removeChild(e.target); // removes this card
-        document.querySelector('#' + name).appendChild(e.target); // adds this card to the end of the set of cards
-        
-        // wait for 50ms so the animations can kick in
-        setTimeout(function(){
-          e.target.style.opacity = 1; // set opacity back to 1 (default)
-          // set it's position and location back to default (and in webkit-based browsers)
-          e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)"; 
-          e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-        },10);
-      });
+        document.querySelector('#' + name).addEventListener('swipeable-card-swipe-away', function(e) {
+          console.log('event details = ' + e.detail);
+            if (!e.target.swiped) {
+                e.target.parentNode.removeChild(e.target); // removes this card
+                // document.querySelector('#' + name).appendChild(e.target); // adds this card to the end of the set of cards
+                // if (name == "cards0") {
+                //   tabs.selected++;
+                //   pages.selected++;
+                // } else {
+                document.querySelector('#discard').appendChild(e.target); // adds this card to the discard pile of step 1
+                // wait for 50ms so the animations can kick in
+                setTimeout(function() {
+                    e.target.style.opacity = 1; // set opacity back to 1 (default)
+                    // set it's position and location back to default (and in webkit-based browsers)
+                    e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+                    e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+                }, 10);
+            }
+        });
     }
 
-  </script>
-  
+    document.querySelector('#discard').addEventListener('swipeable-card-swipe-away', function(e) {
+        setTimeout(function() {
+            e.target.swiped = false;
+        }, 10);
+        if (!e.target.swiped) {
+            e.target.parentNode.removeChild(e.target); // removes this card
+            document.querySelector('#cards1').appendChild(e.target); // adds this card to the 1st deck
+            setTimeout(function() {
+                e.target.style.opacity = 1; // set opacity back to 1 (default)
+                // set it's position and location back to default (and in webkit-based browsers)
+                e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+                e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            }, 1);
+        }
+    });
+
+    document.querySelector('#intro').addEventListener('swipeable-card-swipe-away', function(e) {
+        e.target.parentNode.removeChild(e.target);
+        tabs.selected++;
+        pages.selected++;
+    });
+
+    function showDialog(dialog) {
+        document.querySelector('#' + dialog).toggle();
+    }
+    </script>
+
 </body>
+
 </html>
