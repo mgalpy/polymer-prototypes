@@ -58,15 +58,15 @@
     <link rel="import" href="bower_components/core-transition/core-transition.html">
 
     <!-- load the other icons -->
-    <link rel="import" ref="bower_components/core-icons/av-icons.html">
-    <link rel="import" ref="bower_components/core-icons/maps-icons.html">
-    <link rel="import" ref="bower_components/core-icons/image-icons.html">
-    <link rel="import" ref="bower_components/core-icons/device-icons.html">
-    <link rel="import" ref="bower_components/core-icons/editor-icons.html">
-    <link rel="import" ref="bower_components/core-icons/social-icons.html">
-    <link rel="import" ref="bower_components/core-icons/hardware-icons.html">
-    <link rel="import" ref="bower_components/core-icons/notification-icons.html">
-    <link rel="import" ref="bower_components/core-icons/communication-icons.html">
+    <link rel="import" href="bower_components/core-icons/av-icons.html">
+    <link rel="import" href="bower_components/core-icons/maps-icons.html">
+    <link rel="import" href="bower_components/core-icons/image-icons.html">
+    <link rel="import" href="bower_components/core-icons/device-icons.html">
+    <link rel="import" href="bower_components/core-icons/editor-icons.html">
+    <link rel="import" href="bower_components/core-icons/social-icons.html">
+    <link rel="import" href="bower_components/core-icons/hardware-icons.html">
+    <link rel="import" href="bower_components/core-icons/notification-icons.html">
+    <link rel="import" href="bower_components/core-icons/communication-icons.html">
 
     <!-- POLYMER PAPER ELEMENTS -->
     <link rel="import" href="bower_components/paper-button/paper-button.html">
@@ -94,8 +94,8 @@
     <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
 
     <!-- MATERIAL DESIGN -->
-    <link rel="import" ref="bower_components/font-roboto/roboto.html">
-    <link rel="import" ref="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
 
     <style>
     * {
@@ -113,17 +113,6 @@
     paper-tabs paper-tab::shadow #ink {
         color: #333;
     }
-    /* body {
-        font-family: sans-serif;
-        color: #FFF;
-        margin: 0;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }*/
-    
     [drawer] {
         background-color: #eee;
         border-right: 1px solid #ccc;
@@ -131,11 +120,36 @@
     [main] {
         background-color: #fafafa;
     }
-    button {
-        width: 160px;
-        height: 40px;
-        font-size: 16px;
-        margin: 8px;
+    core-animated-pages {
+        height: 100%;
+    }
+    #cards {
+        height: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
+    swipeable-card {
+        /*height: auto;*/
+        
+        height: auto;
+        width: 320px;
+        margin: 20px auto;
+        box-shadow: none;
+        /*padding: 8px 16px;*/
+    }
+    .card {
+        display: inline-block;
+        background: white;
+        box-sizing: border-box;
+        width: 320px;
+        height: auto;
+        min-height: 200px;
+        /*margin: 16px;*/
+        padding: 16px;
+        
+        border-radius: 2px;
     }
     </style>
 
@@ -146,7 +160,7 @@
     <core-drawer-panel>
 
         <div drawer>
-          Drawer
+            Drawer
         </div>
 
         <div main>
@@ -163,19 +177,31 @@
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
                 <div>
                     Page 1
-
                 </div>
 
                 <div>
                     Page 2
+                    <div id="cards">
+
+                        <swipeable-card>
+                            <paper-shadow class="card" z="2">
+                                <p>SWIPEABLE CARD</p>
+                            </paper-shadow>
+                        </swipeable-card>
+
+                        <swipeable-card>
+                            <paper-shadow class="card" z="2">
+                                <p>SWIPEABLE CARD</p>
+                            </paper-shadow>
+                        </swipeable-card>
+
+                    </div>
                 </div>
 
             </core-animated-pages>
         </div>
 
     </core-drawer-panel>
-
-
 
     <script>
     var tabs = document.querySelector('paper-tabs');
@@ -188,6 +214,19 @@
     function showToast() {
         document.querySelector('#main-toast').show();
     }
+
+    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
+        e.target.parentNode.removeChild(e.target);
+        document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
+
+        // wait for 10ms so the animations can kick in
+        setTimeout(function() {
+            // set style and position back to (default)
+            e.target.style.opacity = 1;
+            e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+        }, 10);
+    });
     </script>
 
     <paper-toast id="main-toast" role="alert" text="Done for now">
