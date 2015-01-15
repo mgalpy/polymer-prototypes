@@ -1,70 +1,68 @@
 <!doctype html>
 <html>
+
 <head>
-  <title>swipeable-card</title>
+    <title>swipeable-card</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
-  
-  <link rel="import" href="https://www.polymer-project.org/components/swipeable-card/swipeable-card.html">
+    <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
 
-  <style>
+    <link rel="import" href="https://www.polymer-project.org/components/swipeable-card/swipeable-card.html">
 
-  body {
-    background-color: #eee;
-    font-family: Roboto;
-  }
-
+    <style>
+    body {
+        background-color: #eee;
+        font-family: Roboto;
+    }
     #cards {
-      margin: 0 auto;
-      background: #eee;
-      overflow: auto;
-      -webkit-user-select: none;
-      -moz-user-select: none;
+        margin: 0 auto;
+        background: #eee;
+        overflow: auto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
     }
-    
     swipeable-card {
-      height: 200px;
-      width: 240px;
-      margin: 20px auto;
-      padding: 30px;
+        height: 200px;
+        width: 240px;
+        margin: 20px auto;
+        padding: 30px;
     }
-      
-  </style>
+    </style>
 
 </head>
+
 <body fullbleed unresolved>
 
-  <div id="cards">
-  
-    <swipeable-card>1st one!</swipeable-card>
-    <swipeable-card>This is 2!</swipeable-card>
-    <swipeable-card>Howdy, I'm 3.</swipeable-card>
-    <!-- 
-    <swipeable-card>Swipe 4!</swipeable-card>
-    <swipeable-card>5</swipeable-card>
-    -->
-    
-  </div>
-  
-  <script>
-    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
-      e.target.parentNode.removeChild(e.target); // removes this card
-      document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
-      
-      // wait for 50ms so the animations can kick in
-      setTimeout(function(){
-        e.target.style.opacity = 1; // set opacity back to 1 (default)
-        // set it's position and location back to default (and in webkit-based browsers)
-        e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)"; 
-        e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-      },50);
-    });
+    <div id="cards">
 
-  </script>
-  
+        <swipeable-card>Swipe Me and I disappear!</swipeable-card>
+        <swipeable-card id="renewable">Swipe Me and I'll go to the end of the deck!</swipeable-card>
+        <swipeable-card disableSwipe>I don't swipe!</swipeable-card>
+        <swipeable-card id="renewable">Swipe Me and I'll go to the end of the deck!</swipeable-card>
+        <swipeable-card disableSwipe>I don't swipe!</swipeable-card>
+
+    </div>
+
+    <script>
+    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
+        e.target.parentNode.removeChild(e.target); // removes this card
+        if (e.target.id == "renewable") {
+            document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
+
+            // wait for 10ms so the animations can kick in
+            setTimeout(function() {
+               // set style and position back to (default)
+                e.target.style.opacity = 1;
+                e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+                e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            }, 10);
+        }
+    });
+    </script>
+
 </body>
+
 </html>
