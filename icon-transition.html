@@ -100,219 +100,110 @@
     <link rel="import" href="bower_components/icon-transition/icon-transition.html">
 
     <style>
-    * {
-        font-family: 'Roboto', sans-serif;
-        /*font-size: 14px;*/
-    }
-    core-toolbar {
-        font-size: 20px;
-        font-weight: 300;
-        white-space: nowrap;
-        background-color: #7B1FA2;
-        color: #fff;
-        z-index: 1;
-        transition: 300ms ease-in-out;
-    }
-    paper-tab {
-        background-color: #fafafa;
-        z-index: 1;
-    }
-    paper-tabs {
-        transition: 300ms ease-in-out;
-        height: 55px;
-        background-color: #fafafa;
-        color: #333;
-        box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    paper-tabs[noink][nobar] paper-tab.core-selected {
-        color: #8BC34A;
-        z-index: 1;
-    }
-    paper-tabs::shadow #selectionBar {
-        background-color: #8BC34A;
-        z-index: 1;
-    }
-    paper-tabs paper-tab::shadow #ink {
-        color: #8BC34A;
-        z-index: 1;
-    }
-    [drawer] {
-        background-color: #eee;
-        border-right: 1px solid #ccc;
-    }
-    [main] {
-        background-color: #fafafa;
-    }
-    core-animated-pages {
+     html, body {
         height: 100%;
-        transition: 300ms ease-in-out;
-    }
-    paper-input-decorator {
+      }
+
+      body {
+        font-family: sans-serif;
         margin: 0;
-        padding: 0;
-    }
-    paper-fab {
-      position: fixed;
-      bottom:16px;
-      right:16px;
-      background-color: #007e9e;
-    }
-    #cards {
-        height: 100%;
-        margin: 0 auto;
-        overflow: auto;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-    }
-    swipeable-card {
-        height: auto;
-        width: 320px;
-        margin: 20px auto;
-        box-shadow: none;
-    }
-    .card {
-        display: inline-block;
-        background: white;
-        box-sizing: border-box;
-        width: 320px;
-        height: auto;
-        min-height: 200px;
-        padding: 8px;
-        border-radius: 2px;
-    }
-    #search-card {
-        transition: 300ms ease-in-out;
-        min-height: 32px;
-        width: 100%;
-        padding: 0px 16px;
-    }
-    .slide {
-        /*for just search bar*/
-        /*transform: translate(0, -4em);*/
-        /*for search bar + tabs*/
-        transform: translate(0, -7.4em);
-        /*for search bar, tabs, + toolbar*/
-        /*transform: translate(0, -11.4em);*/
-    }
+      }
     </style>
 
 </head>
 
-<body fullbleed unresolved>
+ <body fullbleed unresolved>
 
-    <core-drawer-panel>
-
-        <div drawer>
-            Drawer
-        </div>
-
-        <div main>
-            <template is="auto-binding">
-                <div id="clicker" on-tap="{{clickAction}}">
-                    <core-toolbar>
-                        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                        <div flex>Polymer Template</div>
-                        <paper-icon-button icon="search" id="search"></paper-icon-button>
-                        <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
-                    </core-toolbar>
-                </div>
-            </template>
-
-            <paper-tabs selected="0">
-                <paper-tab>Page 1</paper-tab>
-                <paper-tab>Page 2</paper-tab>
-            </paper-tabs>
-            <paper-shadow class="card" z="1" id="search-card">
-                <p>
-                    <paper-input-decorator label="Search" id="start">
-                        <input is="core-input">
-                    </paper-input-decorator>
-                </p>
-            </paper-shadow>
-            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
-                <div>
-                    Page 1
-                    <paper-fab icon="add"></paper-fab>
-                </div>
-
-                <div>
-                    <div id="cards">
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
-
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
-                    </div>
-                </div>
-
-            </core-animated-pages>
-        </div>
-
-    </core-drawer-panel>
-
-    <script>
-    function slideElements(name) {
-        document.querySelector(name).classList.toggle('slide');
-    }
-
-    function clickAction(e) {
-        var t = e.target;
-        if (t.localName === 'paper-icon-button') {
-            // if user clicks 'search'
-            if (t.id == "search") {
-                slideElements('paper-tabs');
-                setTimeout(function() {
-                    slideElements('#search-card');
-                    slideElements('core-animated-pages');
-                }, 200);
-                
-                // slideElements('core-toolbar');
-            }
-            // console.log('click', t);
+    <polymer-element name="shape-demo" attributes="shape" touch-action="none">
+    <template>
+      <style>
+        #hero {
+          display: block;
+          padding: 20px;
         }
-    }
-    addEventListener('template-bound', function(e) {
-        e.target.clickAction = clickAction;
-    });
 
+        icon-transition {
+          display: inline-block;
+        }
 
-    var tabs = document.querySelector('paper-tabs');
-    var pages = document.querySelector('core-animated-pages');
+        core-toolbar {
+          color: #fff;
+          background-color: #009688;
+        }
 
-    tabs.addEventListener('core-select', function() {
-        pages.selected = tabs.selected;
-    });
+        paper-button {
+          color: #4285f4;
+        }
 
-    function showToast() {
-        document.querySelector('#main-toast').show();
-    }
+        h2 {
+          color: #666;
+        }
 
-    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
-        e.target.parentNode.removeChild(e.target);
-        document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
+        main {
+          margin: 20px;
+        }
+        paper-fab {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+        }
+      </style>
+      <div>
 
-        showToast();
+        <core-toolbar>
+          <icon-transition color="#fff" id="hero" shape="{{ shape }}"></icon-transition>
+          <span flex>Toolbar</span>
+          <core-icon-button icon="refresh"></core-icon-button>
+          <core-icon-button icon="add"></core-icon-button>
+        </core-toolbar>
 
-        // wait for 10ms so the animations can kick in
-        setTimeout(function() {
-            // set style and position back to (default)
-            e.target.style.opacity = 1;
-            e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-            e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-        }, 10);
-    });
+        <main>
+          <h2>Transition icon on click</h2>
+          <paper-button on-tap="{{triggerTransition}}" data-shape="menu">Switch to menu</paper-button>
+          <paper-button on-tap="{{triggerTransition}}" data-shape="more">Switch to more</paper-button>
+          <paper-button on-tap="{{triggerTransition}}" data-shape="check">Switch to check</paper-button>
+          <paper-button on-tap="{{triggerTransition}}" data-shape="cancel">Switch to cancel</paper-button>
+
+          <h2>Transition icon on hover</h2>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="plus" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="cancel" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="check" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="menu" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="more" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="more-vert" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="right" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="left" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="up" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="down" ></icon-transition>
+
+          <icon-transition on-mouseover="{{ pickShape }}" shape="right-arrow" ></icon-transition>
+          <icon-transition on-mouseover="{{ pickShape }}" shape="left-arrow" ></icon-transition>
+
+          <p>A prototype of Material Design <a href="http://www.google.com/design/spec/animation/delightful-details.html#delightful-details-delightful-details">delightful details</a>.</p>
+
+          <icon-transition color="white" style="background-color: green; color: #fff;border-radius:50%; box-shadow: 1px 1px 5px #333" id="hero" shape="{{ shape }}"></icon-transition>
+
+          <paper-fab icon="add"></paper-fab>
+        </main>
+
+      </div>
+    </template>
+    <script>
+      Polymer('shape-demo', {
+        shape: 'plus',
+        pickShape: function(e, target, sender) {
+          this.shape = sender.shape;
+        },
+        triggerTransition: function(e, target, sender) {
+          var shape = sender.attributes['data-shape'].value;
+          if (!!shape) {
+            this.shape = shape;
+          }
+        }
+      });
     </script>
-
-    <paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
-        <!-- <div>Action</div> -->
-    </paper-toast>
+    </polymer-element>
+    <shape-demo id='demo'></shape-demo>
 
 </body>
 
