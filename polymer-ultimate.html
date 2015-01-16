@@ -201,20 +201,19 @@
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
-            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
-                <div>
-                    <paper-shadow class="card" z="1" id="search-card">
+            <paper-shadow class="card" z="1" id="search-card">
                         <p>
                             <paper-input-decorator label="Search" id="start">
                                 <input is="core-input">
                             </paper-input-decorator>
                         </p>
                     </paper-shadow>
+            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+                <div>
+                    Page 1
                 </div>
 
                 <div>
-                    Page 2
-
                     <div id="cards">
                         <swipeable-card>
                             <paper-shadow class="card" z="2">
