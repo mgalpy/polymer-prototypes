@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="polymer.png">
 
     <!-- WEB COMPONENTS JS -->
 
@@ -96,6 +97,7 @@
     <!-- MATERIAL DESIGN -->
     <link rel="import" href="bower_components/font-roboto/roboto.html">
     <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/icon-transition/icon-transition.html">
 
     <style>
     * {
@@ -106,12 +108,22 @@
         font-size: 20px;
         font-weight: 300;
         white-space: nowrap;
+        z-index: 1;
+    }
+    paper-tabs {
+      z-index: 1;
+    }
+    paper-tab {
+      z-index: 1;
+      background-color: #fafafa;
     }
     paper-tabs::shadow #selectionBar {
         background-color: #333;
+        z-index: 1;
     }
     paper-tabs paper-tab::shadow #ink {
         color: #333;
+        z-index: 1;
     }
     [drawer] {
         background-color: #eee;
@@ -123,6 +135,10 @@
     core-animated-pages {
         height: 100%;
     }
+    paper-input-decorator {
+      margin: 0;
+      padding: 0;
+    }
     #cards {
         height: 100%;
         margin: 0 auto;
@@ -131,13 +147,10 @@
         -moz-user-select: none;
     }
     swipeable-card {
-        /*height: auto;*/
-        
         height: auto;
         width: 320px;
         margin: 20px auto;
         box-shadow: none;
-        /*padding: 8px 16px;*/
     }
     .card {
         display: inline-block;
@@ -146,10 +159,19 @@
         width: 320px;
         height: auto;
         min-height: 200px;
-        /*margin: 16px;*/
-        padding: 16px;
-        
+        padding: 8px;
         border-radius: 2px;
+    }
+    #search-card {
+        transition: 300ms ease-in-out;
+        /*transition: 3s ease-in-out;*/
+        min-height: 32px;
+        width: 100%;
+        z-index: 0;
+        padding: 0px 16px;
+    }
+    .slide {
+        transform: translate(0em, -20em);
     }
     </style>
 
@@ -164,25 +186,36 @@
         </div>
 
         <div main>
-            <core-toolbar>
-                <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                <div flex>Polymer Template</div>
-                <paper-icon-button icon="search"></paper-icon-button>
-                <paper-icon-button icon="more-vert"></paper-icon-button>
-            </core-toolbar>
+            <template is="auto-binding">
+                <div id="clicker" on-tap="{{clickAction}}">
+                    <core-toolbar>
+                        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+                        <div flex>Polymer Template</div>
+                        <paper-icon-button icon="search" id="search"></paper-icon-button>
+                        <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
+                    </core-toolbar>
+                </div>
+            </template>
+
             <paper-tabs selected="0">
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
                 <div>
-                    Page 1
+                    <paper-shadow class="card" z="1" id="search-card">
+                        <p>
+                            <paper-input-decorator label="Search" id="start">
+                                <input is="core-input">
+                            </paper-input-decorator>
+                        </p>
+                    </paper-shadow>
                 </div>
 
                 <div>
                     Page 2
+
                     <div id="cards">
-
                         <swipeable-card>
                             <paper-shadow class="card" z="2">
                                 <p>SWIPEABLE CARD</p>
@@ -194,7 +227,6 @@
                                 <p>SWIPEABLE CARD</p>
                             </paper-shadow>
                         </swipeable-card>
-
                     </div>
                 </div>
 
@@ -204,6 +236,25 @@
     </core-drawer-panel>
 
     <script>
+    function clickAction(e) {
+        var t = e.target;
+        if (t.localName === 'paper-icon-button') {
+            if (t.id == "search") {
+                // console.log('clicked search');
+                if (document.querySelector('#search-card').className == ('card slide')) {
+                    document.querySelector('#search-card').className = ('card');
+                } else if (document.querySelector('#search-card').className == ('card')) {
+                    document.querySelector('#search-card').className = ('card slide');
+                }
+            }
+            // console.log('click', t);
+        }
+    }
+    addEventListener('template-bound', function(e) {
+        e.target.clickAction = clickAction;
+    });
+
+
     var tabs = document.querySelector('paper-tabs');
     var pages = document.querySelector('core-animated-pages');
 
