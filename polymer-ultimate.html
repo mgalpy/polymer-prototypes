@@ -134,6 +134,7 @@
     }
     core-animated-pages {
         height: 100%;
+        transition: 300ms ease-in-out;
     }
     paper-input-decorator {
         margin: 0;
@@ -172,7 +173,7 @@
         padding: 0px 16px;
     }
     .slide {
-        transform: translate(0em, -20em);
+        transform: translate(0em, -4em);
     }
     </style>
 
@@ -236,16 +237,18 @@
     </core-drawer-panel>
 
     <script>
+
+    function slideElements(name) {
+      document.querySelector(name).classList.toggle('slide');
+    }
+
     function clickAction(e) {
         var t = e.target;
         if (t.localName === 'paper-icon-button') {
             if (t.id == "search") {
-                // if it's already been slid away, un-slide it, otherwise slide it
-                if (document.querySelector('#search-card').className == ('card slide')) {
-                    document.querySelector('#search-card').className = ('card');
-                } else if (document.querySelector('#search-card').className == ('card')) {
-                    document.querySelector('#search-card').className = ('card slide');
-                }
+              // if user clicks 'search'
+              slideElements('#search-card');
+              slideElements('core-animated-pages');
             }
             // console.log('click', t);
         }
