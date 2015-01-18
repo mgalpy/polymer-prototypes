@@ -149,14 +149,39 @@
         transition: 300ms ease-in-out;
     }
     paper-input-decorator {
+        background-image: url('img/search.png');
+        background-repeat: no-repeat;
+        background-position: 16px 8px;
         margin: 0;
-        padding: 0;
+        padding: 4px 0;
+        font-size: 16px;
+        padding-left: 64px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    paper-input-decorator:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    paper-input-decorator /deep/::-webkit-input-placeholder {
+        /* platform specific rules for placeholder text */
+        
+        color: rgba(255, 255, 255, 0.9);;
+        font-weight: 300;
+    }
+    paper-input-decorator /deep/ .unfocused-underline {
+        /* line color when the input is unfocused */
+        
+        background-color: transparent;
+    }
+    paper-input-decorator /deep/ .focused-underline {
+        /* line color when the input is unfocused */
+        
+        background-color: transparent;
     }
     paper-fab {
-      position: fixed;
-      bottom:16px;
-      right:16px;
-      background-color: #007e9e;
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        background-color: #007e9e;
     }
     #cards {
         height: 100%;
@@ -189,9 +214,10 @@
     }
     .slide {
         /*for just search bar*/
-        /*transform: translate(0, -4em);*/
+        
+        transform: translate(0, -4em);
         /*for search bar + tabs*/
-        transform: translate(0, -7.4em);
+        /*transform: translate(0, -7.4em);*/
         /*for search bar, tabs, + toolbar*/
         /*transform: translate(0, -11.4em);*/
     }
@@ -212,8 +238,13 @@
                 <div id="clicker" on-tap="{{clickAction}}">
                     <core-toolbar>
                         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                        <div flex>Polymer Template</div>
-                        <paper-icon-button icon="search" id="search"></paper-icon-button>
+                        <div>UQ Library</div>
+                        <div flex>
+                            <paper-input-decorator label="Search" id="start">
+                                <input is="core-input">
+                            </paper-input-decorator>
+                        </div>
+
                         <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
                     </core-toolbar>
                 </div>
@@ -223,13 +254,13 @@
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
-            <paper-shadow class="card" z="1" id="search-card">
+            <!-- <paper-shadow class="card" z="1" id="search-card">
                 <p>
                     <paper-input-decorator label="Search" id="start">
                         <input is="core-input">
                     </paper-input-decorator>
                 </p>
-            </paper-shadow>
+            </paper-shadow> -->
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
                 <div>
                     Page 1
@@ -267,15 +298,15 @@
         if (t.localName === 'paper-icon-button') {
             // if user clicks 'search'
             if (t.id == "search") {
-                slideElements('paper-tabs');
+                // slideElements('paper-tabs');
                 // slideElements('#search-card');
-                    // slideElements('core-animated-pages');
-                setTimeout(function() {
-                    // slideElements('paper-tabs');
-                    slideElements('#search-card');
-                    slideElements('core-animated-pages');
-                }, 200);
-                
+                // slideElements('core-animated-pages');
+                // setTimeout(function() {
+                //     // slideElements('paper-tabs');
+                //     slideElements('#search-card');
+                //     slideElements('core-animated-pages');
+                // }, 200);
+
                 // slideElements('core-toolbar');
             }
             // console.log('click', t);
