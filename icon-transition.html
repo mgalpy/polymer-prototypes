@@ -144,9 +144,15 @@
                 bottom: 50px;
                 right: 23px;
                 transition: 300ms ease-in-out;
+                cursor: pointer;
             }
             .slide {
                 transform: translate(0, -2em);
+                opacity: 1;
+                z-index: 2;
+            }
+            .slide2 {
+                transform: translate(0, -5em);
                 opacity: 1;
                 z-index: 2;
             }
@@ -160,6 +166,10 @@
                 position: fixed;
                 bottom: 16px;
                 right: 16px;
+                cursor: pointer;
+            }
+            #reference2 {
+                background-color: #3F51B5;
             }
             </style>
             <div>
@@ -199,6 +209,7 @@
                     <icon-transition id="goal" on-mouseover="{{ makeShape }}" on-mouseleave="{{ revertShape }}" color="white" shape="{{ shape }}"></icon-transition>
 
                     <paper-fab mini id="reference" icon="image:edit"></paper-fab>
+                    <paper-fab mini id="reference2" icon="today"></paper-fab>
                 </main>
 
             </div>
@@ -214,12 +225,14 @@
             },
             makeShape: function(e, target, sender) {
                 this.shape = "check";
-                e.path[1].lastElementChild.classList.toggle('slide');
+                e.path[1].childNodes[43].classList.toggle('slide');
+                e.path[1].childNodes[45].classList.toggle('slide2');
                 // this.classList.toggle('slide');
             },
             revertShape: function(e, target, sender) {
                 this.shape = "plus";
-                e.path[1].lastElementChild.classList.toggle('slide');
+                e.path[1].childNodes[43].classList.toggle('slide');
+                e.path[1].childNodes[45].classList.toggle('slide2');
                 // this.classList.toggle('slide');
             },
             triggerTransition: function(e, target, sender) {
