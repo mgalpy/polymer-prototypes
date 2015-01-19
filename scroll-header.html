@@ -173,14 +173,28 @@
         </core-toolbar>
 
 
+        <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+            <div>
+                <div class="content">
 
+                    <sample-content size="10"></sample-content>
 
+                </div>
+            </div>
 
-        <div class="content">
+            <div>
+                <div class="content">
 
-            <sample-content size="10"></sample-content>
+                    <sample-content size="10"></sample-content>
 
+                </div>
+            </div>
+
+        </core-animated-pages>
         </div>
+
+
+
 
     </core-scroll-header-panel>
 
@@ -193,6 +207,13 @@
         var scale = Math.max(0.75, (m - d.y) / (m / 0.25) + 0.75);
         titleStyle.transform = titleStyle.webkitTransform =
             'scale(' + scale + ') translateZ(0)';
+    });
+
+    var tabs = document.querySelector('paper-tabs');
+    var pages = document.querySelector('core-animated-pages');
+
+    tabs.addEventListener('core-select', function() {
+        pages.selected = tabs.selected;
     });
     </script>
 
