@@ -1,13 +1,22 @@
 <!doctype html>
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
 <html>
 
 <head>
-    <title>Polymer Ultimate Template</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="polymer.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <title>Feedback</title>
 
     <!-- WEB COMPONENTS JS -->
 
@@ -64,7 +73,7 @@
     <link rel="import" href="bower_components/core-icons/image-icons.html">
     <link rel="import" href="bower_components/core-icons/device-icons.html">
     <link rel="import" href="bower_components/core-icons/editor-icons.html">
-    <link rel="import" href="bower_components/core-icons/social-icons.html">
+    <!-- <link rel="import" href="bower_components/core-icons/social-icons.html"> -->
     <link rel="import" href="bower_components/core-icons/hardware-icons.html">
     <link rel="import" href="bower_components/core-icons/notification-icons.html">
     <link rel="import" href="bower_components/core-icons/communication-icons.html">
@@ -99,19 +108,23 @@
     <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
     <link rel="import" href="bower_components/icon-transition/icon-transition.html">
 
-    <style>
+
+    <style shim-shadowdom>
     * {
         font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
         /*font-size: 14px;*/
     }
     core-toolbar {
         font-size: 20px;
-        font-weight: 300;
+        font-weight: 400;
         white-space: nowrap;
         background-color: #7B1FA2;
         color: #fff;
         z-index: 1;
-        transition: 300ms ease-in-out;
+        /*transition: 300ms ease-in-out;*/
+        
+        transition: background .15s;
     }
     paper-tab {
         background-color: #fafafa;
@@ -139,7 +152,8 @@
     }
     [drawer] {
         background-color: #eee;
-        border-right: 1px solid #ccc;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        /*box-shadow: 3px 0px 40px rgba(0, 0, 0, 0.5);*/
     }
     [main] {
         background-color: #fafafa;
@@ -148,9 +162,38 @@
         height: 100%;
         transition: 300ms ease-in-out;
     }
+    core-icon {
+        padding-right: 20px;
+    }
     paper-input-decorator {
+        background-image: url('img/search.png');
+        background-repeat: no-repeat;
+        background-position: 16px 8px;
         margin: 0;
-        padding: 0;
+        padding: 3px 0;
+        font-size: 16px;
+        padding-left: 64px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+    }
+    paper-input-decorator:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    paper-input-decorator /deep/::-webkit-input-placeholder {
+        /* platform specific rules for placeholder text */
+        
+        color: rgba(255, 255, 255, 0.9);
+        /*font-weight: 300;*/
+    }
+    paper-input-decorator /deep/ .unfocused-underline {
+        /* line color when the input is unfocused */
+        
+        background-color: transparent;
+    }
+    paper-input-decorator /deep/ .focused-underline {
+        /* line color when the input is unfocused */
+        
+        background-color: transparent;
     }
     paper-fab {
         position: fixed;
@@ -188,13 +231,22 @@
         padding: 0px 16px;
     }
     .slide {
-        /*for just search bar*/
-        transform: translate(0, -4em);
-        /*for search bar + tabs*/
-        
-        /*transform: translate(0, -7.4em);*/
-        /*for search bar, tabs, + toolbar*/
-        /*transform: translate(0, -11.4em);*/
+        transform: translate(0, 27em);
+    }
+    .turnWhite {
+        background: #f6f6f6;
+        color: #333;
+    }
+    .turnWhite2 {
+        background: #fff;
+        color: #333;
+    }
+    #suggest-card {
+        transition: 300ms ease-in-out;
+        top: -300px;
+        left: 50%;
+        margin-left: -200px;
+        position: absolute;
     }
     #details {
         padding: 20px;
@@ -212,7 +264,7 @@
 
 </head>
 
-<body fullbleed unresolved>
+<body>
 
     <core-drawer-panel>
 
@@ -233,16 +285,19 @@
                     <core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
                 <paper-item>
                     <core-icon icon="lock"></core-icon> Logout</paper-item>
+                <hr>
                 <paper-item>
                     <core-icon icon="event"></core-icon> Booking</paper-item>
                 <paper-item>
                     <core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
                 <paper-item>
-                    <core-icon icon="schedule"></core-icon> Hours</paper-item>
-                <paper-item>
                     <core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
                 <paper-item>
                     <core-icon icon="maps:school"></core-icon> Courses</paper-item>
+                <paper-item>
+                    <core-icon icon="schedule"></core-icon> Hours</paper-item>
+
+
             </core-menu>
         </div>
 
@@ -251,43 +306,72 @@
                 <div id="clicker" on-tap="{{clickAction}}">
                     <core-toolbar>
                         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                        <div flex>Polymer Template</div>
-                        <paper-icon-button icon="search" id="search"></paper-icon-button>
-                        <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
+                        <div>UQ Library</div>
+                        <div flex>
+                            <paper-input-decorator label="Search" id="search">
+                                <input is="core-input">
+                            </paper-input-decorator>
+                        </div>
+                        <x-trigger icon="more-vert">
+                            <paper-dropdown halign="right" class="no-padding">
+                                <div class="menu">
+                                    <paper-item>Help</paper-item>
+                                    <paper-item>Settings</paper-item>
+                                    <paper-item>Feedback</paper-item>
+                                </div>
+                            </paper-dropdown>
+                        </x-trigger>
                     </core-toolbar>
                 </div>
             </template>
-
-            <paper-tabs selected="0">
+            <!-- <paper-tabs selected="0">
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
-            </paper-tabs>
-            <paper-shadow class="card" z="1" id="search-card">
-                <p>
-                    <paper-input-decorator label="Search" id="start">
-                        <input is="core-input">
-                    </paper-input-decorator>
-                </p>
-            </paper-shadow>
+            </paper-tabs> -->
+            <div horizontal center-justified layout>
+                <paper-shadow class="card" z="1" id="suggest-card">
+                    <p>
+                        {{Search Suggestions}}
+                    </p>
+                </paper-shadow>
+            </div>
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
                 <div>
-                    Page 1
-                </div>
+                    <polymer-element name="x-trigger" extends="paper-icon-button" relative on-tap="{{toggle}}" noink>
+                        <template>
+                            <shadow></shadow>
+                            <content></content>
+                        </template>
+                        <script>
+                        Polymer({
+                            toggle: function() {
+                                if (!this.dropdown) {
+                                    this.dropdown = this.querySelector('paper-dropdown');
+                                }
+                                this.dropdown && this.dropdown.toggle();
+                            }
+                        });
+                        </script>
+                    </polymer-element>
 
-                <div>
-                    <div id="cards">
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
+                    <template is="auto-binding">
 
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
-                    </div>
+                        <div id="cards">
+                            <swipeable-card>
+                                <paper-shadow class="card" z="1">
+                                    <p>{{Content}}</p>
+                                </paper-shadow>
+                            </swipeable-card>
+
+                            <swipeable-card>
+                                <paper-shadow class="card" z="1">
+                                    <p>{{Content}}</p>
+                                </paper-shadow>
+                            </swipeable-card>
+                        </div>
+
+                    </template>
+
                 </div>
 
             </core-animated-pages>
@@ -296,32 +380,51 @@
 
     </core-drawer-panel>
 
+
+
     <script>
+    scope = document.querySelector('template[is=auto-binding]');
+
+    scope.pastries = [
+        'Apple fritter',
+        'Croissant',
+        'Donut',
+        'Financier',
+        'Jello',
+        'Madeleine',
+        'Pound cake',
+        'Pretzel',
+        'Sfogliatelle'
+    ];
+
     function slideElements(name) {
         document.querySelector(name).classList.toggle('slide');
     }
 
+    function searchAnimation() {
+        document.querySelector('core-toolbar').classList.toggle('turnWhite');
+        document.querySelector('paper-input-decorator').classList.toggle('turnWhite2');
+        slideElements('#suggest-card');
+    }
+
     function clickAction(e) {
         var t = e.target;
-        if (t.localName === 'paper-icon-button') {
-            // if user clicks 'search'
-            if (t.id == "search") {
-                // slideElements('paper-tabs');
-                slideElements('#search-card');
-                slideElements('core-animated-pages');
-                // setTimeout(function() {
-                    // slideElements('paper-tabs');
-                    // slideElements('#search-card');
-                    // slideElements('core-animated-pages');
-                // }, 200);
-
-                // slideElements('core-toolbar');
-            }
-            // console.log('click', t);
-        }
+        // console.log(t);
+        // searchAnimation();
+        // if ((t.localName == 'paper-input-decorator') || (t.localName == 'input')) {
+        //     searchAnimation();
+        // } else if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
+        //     searchAnimation();
+        // }
     }
     addEventListener('template-bound', function(e) {
         e.target.clickAction = clickAction;
+    });
+
+    document.querySelector('core-animated-pages').addEventListener("click", function() {
+        if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
+            searchAnimation();
+        }
     });
 
 

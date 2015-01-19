@@ -131,9 +131,9 @@
         background-color: #7B1FA2;
     }
     core-toolbar {
-        color: #f1f1f1;
+        color: #333;
         fill: #f1f1f1;
-        background-color: transparent;
+        background-color: rgba(255,255,255,0.1);
     }
     .title {
         -webkit-transform-origin: 0;
@@ -143,6 +143,24 @@
     .content {
         padding: 8px;
         padding-top: 74px;
+    }
+    paper-tab {
+        font-size: 24px;
+    }
+        paper-tabs[noink][nobar] paper-tab.core-selected {
+        color: #8BC34A;
+        z-index: 1;
+    }
+    paper-tabs::shadow #selectionBar {
+        background-color: #8BC34A;
+        z-index: 1;
+    }
+    paper-tabs paper-tab::shadow #ink {
+        color: #8BC34A;
+        z-index: 1;
+    }
+    #tab-toolbar {
+        margin-bottom: -8px;
     }
     </style>
 
@@ -162,7 +180,7 @@
 
         </core-toolbar>
 
-        <core-toolbar>
+        <core-toolbar id="tab-toolbar">
 
             <div class="bottom indent title">
                 <paper-tabs selected="0" class="bottom indent title">
