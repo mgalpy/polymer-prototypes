@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Polymer Ultimate Template</title>
+    <title>Search</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
@@ -102,16 +102,19 @@
     <style>
     * {
         font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
         /*font-size: 14px;*/
     }
     core-toolbar {
         font-size: 20px;
-        font-weight: 300;
+        font-weight: 400;
         white-space: nowrap;
         background-color: #7B1FA2;
         color: #fff;
         z-index: 1;
-        transition: 300ms ease-in-out;
+        /*transition: 300ms ease-in-out;*/
+        
+        transition: background .15s;
     }
     paper-tab {
         background-color: #fafafa;
@@ -139,7 +142,8 @@
     }
     [drawer] {
         background-color: #eee;
-        border-right: 1px solid #ccc;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        /*box-shadow: 3px 0px 40px rgba(0, 0, 0, 0.5);*/
     }
     [main] {
         background-color: #fafafa;
@@ -148,15 +152,19 @@
         height: 100%;
         transition: 300ms ease-in-out;
     }
+    core-icon {
+        padding-right: 20px;
+    }
     paper-input-decorator {
         background-image: url('img/search.png');
         background-repeat: no-repeat;
         background-position: 16px 8px;
         margin: 0;
-        padding: 4px 0;
+        padding: 3px 0;
         font-size: 16px;
         padding-left: 64px;
         background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
     }
     paper-input-decorator:hover {
         background-color: rgba(255, 255, 255, 0.2);
@@ -164,8 +172,8 @@
     paper-input-decorator /deep/::-webkit-input-placeholder {
         /* platform specific rules for placeholder text */
         
-        color: rgba(255, 255, 255, 0.9);;
-        font-weight: 300;
+        color: rgba(255, 255, 255, 0.9);
+        /*font-weight: 300;*/
     }
     paper-input-decorator /deep/ .unfocused-underline {
         /* line color when the input is unfocused */
@@ -215,11 +223,38 @@
     .slide {
         /*for just search bar*/
         
-        transform: translate(0, -4em);
+        transform: translate(0, 27em);
         /*for search bar + tabs*/
         /*transform: translate(0, -7.4em);*/
         /*for search bar, tabs, + toolbar*/
         /*transform: translate(0, -11.4em);*/
+    }
+    .turnWhite {
+        background: #f6f6f6;
+        color: #333;
+    }
+    .turnWhite2 {
+        background: #fff;
+        color: #333;
+    }
+    #suggest-card {
+        transition: 300ms ease-in-out;
+        top: -300px;
+        left: 50%;
+        margin-left: -200px;
+        position: absolute;
+    }
+    #details {
+        padding: 20px;
+        font-size: 12px;
+        color: #fafafa;
+    }
+    #account {
+        background-color: #7B1FA2;
+    }
+    paper-item {
+        color: #333;
+        text-decoration: none;
     }
     </style>
 
@@ -230,7 +265,26 @@
     <core-drawer-panel>
 
         <div drawer>
-            Drawer
+            <div horizontal layout id="account">
+                <div id="icon">
+                    <core-icon icon="account-circle" class="active-inverse" style="height: 64px; width: 64px; color: #fafafa;"></core-icon>
+                </div>
+                <div id="details" class="body1.inverse" flex>
+                    <div>
+                        <div id="name" style="font-weight:600">Mr Kit Brown-Watts</div>
+                        <div id="mail">kbw@uq.edu.au</div>
+                    </div>
+                </div>
+            </div>
+            <core-menu selectedAttribute="">
+                <paper-item><core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
+                <paper-item><core-icon icon="lock"></core-icon> Logout</paper-item>
+                <paper-item><core-icon icon="event"></core-icon> Booking</paper-item>
+                <paper-item><core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
+                <paper-item><core-icon icon="schedule"></core-icon> Hours</paper-item>
+                <paper-item><core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
+                <paper-item><core-icon icon="maps:school"></core-icon> Courses</paper-item>
+            </core-menu>
         </div>
 
         <div main>
@@ -240,7 +294,7 @@
                         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
                         <div>UQ Library</div>
                         <div flex>
-                            <paper-input-decorator label="Search" id="start">
+                            <paper-input-decorator label="Search" id="search">
                                 <input is="core-input">
                             </paper-input-decorator>
                         </div>
@@ -249,18 +303,17 @@
                     </core-toolbar>
                 </div>
             </template>
-
             <paper-tabs selected="0">
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
-            <!-- <paper-shadow class="card" z="1" id="search-card">
-                <p>
-                    <paper-input-decorator label="Search" id="start">
-                        <input is="core-input">
-                    </paper-input-decorator>
-                </p>
-            </paper-shadow> -->
+            <div horizontal center-justified layout>
+                <paper-shadow class="card" z="1" id="suggest-card">
+                    <p>
+                        {{Search Suggestions}}
+                    </p>
+                </paper-shadow>
+            </div>
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
                 <div>
                     Page 1
@@ -293,24 +346,21 @@
         document.querySelector(name).classList.toggle('slide');
     }
 
+    function searchAnimation() {
+        document.querySelector('core-toolbar').classList.toggle('turnWhite');
+        document.querySelector('paper-input-decorator').classList.toggle('turnWhite2');
+        slideElements('#suggest-card');
+    }
+
     function clickAction(e) {
         var t = e.target;
-        if (t.localName === 'paper-icon-button') {
-            // if user clicks 'search'
-            if (t.id == "search") {
-                // slideElements('paper-tabs');
-                // slideElements('#search-card');
-                // slideElements('core-animated-pages');
-                // setTimeout(function() {
-                //     // slideElements('paper-tabs');
-                //     slideElements('#search-card');
-                //     slideElements('core-animated-pages');
-                // }, 200);
-
-                // slideElements('core-toolbar');
-            }
-            // console.log('click', t);
-        }
+        console.log(t);
+        searchAnimation();
+        // if ((t.localName == 'paper-input-decorator') || (t.localName == 'input')) {
+        //     searchAnimation();
+        // } else if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
+        //     searchAnimation();
+        // }
     }
     addEventListener('template-bound', function(e) {
         e.target.clickAction = clickAction;

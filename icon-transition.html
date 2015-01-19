@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Polymer Ultimate Template</title>
+    <title>Icon-transition</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
@@ -100,109 +100,139 @@
     <link rel="import" href="bower_components/icon-transition/icon-transition.html">
 
     <style>
-     html, body {
+    html,
+    body {
         height: 100%;
-      }
-
-      body {
+    }
+    body {
         font-family: sans-serif;
         margin: 0;
-      }
+    }
     </style>
 
 </head>
 
- <body fullbleed unresolved>
+<body fullbleed unresolved>
 
     <polymer-element name="shape-demo" attributes="shape" touch-action="none">
-    <template>
-      <style>
-        #hero {
-          display: block;
-          padding: 20px;
-        }
+        <template>
+            <style>
+            #hero {
+                display: block;
+                padding: 20px;
+            }
+            icon-transition {
+                display: inline-block;
+            }
+            core-toolbar {
+                color: #fff;
+                background-color: #009688;
+            }
+            paper-button {
+                color: #4285f4;
+            }
+            h2 {
+                color: #666;
+            }
+            main {
+                margin: 20px;
+            }
+            paper-fab {
+                z-index: -1;
+                opacity: 0;
+                position: fixed;
+                bottom: 50px;
+                right: 23px;
+                transition: 300ms ease-in-out;
+            }
+            .slide {
+                transform: translate(0, -2em);
+                opacity: 1;
+                z-index: 2;
+            }
+            #goal {
+                transition: 300ms ease-in-out;
+                padding: 12px;
+                background-color: #4CAF50;
+                color: #fff;
+                border-radius: 50%;
+                box-shadow: 1px 1px 6px #333;
+                position: fixed;
+                bottom: 16px;
+                right: 16px;
+            }
+            </style>
+            <div>
 
-        icon-transition {
-          display: inline-block;
-        }
+                <core-toolbar>
+                    <icon-transition color="#fff" id="hero" shape="menu"></icon-transition>
+                    <span flex>Toolbar</span>
+                    <core-icon-button icon="refresh"></core-icon-button>
+                    <core-icon-button icon="add"></core-icon-button>
+                </core-toolbar>
 
-        core-toolbar {
-          color: #fff;
-          background-color: #009688;
-        }
+                <main>
+                    <h2>Transition icon on click</h2>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="menu">Switch to menu</paper-button>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="more">Switch to more</paper-button>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="check">Switch to check</paper-button>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="cancel">Switch to cancel</paper-button>
 
-        paper-button {
-          color: #4285f4;
-        }
+                    <h2>Transition icon on hover</h2>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="plus"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="image:edit"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="cancel"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="check"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="menu"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="more"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="more-vert"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="right"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="left"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="up"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="down"></icon-transition>
 
-        h2 {
-          color: #666;
-        }
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="right-arrow"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="left-arrow"></icon-transition>
 
-        main {
-          margin: 20px;
-        }
-        paper-fab {
-            position: fixed;
-            bottom: 16px;
-            right: 16px;
-        }
-      </style>
-      <div>
+                    <p>A prototype of Material Design <a href="http://www.google.com/design/spec/animation/delightful-details.html#delightful-details-delightful-details">delightful details</a>.</p>
 
-        <core-toolbar>
-          <icon-transition color="#fff" id="hero" shape="{{ shape }}"></icon-transition>
-          <span flex>Toolbar</span>
-          <core-icon-button icon="refresh"></core-icon-button>
-          <core-icon-button icon="add"></core-icon-button>
-        </core-toolbar>
+                    <icon-transition id="goal" on-mouseover="{{ makeShape }}" on-mouseleave="{{ revertShape }}" color="white" shape="{{ shape }}"></icon-transition>
 
-        <main>
-          <h2>Transition icon on click</h2>
-          <paper-button on-tap="{{triggerTransition}}" data-shape="menu">Switch to menu</paper-button>
-          <paper-button on-tap="{{triggerTransition}}" data-shape="more">Switch to more</paper-button>
-          <paper-button on-tap="{{triggerTransition}}" data-shape="check">Switch to check</paper-button>
-          <paper-button on-tap="{{triggerTransition}}" data-shape="cancel">Switch to cancel</paper-button>
+                    <paper-fab mini id="reference" icon="image:edit"></paper-fab>
+                </main>
 
-          <h2>Transition icon on hover</h2>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="plus" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="create" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="cancel" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="check" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="menu" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="more" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="more-vert" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="right" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="left" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="up" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="down" ></icon-transition>
-
-          <icon-transition on-mouseover="{{ pickShape }}" shape="right-arrow" ></icon-transition>
-          <icon-transition on-mouseover="{{ pickShape }}" shape="left-arrow" ></icon-transition>
-
-          <p>A prototype of Material Design <a href="http://www.google.com/design/spec/animation/delightful-details.html#delightful-details-delightful-details">delightful details</a>.</p>
-
-          <icon-transition color="white" style="padding: 12px;background-color: green; color: #fff;border-radius:50%; box-shadow: 1px 1px 5px #333" id="hero" shape="{{ shape }}"></icon-transition>
-
-          <paper-fab icon="add"></paper-fab>
-        </main>
-
-      </div>
-    </template>
-    <script>
-      Polymer('shape-demo', {
-        shape: 'plus',
-        pickShape: function(e, target, sender) {
-          this.shape = sender.shape;
-        },
-        triggerTransition: function(e, target, sender) {
-          var shape = sender.attributes['data-shape'].value;
-          if (!!shape) {
-            this.shape = shape;
-          }
-        }
-      });
-    </script>
+            </div>
+        </template>
+        <script>
+        Polymer('shape-demo', {
+            shape: 'plus',
+            pickShape: function(e, target, sender) {
+                this.shape = sender.shape;
+                // console.log(e);
+                // console.log(target);
+                // console.log(sender);
+            },
+            makeShape: function(e, target, sender) {
+                this.shape = "check";
+                e.path[1].lastElementChild.classList.toggle('slide');
+                // this.classList.toggle('slide');
+            },
+            revertShape: function(e, target, sender) {
+                this.shape = "plus";
+                e.path[1].lastElementChild.classList.toggle('slide');
+                // this.classList.toggle('slide');
+            },
+            triggerTransition: function(e, target, sender) {
+                // console.log(e);
+                // console.log(target);
+                // console.log(sender);
+                var shape = sender.attributes['data-shape'].value;
+                if (!!shape) {
+                    this.shape = shape;
+                }
+            }
+        });
+        </script>
     </polymer-element>
     <shape-demo id='demo'></shape-demo>
 
