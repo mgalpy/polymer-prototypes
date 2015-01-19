@@ -118,7 +118,7 @@
     }
     paper-tab {
         background-color: #fafafa;
-        z-index: 1;
+        /*z-index: 1;*/
     }
     paper-tabs {
         transition: 300ms ease-in-out;
@@ -156,15 +156,17 @@
         padding-right: 20px;
     }
     paper-input-decorator {
-        background-image: url('img/search.png');
+        background-image: url('img/ic_search_white_24dp.png');
         background-repeat: no-repeat;
         background-position: 16px 8px;
+        background-size: 24px;
         margin: 0;
         padding: 3px 0;
         font-size: 16px;
         padding-left: 64px;
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 2px;
+        color: #333;
     }
     paper-input-decorator:hover {
         background-color: rgba(255, 255, 255, 0.2);
@@ -172,7 +174,7 @@
     paper-input-decorator /deep/::-webkit-input-placeholder {
         /* platform specific rules for placeholder text */
         
-        color: rgba(255, 255, 255, 0.9);
+        color: #fafafa;
         /*font-weight: 300;*/
     }
     paper-input-decorator /deep/ .unfocused-underline {
@@ -184,6 +186,9 @@
         /* line color when the input is unfocused */
         
         background-color: transparent;
+    }
+    .darkText /deep/::-webkit-input-placeholder {
+        color: #333;
     }
     paper-fab {
         position: fixed;
@@ -236,6 +241,10 @@
     .turnWhite2 {
         background: #fff;
         color: #333;
+        background-image: url('img/ic_search_black_24dp.png');
+        background-repeat: no-repeat;
+        background-position: 16px 8px;
+        background-size: 24px;
     }
     #suggest-card {
         transition: 300ms ease-in-out;
@@ -243,6 +252,7 @@
         left: 50%;
         margin-left: -200px;
         position: absolute;
+        /*z-index: 5;*/
     }
     #details {
         padding: 20px;
@@ -309,7 +319,16 @@
                             </paper-input-decorator>
                         </div>
 
-                        <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
+                        <paper-menu-button>
+                            <paper-icon-button icon="more-vert" noink></paper-icon-button>
+                            <paper-dropdown halign="right" class="dropdown">
+                                <core-menu class="menu">
+                                    <paper-item>Help</paper-item>
+                                    <paper-item>Settings</paper-item>
+                                    <paper-item>Feedback</paper-item>
+                                </core-menu>
+                            </paper-dropdown>
+                        </paper-menu-button>
                     </core-toolbar>
                 </div>
             </template>
@@ -318,7 +337,7 @@
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
             <div horizontal center-justified layout>
-                <paper-shadow class="card" z="1" id="suggest-card">
+                <paper-shadow class="card" z="2" id="suggest-card">
                     <p>
                         {{Search Suggestions}}
                     </p>
@@ -333,13 +352,13 @@
                     <div id="cards">
                         <swipeable-card>
                             <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
+                                <p>{{Content}}</p>
                             </paper-shadow>
                         </swipeable-card>
 
                         <swipeable-card>
                             <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
+                                <p>{{Content}}</p>
                             </paper-shadow>
                         </swipeable-card>
                     </div>
@@ -359,13 +378,18 @@
     function searchAnimation() {
         document.querySelector('core-toolbar').classList.toggle('turnWhite');
         document.querySelector('paper-input-decorator').classList.toggle('turnWhite2');
+        document.querySelector('paper-input-decorator').classList.toggle('darkText');
+        // console.log(document.querySelector('paper-input-decorator').attributes);
         slideElements('#suggest-card');
     }
 
     function clickAction(e) {
         var t = e.target;
-        console.log(t);
-        searchAnimation();
+        console.log(t.localName);
+        if ((t.localName != 'paper-icon-button') && (t.localName != 'paper-item'))  {
+            searchAnimation();
+        }
+        // searchAnimation();
         // if ((t.localName == 'paper-input-decorator') || (t.localName == 'input')) {
         //     searchAnimation();
         // } else if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
