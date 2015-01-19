@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Scroll Header</title>
+    <title>Sticky Tabs Header</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
@@ -103,45 +103,37 @@
     <link rel="import" href="sample-content.html">
 
     <style shim-shadowdom>
-    html,
     body {
-        height: 100%;
-    }
-    body {
-        margin: 0;
         font-family: sans-serif;
-        color: #333;
+        background-color: rgb(214, 227, 231);
     }
-    core-scroll-header-panel {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: #eee;
+    core-header-panel {
+        float: middle;
+        width: 100%;
+        height: 100%;
+        /*margin: 5px;*/
     }
-    /* background for toolbar when it is at its full size */
-    
-    core-scroll-header-panel::shadow #headerBg {
-        background-image: url(img/law.jpg);
+    core-header-panel[mode=cover]::shadow #mainContainer {
+        left: 70px;
     }
-    /* background for toolbar when it is condensed */
-    
-    core-scroll-header-panel::shadow #condensedHeaderBg {
-        background-color: #7B1FA2;
+    .core-header {
+        height: 60px;
+        line-height: 60px;
+        font-size: 18px;
+        padding: 0 10px;
+        background-color: #4F7DC9;
+        color: #FFF;
+        transition: height 0.2s;
     }
-    core-toolbar {
-        color: #f1f1f1;
-        fill: #f1f1f1;
-        background-color: transparent;
+    .core-header.tall {
+        height: 180px;
     }
-    .title {
-        -webkit-transform-origin: 0;
-        transform-origin: 0;
-        font-size: 40px;
+    .core-header.medium-tall {
+        height: 120px;
     }
     .content {
-        padding: 8px;
+        height: 2000px;
+        background: linear-gradient(rgb(214, 227, 231), lightblue);
     }
     </style>
 
@@ -149,7 +141,21 @@
 
 <body fullbleed unresolved>
 
-    <core-scroll-header-panel condenses>
+    <core-header-panel>
+        <core-toolbar class="core-header">
+            <div flex>UQ Library</div>
+            <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
+        </core-toolbar>
+        <paper-tabs selected="0" class="core-header">
+            <paper-tab>Page 1</paper-tab>
+            <paper-tab>Page 2</paper-tab>
+        </paper-tabs>
+        <div class="content">
+            <sample-content size="10"></sample-content>
+        </div>
+    </core-header-panel>
+
+    <!-- <core-scroll-header-panel condenses>
 
         <core-toolbar class="tall">
 
@@ -157,22 +163,9 @@
             <div flex></div>
             <core-icon-button icon="search"></core-icon-button>
             <core-icon-button icon="more-vert"></core-icon-button>
-            <div class="bottom indent title">UQ Library</div>
+            <div class="bottom indent title">Title</div>
 
         </core-toolbar>
-
-        <core-toolbar>
-
-            <div class="bottom indent title">
-                <paper-tabs selected="0" class="bottom indent title">
-                    <paper-tab>Page 1</paper-tab>
-                    <paper-tab>Page 2</paper-tab>
-                </paper-tabs>
-            </div>
-
-        </core-toolbar>
-
-
 
 
 
@@ -182,19 +175,9 @@
 
         </div>
 
-    </core-scroll-header-panel>
+    </core-scroll-header-panel> -->
 
-    <script>
-    // custom transformation: scale header's title
-    var titleStyle = document.querySelector('.title').style;
-    addEventListener('core-header-transform', function(e) {
-        var d = e.detail;
-        var m = d.height - d.condensedHeight;
-        var scale = Math.max(0.75, (m - d.y) / (m / 0.25) + 0.75);
-        titleStyle.transform = titleStyle.webkitTransform =
-            'scale(' + scale + ') translateZ(0)';
-    });
-    </script>
+
 
 </body>
 
