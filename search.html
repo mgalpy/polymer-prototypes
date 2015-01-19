@@ -248,6 +248,7 @@
     }
     #suggest-card {
         transition: 300ms ease-in-out;
+        width: 50%;
         top: -300px;
         left: 50%;
         margin-left: -200px;
@@ -265,6 +266,9 @@
     paper-item {
         color: #333;
         text-decoration: none;
+    }
+    .menu {
+        margin: 8px;
     }
     </style>
 
@@ -385,7 +389,7 @@
 
     function clickAction(e) {
         var t = e.target;
-        console.log(t.localName);
+        // console.log(t.localName);
         if ((t.localName != 'paper-icon-button') && (t.localName != 'paper-item'))  {
             searchAnimation();
         }
