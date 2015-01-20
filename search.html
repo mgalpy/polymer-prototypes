@@ -270,6 +270,21 @@
     .menu {
         margin: 8px;
     }
+    #feedback {
+        color: #333;
+        padding: 0;
+    }
+    #feedback /deep/ .unfocused-underline {
+        color: #333;
+        background-color: #333;
+    }
+    #feedback /deep/ .focused-underline {
+        color: #333;
+        background-color: #333;
+    }
+    #feedback /deep/::-webkit-input-placeholder {
+        color: #777;
+    }
     </style>
 
 </head>
@@ -356,7 +371,14 @@
                     <div id="cards">
                         <swipeable-card>
                             <paper-shadow class="card" z="1">
-                                <p>{{Content}}</p>
+                                <p>Do you have feedback for us?</p>
+                                <paper-input-decorator floatinglabel label="Type your feedback here" id="feedback">
+                                    <input is="core-input">
+                                </paper-input-decorator>
+                                <br>
+                                <br>
+                                <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Send feedback</paper-button>
+                                <paper-button affirmative raised style="float:right">Cancel</paper-button>
                             </paper-shadow>
                         </swipeable-card>
 
@@ -371,10 +393,15 @@
             </core-animated-pages>
             <paper-fab icon="add"></paper-fab>
         </div>
-
     </core-drawer-panel>
 
+
     <script>
+    function sendFeedback() {
+        // see https://medium.com/@mariusc23/send-an-email-using-only-javascript-b53319616782
+        console.log("Feedback sent!");
+    }
+
     function slideElements(name) {
         document.querySelector(name).classList.toggle('slide');
     }
@@ -390,7 +417,7 @@
     function clickAction(e) {
         var t = e.target;
         // console.log(t.localName);
-        if ((t.localName != 'paper-icon-button') && (t.localName != 'paper-item'))  {
+        if ((t.localName != 'paper-icon-button') && (t.localName != 'paper-item')) {
             searchAnimation();
         }
         // searchAnimation();
