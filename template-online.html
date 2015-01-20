@@ -269,6 +269,23 @@
     .menu {
         margin: 8px;
     }
+
+    /*Feedback checkbox*/
+    /*paper-checkbox::shadow #ink[checked] {
+      color: #007e9e;
+    }
+
+    paper-checkbox::shadow #checkbox.checked {
+      border-color: #007e9e;
+    }
+
+    paper-checkbox::shadow #ink {
+      color: #b5b5b5;
+    }
+
+    paper-checkbox::shadow #checkbox {
+      border-color: #b5b5b5;
+    }*/
     </style>
 
 </head>
@@ -371,9 +388,11 @@
                                 -moz-user-select: none;
                                 overflow: hidden;
                                 background: white;
-                                padding: 30px 42px;
+                                padding: 25px;
+                                margin: 0;
                                 outline: 1px solid rgba(0, 0, 0, 0.2);
                                 box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+                                border-radius:2px;
                             }
                             </style>
                             <core-overlay id="overlay" layered backdrop opened="{{opened}}" autoCloseDisabled="{{autoCloseDisabled}}" transition="core-transition-bottom"></core-overlay>
@@ -410,7 +429,7 @@
                                     -moz-user-select: none;
                                     overflow: hidden;
                                     background: white;
-                                    padding: 30px 42px;
+                                    padding: 25px;
                                     outline: 1px solid rgba(0, 0, 0, 0.2);
                                     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
                                 }
@@ -418,18 +437,50 @@
                                     width: 500px;
                                 }
                                 </style>
-                                <h2>Optional Feedback Header</h2>
-                                <div>Optional feedback text</div>
-                                <br>
+                                <h2 style="margin-top:0;">Tell us what you think</h2>
+                                <div>Your feedback will help us improve MyLibrary.</div>
+                                
                                 <br>
 
                                 <div>
 
-                                    <paper-input-decorator label="Optional feedback placeholder text using autogrowing text area" error="input is required!" floatingLabel id="feedbackInput" autofocus on-input="{{inputHandler}}">
+                                    <paper-input-decorator label="Your comments (required)" error="input is required!" id="feedbackInput" autofocus on-input="{{inputHandler}}">
+                                    <style>
+                                    paper-input-decorator::shadow .focused-underline {
+                                        background-color: #8cb800;
+                                    }
+                                    </style>
                                         <paper-autogrow-textarea>
                                             <textarea></textarea>
                                         </paper-autogrow-textarea>
                                     </paper-input-decorator>
+
+                                    <core-label horizontal layout style="margin-top: 5px;">
+                                      <paper-checkbox for>
+                                        <style>
+                                            paper-checkbox::shadow #ink[checked] {
+                                              color: #007e9e;
+                                            }
+
+                                            paper-checkbox::shadow #checkbox.checked {
+                                              border-color: #007e9e;
+                                            }
+
+                                            paper-checkbox::shadow #ink {
+                                              color: #b5b5b5;
+                                            }
+
+                                            paper-checkbox::shadow #checkbox {
+                                              border-color: #b5b5b5;
+                                            }
+                                        </style>
+                                      </paper-checkbox>
+                                      <div vertical layout style="margin-left: 20px; margin-top:-15px;">
+                                        <h4>Include my contact information</h4>
+                                        <div>We'll include your name, library barcode and email address so we can get back to you.</div>
+                                      </div>
+                                    </core-label>
+
 
                                     <core-overlay layered id="confirmation" class="dialog" backdrop transition="core-transition-bottom">
                                         <!-- place all overlay styles inside the overlay target -->
@@ -443,7 +494,7 @@
                                             -moz-user-select: none;
                                             overflow: hidden;
                                             background: white;
-                                            padding: 30px 42px;
+                                            padding: 28px;
                                             outline: 1px solid rgba(0, 0, 0, 0.2);
                                             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
                                         }
@@ -457,8 +508,8 @@
                                 </div>
                                 <br>
                                 <br>
-                                <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured">Send feedback</paper-button>
-                                <paper-button affirmative raised style="float:right">Cancel</paper-button>
+                                <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;border-radius: 2px;margin:0;" class="coloured">Send feedback</paper-button>
+                                <paper-button affirmative raised style="float:right;border-radius: 2px;">Cancel</paper-button>
                             </x-dialog>
 <paper-button affirmative raised on-tap="{{tapHandler}}">Toggle Feedback Dialog</paper-button>
                             <!-- <button on-tap="{{tapHandler}}">Toggle Dialog</button> -->
