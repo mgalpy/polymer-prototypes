@@ -1,0 +1,539 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Template - online</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="polymer.png">
+
+    <!-- WEB COMPONENTS JS -->
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- CORE POLYMER -->
+
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+    <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
+    <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-dropdown/core-dropdown.html">
+    <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+    <link rel="import" href="bower_components/core-field/core-field.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/core-image/core-image.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+    <link rel="import" href="bower_components/core-label/core-label.html">
+    <link rel="import" href="bower_components/core-layout-grid/core-layout-grid.html">
+    <link rel="import" href="bower_components/core-layout-trbl/core-layout-trbl.html">
+    <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+    <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="bower_components/core-menu-button/core-menu-button.html">
+    <link rel="import" href="bower_components/core-meta/core-meta.html">
+    <link rel="import" href="bower_components/core-overlay/core-overlay.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+    <link rel="import" href="bower_components/core-range/core-range.html">
+    <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+    <link rel="import" href="bower_components/core-scroll-threshold/core-scroll-threshold.html">
+    <link rel="import" href="bower_components/core-selection/core-selection.html">
+    <link rel="import" href="bower_components/core-selector/core-selector.html">
+    <link rel="import" href="bower_components/core-shared-lib/core-shared-lib.html">
+    <link rel="import" href="bower_components/core-signals/core-signals.html">
+    <link rel="import" href="bower_components/core-splitter/core-splitter.html">
+    <link rel="import" href="bower_components/core-style/core-style.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
+    <link rel="import" href="bower_components/core-transition/core-transition.html">
+
+    <!-- load the other icons -->
+    <link rel="import" href="bower_components/core-icons/av-icons.html">
+    <link rel="import" href="bower_components/core-icons/maps-icons.html">
+    <link rel="import" href="bower_components/core-icons/image-icons.html">
+    <link rel="import" href="bower_components/core-icons/device-icons.html">
+    <link rel="import" href="bower_components/core-icons/editor-icons.html">
+    <!-- <link rel="import" href="bower_components/core-icons/social-icons.html"> -->
+    <link rel="import" href="bower_components/core-icons/hardware-icons.html">
+    <link rel="import" href="bower_components/core-icons/notification-icons.html">
+    <link rel="import" href="bower_components/core-icons/communication-icons.html">
+
+    <!-- POLYMER PAPER ELEMENTS -->
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+    <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+    <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+
+    <!-- MATERIAL DESIGN -->
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+
+    <style>
+    * {
+        font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        /*font-size: 14px;*/
+    }
+    core-toolbar {
+        font-size: 20px;
+        font-weight: 400;
+        white-space: nowrap;
+        background-color: #49075E;
+        color: #fff;
+        z-index: 1;
+        /*transition: 300ms ease-in-out;*/
+        
+        transition: background .15s;
+    }
+    paper-tab {
+        background-color: #fafafa;
+        /*z-index: 1;*/
+    }
+    paper-tabs {
+        transition: 300ms ease-in-out;
+        height: 55px;
+        background-color: #fafafa;
+        color: #333;
+        box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    paper-tabs[noink][nobar] paper-tab.core-selected {
+        color: #8BC34A;
+        z-index: 1;
+    }
+    paper-tabs::shadow #selectionBar {
+        background-color: #8BC34A;
+        z-index: 1;
+    }
+    paper-tabs paper-tab::shadow #ink {
+        color: #8BC34A;
+        z-index: 1;
+    }
+    [drawer] {
+        background-color: #eee;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        /*box-shadow: 3px 0px 40px rgba(0, 0, 0, 0.5);*/
+    }
+    [main] {
+        background-color: #fafafa;
+    }
+    core-animated-pages {
+        height: 100%;
+        transition: 300ms ease-in-out;
+    }
+    core-icon {
+        padding-right: 20px;
+    }
+    paper-input-decorator {
+        background-image: url('img/ic_search_white_24dp.png');
+        background-repeat: no-repeat;
+        background-position: 16px 8px;
+        background-size: 24px;
+        margin: 0;
+        padding: 3px 0;
+        font-size: 16px;
+        padding-left: 64px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        color: #fafafa;
+    }
+    paper-input-decorator:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    paper-input-decorator /deep/::-webkit-input-placeholder {
+        /* platform specific rules for placeholder text */
+        
+        color: #fafafa;
+        /*font-weight: 300;*/
+    }
+    paper-input-decorator /deep/ .unfocused-underline {
+        /* line color when the input is unfocused */
+        
+        background-color: transparent;
+    }
+    paper-input-decorator /deep/ .focused-underline {
+        /* line color when the input is unfocused */
+        
+        background-color: transparent;
+    }
+    .darkText /deep/::-webkit-input-placeholder {
+        color: #333;
+    }
+    paper-fab {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        background-color: #007e9e;
+    }
+    #cards {
+        height: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
+    swipeable-card {
+        height: auto;
+        width: 320px;
+        margin: 20px auto;
+        box-shadow: none;
+    }
+    .card {
+        display: inline-block;
+        background: white;
+        box-sizing: border-box;
+        width: 320px;
+        height: auto;
+        min-height: 200px;
+        padding: 8px;
+        border-radius: 2px;
+    }
+    #search-card {
+        transition: 300ms ease-in-out;
+        min-height: 32px;
+        width: 100%;
+        padding: 0px 16px;
+    }
+    .slide {
+        /*for just search bar*/
+        
+        transform: translate(0, 27em);
+        /*for search bar + tabs*/
+        /*transform: translate(0, -7.4em);*/
+        /*for search bar, tabs, + toolbar*/
+        /*transform: translate(0, -11.4em);*/
+    }
+    .turnWhite {
+        background: #f6f6f6;
+        color: #333;
+    }
+    .turnWhite2 {
+        background: #fff;
+        color: #333;
+        background-image: url('img/ic_search_black_24dp.png');
+        background-repeat: no-repeat;
+        background-position: 16px 8px;
+        background-size: 24px;
+    }
+    #suggest-card {
+        transition: 300ms ease-in-out;
+        width: 50%;
+        top: -300px;
+        left: 50%;
+        margin-left: -200px;
+        position: absolute;
+        z-index: 5;
+    }
+    #details {
+        padding: 20px;
+        font-size: 12px;
+        color: #fafafa;
+    }
+    #account {
+        background-color: #49075E;
+    }
+    paper-item {
+        color: #333;
+        text-decoration: none;
+    }
+    .menu {
+        margin: 8px;
+    }
+    /*Feedback checkbox*/
+    /*paper-checkbox::shadow #ink[checked] {
+      color: #007e9e;
+    }
+
+    paper-checkbox::shadow #checkbox.checked {
+      border-color: #007e9e;
+    }
+
+    paper-checkbox::shadow #ink {
+      color: #b5b5b5;
+    }
+
+    paper-checkbox::shadow #checkbox {
+      border-color: #b5b5b5;
+    }*/
+    </style>
+
+</head>
+
+<body fullbleed unresolved>
+
+    <core-drawer-panel>
+
+        <div drawer>
+            <div horizontal layout id="account">
+                <div id="icon">
+                    <core-icon icon="account-circle" class="active-inverse" style="height: 64px; width: 64px; color: #fafafa;"></core-icon>
+                </div>
+                <div id="details" class="body1.inverse" flex>
+                    <div>
+                        <div id="name" style="font-weight:600">Ms JK Rowling</div>
+                        <div id="mail">jrowling@uq.edu.au</div>
+                    </div>
+                </div>
+            </div>
+            <core-menu selectedAttribute="">
+                <paper-item>
+                    <core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
+                <paper-item>
+                    <core-icon icon="lock"></core-icon> Logout</paper-item>
+                <hr>
+                <paper-item>
+                    <core-icon icon="event"></core-icon> Booking</paper-item>
+                <paper-item>
+                    <core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
+                <paper-item>
+                    <core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
+                <paper-item>
+                    <core-icon icon="social:school"></core-icon> Courses</paper-item>
+                <paper-item>
+                    <core-icon icon="schedule"></core-icon> Hours</paper-item>
+                <paper-item onclick="toggleDialog()">
+                    <core-icon icon="question-answer"></core-icon> Feedback</paper-item>
+
+
+            </core-menu>
+        </div>
+
+        <div main>
+            <template is="auto-binding">
+                <div id="clicker" on-tap="{{clickAction}}">
+                    <core-toolbar>
+                        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+                        <div>UQ Library</div>
+                        <div flex>
+                            <paper-input-decorator label="Search" id="search">
+                                <input is="core-input">
+                            </paper-input-decorator>
+                        </div>
+
+                        <paper-menu-button>
+                            <paper-icon-button icon="more-vert" noink></paper-icon-button>
+                            <paper-dropdown halign="right" class="dropdown">
+                                <core-menu class="menu">
+                                    <paper-item>Help</paper-item>
+                                    <paper-item>Settings</paper-item>
+                                    <paper-item onclick="toggleDialog()">Feedback</paper-item>
+                                </core-menu>
+                            </paper-dropdown>
+                        </paper-menu-button>
+                    </core-toolbar>
+                </div>
+            </template>
+            <paper-tabs selected="0">
+                <paper-tab>Page 1</paper-tab>
+                <paper-tab>Page 2</paper-tab>
+            </paper-tabs>
+            <div horizontal center-justified layout>
+                <paper-shadow class="card" z="2" id="suggest-card">
+                    <p>
+                        {{Search Suggestions}}
+                    </p>
+                </paper-shadow>
+            </div>
+            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+                <div>
+
+                    Page 1
+
+                    <paper-dialog id="mainDialog" heading="Tell us what you think" transition="core-transition-bottom" backdrop>
+                        <p>Your feedback will help us improve MyLibrary.</p>
+                        <paper-input-decorator label="Your comments (required)" error="input is required!" id="feedbackInput" autofocus on-input="{{inputHandler}}">
+                            <style>
+                            paper-input-decorator::shadow .focused-underline {
+                                background-color: #8cb800;
+                                paper-checkbox::shadow #ink[checked] {
+                                    color: #007e9e;
+                                }
+                                paper-checkbox::shadow #checkbox.checked {
+                                    border-color: #007e9e;
+                                }
+                                paper-checkbox::shadow #ink {
+                                    color: #b5b5b5;
+                                }
+                                paper-checkbox::shadow #checkbox {
+                                    border-color: #b5b5b5;
+                                }
+                            }
+                            </style>
+                            <paper-autogrow-textarea>
+                                <textarea></textarea>
+                            </paper-autogrow-textarea>
+                        </paper-input-decorator>
+                        <core-label horizontal layout style="margin-top: 5px;">
+                            <paper-checkbox for>
+                                <style>
+                                </style>
+                            </paper-checkbox>
+                            <div vertical layout style="margin-left: 20px; margin-top:-15px;">
+                                <h4>Include my contact information</h4>
+                                <div>We'll include your name, library barcode and email address so we can get back to you.</div>
+                            </div>
+                        </core-label>
+                        <br>
+                        <br>
+
+                        <paper-button affirmative autofocus raised style="float:right;background:#007e9e;color:#fff;" class="coloured">Send feedback</paper-button>
+                        <paper-button affirmative raised style="float:right;" onclick="toggleThis()">Cancel</paper-button>
+                    </paper-dialog>
+                </div>
+
+                <div>
+                    <div id="cards">
+                        <swipeable-card>
+                            <paper-shadow class="card" z="1">
+                                <p>{{Content}}</p>
+                            </paper-shadow>
+                        </swipeable-card>
+
+                        <swipeable-card>
+                            <paper-shadow class="card" z="1">
+                                <p>{{Content}}</p>
+                            </paper-shadow>
+                        </swipeable-card>
+                    </div>
+                </div>
+
+            </core-animated-pages>
+            <paper-fab icon="add"></paper-fab>
+        </div>
+
+    </core-drawer-panel>
+
+    <!-- <core-ajax auto url="//gdata.youtube.com/feeds/api/videos/" 
+      params='{"alt":"json", "q":"chrome"}'
+      handleAs="json"></core-ajax> -->
+
+    <core-ajax method="POST" url="https://mandrillapp.com/api/1.0/messages/send.json" body='{"key":"REPLACEME",
+    "message": {"from_email": "kbw@uq.edu.au","to": [{"email": "kbw@uq.edu.au","name": "kit","type": "to"}],"autotext": "true","subject": "YOUR SUBJECT HERE!","html": "YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!"}}' handleAs="json" on-core-response="{{handleResponse}}">
+    </core-ajax>
+
+    <script>
+    function toggleThis() {
+        console.log(this);
+    }
+    function toggleDialog() {
+        document.querySelector('paper-dialog').toggle();
+    }
+
+    function sendFeedback() {
+        console.log("feedback sent!");
+        var ajax = document.querySelector("core-ajax");
+        ajax.addEventListener("core-response",
+            function(e) {
+                // dialog.toggle();
+                showToast();
+            }
+        );
+        ajax.go();
+    }
+
+    function toggleFeedback() {
+        document.querySelector('#mainFeedback').toggle();
+    }
+
+    function slideElements(name) {
+        document.querySelector(name).classList.toggle('slide');
+    }
+
+    function searchAnimation() {
+        document.querySelector('core-toolbar').classList.toggle('turnWhite');
+        document.querySelector('paper-input-decorator').classList.toggle('turnWhite2');
+        document.querySelector('paper-input-decorator').classList.toggle('darkText');
+        // console.log(document.querySelector('paper-input-decorator').attributes);
+        slideElements('#suggest-card');
+    }
+
+    function clickAction(e) {
+
+        var t = e.target;
+        // console.log(t.localName);
+        if ((t.localName != 'paper-icon-button') && (t.localName != 'paper-item')) {
+            searchAnimation();
+        }
+        // searchAnimation();
+        // if ((t.localName == 'paper-input-decorator') || (t.localName == 'input')) {
+        //     searchAnimation();
+        // } else if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
+        //     searchAnimation();
+        // }
+    }
+    addEventListener('template-bound', function(e) {
+        e.target.clickAction = clickAction;
+    });
+
+    document.querySelector('core-animated-pages').addEventListener("click", function() {
+        if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
+            searchAnimation();
+        }
+    });
+
+
+    var tabs = document.querySelector('paper-tabs');
+    var pages = document.querySelector('core-animated-pages');
+
+    tabs.addEventListener('core-select', function() {
+        pages.selected = tabs.selected;
+    });
+
+    function showToast() {
+        document.querySelector('#main-toast').show();
+    }
+
+    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
+        e.target.parentNode.removeChild(e.target);
+        document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
+
+        showToast();
+
+        // wait for 10ms so the animations can kick in
+        setTimeout(function() {
+            // set style and position back to (default)
+            e.target.style.opacity = 1;
+            e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+        }, 10);
+    });
+    </script>
+
+    <paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
+        <!-- <div>Action</div> -->
+    </paper-toast>
+
+</body>
+
+</html>
