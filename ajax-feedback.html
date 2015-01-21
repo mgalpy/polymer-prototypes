@@ -407,7 +407,7 @@
                         <br>
                         <br>
 
-                        <paper-button affirmative autofocus raised style="float:right;background:#007e9e;color:#fff;" class="coloured">Send feedback</paper-button>
+                        <paper-button affirmative autofocus raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Send feedback</paper-button>
                         <paper-button affirmative raised style="float:right;" onclick="toggleThis()">Cancel</paper-button>
                     </paper-dialog>
                 </div>
@@ -433,10 +433,6 @@
         </div>
 
     </core-drawer-panel>
-
-    <!-- <core-ajax auto url="//gdata.youtube.com/feeds/api/videos/" 
-      params='{"alt":"json", "q":"chrome"}'
-      handleAs="json"></core-ajax> -->
 
     <core-ajax method="POST" url="https://mandrillapp.com/api/1.0/messages/send.json" body='{"key":"REPLACEME",
     "message": {"from_email": "kbw@uq.edu.au","to": [{"email": "kbw@uq.edu.au","name": "kit","type": "to"}],"autotext": "true","subject": "YOUR SUBJECT HERE!","html": "YOUR EMAIL CONTENT HERE! YOU CAN USE HTML!"}}' handleAs="json" on-core-response="{{handleResponse}}">
