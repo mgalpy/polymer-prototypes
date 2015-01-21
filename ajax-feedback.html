@@ -370,7 +370,7 @@
 
                     Page 1
 
-                    <paper-dialog id="mainDialog" heading="Tell us what you think" transition="core-transition-bottom" backdrop>
+                    <paper-action-dialog id="mainDialog" heading="Tell us what you think" transition="core-transition-bottom" backdrop>
                         <p>Your feedback will help us improve MyLibrary.</p>
                         <paper-input-decorator label="Your comments (required)" error="input is required!" id="feedbackInput" autofocus on-input="{{inputHandler}}">
                             <style>
@@ -407,9 +407,10 @@
                         <br>
                         <br>
 
-                        <paper-button affirmative autofocus raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Send feedback</paper-button>
-                        <paper-button affirmative raised style="float:right;" onclick="toggleThis()">Cancel</paper-button>
-                    </paper-dialog>
+                        
+                        <paper-button affirmative raised onclick="toggleThis()">Cancel</paper-button>
+                        <paper-button affirmative autofocus raised style="background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Send feedback</paper-button>
+                    </paper-action-dialog>
                 </div>
 
                 <div>
@@ -439,11 +440,8 @@
     </core-ajax>
 
     <script>
-    function toggleThis() {
-        console.log(this);
-    }
     function toggleDialog() {
-        document.querySelector('paper-dialog').toggle();
+        document.querySelector('paper-action-dialog').toggle();
     }
 
     function sendFeedback() {
@@ -526,7 +524,7 @@
     });
     </script>
 
-    <paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
+    <paper-toast id="main-toast" role="alert" text="Feedback sent!">
         <!-- <div>Action</div> -->
     </paper-toast>
 
