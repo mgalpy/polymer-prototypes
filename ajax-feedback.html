@@ -376,7 +376,7 @@
                         <paper-input-decorator label="Your comments (required)" error="input is required!" id="feedbackInput" autofocus on-input="{{inputHandler}}">
                             <style>
                             paper-input-decorator::shadow .focused-underline {
-                                background-color: #8cb800;
+                                background-color: #007e9e;
                             }
                                 paper-checkbox::shadow #ink[checked] {
                                     color: #007e9e;
@@ -385,7 +385,7 @@
                                     border-color: #007e9e;
                                 }
                                 paper-checkbox::shadow #ink {
-                                    color: #b5b5b5;
+                                    color: #007e9e;
                                 }
                                 paper-checkbox::shadow #checkbox {
                                     border-color: #b5b5b5;
@@ -410,8 +410,8 @@
                         <br>
 
                         
-                        <paper-button affirmative raised onclick="toggleThis()">Cancel</paper-button>
-                        <paper-button affirmative autofocus raised style="background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Send feedback</paper-button>
+                        <paper-button affirmative onclick="toggleThis()">Cancel</paper-button>
+                        <paper-button affirmative autofocus style="color:#007e9e;" class="coloured" onclick="sendFeedback()">Send feedback</paper-button>
                     </paper-action-dialog>
                 </div>
 
