@@ -100,114 +100,134 @@
     <link rel="import" href="bower_components/icon-transition/icon-transition.html">
 
     <style>
-    * {
-        font-family: 'Roboto', sans-serif;
-        /*font-size: 14px;*/
-    }
-    core-toolbar {
-        font-size: 20px;
-        font-weight: 300;
-        white-space: nowrap;
-        background-color: #7B1FA2;
-        color: #fff;
-        z-index: 1;
-        transition: 300ms ease-in-out;
-    }
-    paper-tab {
-        background-color: #fafafa;
-        z-index: 1;
-    }
-    paper-tabs {
-        transition: 300ms ease-in-out;
-        height: 55px;
-        background-color: #fafafa;
-        color: #333;
-        box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    paper-tabs[noink][nobar] paper-tab.core-selected {
-        color: #8BC34A;
-        z-index: 1;
-    }
-    paper-tabs::shadow #selectionBar {
-        background-color: #8BC34A;
-        z-index: 1;
-    }
-    paper-tabs paper-tab::shadow #ink {
-        color: #8BC34A;
-        z-index: 1;
-    }
-    [drawer] {
-        background-color: #eee;
-        border-right: 1px solid #ccc;
-    }
-    [main] {
-        background-color: #fafafa;
-    }
-    core-animated-pages {
-        height: 100%;
-        transition: 300ms ease-in-out;
-    }
-    paper-input-decorator {
-        margin: 0;
-        padding: 0;
-    }
-    paper-fab {
-        position: fixed;
-        bottom: 16px;
-        right: 16px;
-        background-color: #007e9e;
-    }
-    #cards {
-        height: 100%;
-        margin: 0 auto;
-        overflow: auto;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-    }
-    swipeable-card {
-        height: auto;
-        width: 320px;
-        margin: 20px auto;
-        box-shadow: none;
-    }
-    .card {
-        display: inline-block;
-        background: white;
-        box-sizing: border-box;
-        width: 320px;
-        height: auto;
-        min-height: 200px;
-        padding: 8px;
-        border-radius: 2px;
-    }
-    #search-card {
-        transition: 300ms ease-in-out;
-        min-height: 32px;
-        width: 100%;
-        padding: 0px 16px;
-    }
-    .slide {
-        /*for just search bar*/
-        transform: translate(0, -4em);
-        /*for search bar + tabs*/
-        
-        /*transform: translate(0, -7.4em);*/
-        /*for search bar, tabs, + toolbar*/
-        /*transform: translate(0, -11.4em);*/
-    }
-    #details {
-        padding: 20px;
-        font-size: 12px;
-        color: #fafafa;
-    }
-    #account {
-        background-color: #7B1FA2;
-    }
-    paper-item {
-        color: #333;
-        text-decoration: none;
-    }
+        * {
+            font-family: 'Roboto', sans-serif;
+            /*font-size: 14px;*/
+        }
+        core-toolbar {
+            font-size: 20px;
+            font-weight: 300;
+            white-space: nowrap;
+            background-color: #7B1FA2;
+            color: #fff;
+            z-index: 1;
+            transition: 300ms ease-in-out;
+        }
+        paper-tab {
+            background-color: #fafafa;
+            z-index: 1;
+        }
+        paper-tabs {
+            transition: 300ms ease-in-out;
+            height: 55px;
+            background-color: #fafafa;
+            color: #333;
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        paper-tabs[noink][nobar] paper-tab.core-selected {
+            color: #8BC34A;
+            z-index: 1;
+        }
+        paper-tabs::shadow #selectionBar {
+            background-color: #8BC34A;
+            z-index: 1;
+        }
+        paper-tabs paper-tab::shadow #ink {
+            color: #8BC34A;
+            z-index: 1;
+        }
+        [drawer] {
+            background-color: #eee;
+            border-right: 1px solid #ccc;
+        }
+        [main] {
+            background-color: #fafafa;
+        }
+        core-animated-pages {
+            height: 100%;
+            transition: 300ms ease-in-out;
+        }
+        paper-input-decorator {
+            margin: 0;
+            padding: 0;
+        }
+        paper-fab {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            background-color: #007e9e;
+        }
+        #cards {
+            height: 100%;
+            margin: 0 auto;
+            overflow: auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+        swipeable-card {
+            height: auto;
+            width: 320px;
+            margin: 20px auto;
+            box-shadow: none;
+        }
+        .card {
+            display: inline-block;
+            background: white;
+            box-sizing: border-box;
+            width: 320px;
+            height: auto;
+            min-height: 200px;
+            padding: 8px;
+            border-radius: 2px;
+        }
+        #search-card {
+            transition: 300ms ease-in-out;
+            min-height: 32px;
+            width: 100%;
+            padding: 0px 16px;
+        }
+        .slide {
+            /*for just search bar*/
+            transform: translate(0, -4em);
+            /*for search bar + tabs*/
+            /*transform: translate(0, -7.4em);*/
+            /*for search bar, tabs, + toolbar*/
+            /*transform: translate(0, -11.4em);*/
+        }
+        #details {
+            padding: 20px;
+            font-size: 12px;
+            color: #fafafa;
+        }
+        #account {
+            background-color: #7B1FA2;
+        }
+        paper-item {
+            color: #333;
+            text-decoration: none;
+        }
+        .app {
+            width: 120px;
+            height: 120px;
+            text-align: center;
+        }
+        .home-icon {
+          width: 44px;
+          height: 44px;
+          color: #7b0c9d;
+            padding: 0;
+        }
+        paper-icon-button.huge::shadow #icon {
+        width: 44px;
+        height: 44px;
+      }
+    .iconLabel {
+            margin:0;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
     </style>
 
 </head>
@@ -230,19 +250,19 @@
             </div>
             <core-menu selectedAttribute="">
                 <paper-item>
-                    <core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
+                    <core-icon icon="dashboard"></core-icon>Dashboard</paper-item>
                 <paper-item>
-                    <core-icon icon="lock"></core-icon> Logout</paper-item>
+                    <core-icon icon="lock"></core-icon>Logout</paper-item>
                 <paper-item>
-                    <core-icon icon="event"></core-icon> Booking</paper-item>
+                    <core-icon icon="event"></core-icon>Booking</paper-item>
                 <paper-item>
-                    <core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
+                    <core-icon icon="maps:local-library"></core-icon>Borrowing</paper-item>
                 <paper-item>
-                    <core-icon icon="schedule"></core-icon> Hours</paper-item>
+                    <core-icon icon="schedule"></core-icon>Hours</paper-item>
                 <paper-item>
-                    <core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
+                    <core-icon icon="hardware:desktop-windows"></core-icon>Computers</paper-item>
                 <paper-item>
-                    <core-icon icon="maps:school"></core-icon> Courses</paper-item>
+                    <core-icon icon="maps:school"></core-icon>Courses</paper-item>
             </core-menu>
         </div>
 
@@ -270,8 +290,85 @@
                 </p>
             </paper-shadow>
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+
                 <div>
-                    Page 1
+                    <div flex class="apps" horizontal layout wrap>
+
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="event" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Booking</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="maps:local-library" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Borrowing</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="hardware:desktop-mac" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Computers</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="social:school" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Courses</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="schedule" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Hours</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="communication:forum" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Library Chat</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="perm-identity" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Masquerade</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="communication:comment" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel">Feedback</p>
+                                    </div>
+                        </core-label>
+                        <core-label>
+                            <div flex class="app">
+                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
+                                    <p class="iconLabel" for>Logout</p>
+                                    </div>
+                        </core-label>
+                        
+<!--
+                            <div flex class="app">
+                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon" id="testIcon"></paper-icon-button>
+                                <core-label for="#testIcon">    
+                                <p class="iconLabel">Logout</p>
+                                    </core-label>
+                                    </div>
+                        
+                        <core-label for>
+                            <div flex class="app">
+                                <paper-button fill="false" style="border-radius:100%">
+  <core-icon class="huge home-icon" icon="favorite"></core-icon><br>
+  <p class="iconLabel">label goes here</p>
+</paper-button>
+                            </div>
+                        </core-label>
+-->
+
+
+                    </div>
                 </div>
 
                 <div>
@@ -297,59 +394,59 @@
     </core-drawer-panel>
 
     <script>
-    function slideElements(name) {
-        document.querySelector(name).classList.toggle('slide');
-    }
+        function slideElements(name) {
+            document.querySelector(name).classList.toggle('slide');
+        }
 
-    function clickAction(e) {
-        var t = e.target;
-        if (t.localName === 'paper-icon-button') {
-            // if user clicks 'search'
-            if (t.id == "search") {
-                // slideElements('paper-tabs');
-                slideElements('#search-card');
-                slideElements('core-animated-pages');
-                // setTimeout(function() {
+        function clickAction(e) {
+            var t = e.target;
+            if (t.localName === 'paper-icon-button') {
+                // if user clicks 'search'
+                if (t.id == "search") {
+                    // slideElements('paper-tabs');
+                    slideElements('#search-card');
+                    slideElements('core-animated-pages');
+                    // setTimeout(function() {
                     // slideElements('paper-tabs');
                     // slideElements('#search-card');
                     // slideElements('core-animated-pages');
-                // }, 200);
+                    // }, 200);
 
-                // slideElements('core-toolbar');
+                    // slideElements('core-toolbar');
+                }
+                // console.log('click', t);
             }
-            // console.log('click', t);
         }
-    }
-    addEventListener('template-bound', function(e) {
-        e.target.clickAction = clickAction;
-    });
+        addEventListener('template-bound', function (e) {
+            e.target.clickAction = clickAction;
+        });
 
 
-    var tabs = document.querySelector('paper-tabs');
-    var pages = document.querySelector('core-animated-pages');
+        var tabs = document.querySelector('paper-tabs');
+        var pages = document.querySelector('core-animated-pages');
 
-    tabs.addEventListener('core-select', function() {
-        pages.selected = tabs.selected;
-    });
+        tabs.addEventListener('core-select', function () {
+            pages.selected = tabs.selected;
+        });
 
-    function showToast() {
-        document.querySelector('#main-toast').show();
-    }
+        function showToast() {
+            document.querySelector('#main-toast').show();
+        }
 
-    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
-        e.target.parentNode.removeChild(e.target);
-        document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
+        document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function (e) {
+            e.target.parentNode.removeChild(e.target);
+            document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
 
-        showToast();
+            showToast();
 
-        // wait for 10ms so the animations can kick in
-        setTimeout(function() {
-            // set style and position back to (default)
-            e.target.style.opacity = 1;
-            e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-            e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-        }, 10);
-    });
+            // wait for 10ms so the animations can kick in
+            setTimeout(function () {
+                // set style and position back to (default)
+                e.target.style.opacity = 1;
+                e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+                e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            }, 10);
+        });
     </script>
 
     <paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
