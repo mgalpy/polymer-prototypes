@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title>Polymer Ultimate Template</title>
+    <title>Chris Wright Motorhomes &amp; Solar</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="shortcut icon" href="polymer.png">
@@ -18,7 +18,7 @@
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/core-ajax/core-ajax.html">
     <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
-    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-bottom.html">
     <link rel="import" href="bower_components/core-collapse/core-collapse.html">
     <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
     <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
@@ -64,7 +64,6 @@
     <link rel="import" href="bower_components/core-icons/image-icons.html">
     <link rel="import" href="bower_components/core-icons/device-icons.html">
     <link rel="import" href="bower_components/core-icons/editor-icons.html">
-    <link rel="import" href="bower_components/core-icons/social-icons.html">
     <link rel="import" href="bower_components/core-icons/hardware-icons.html">
     <link rel="import" href="bower_components/core-icons/notification-icons.html">
     <link rel="import" href="bower_components/core-icons/communication-icons.html">
@@ -108,14 +107,12 @@
             font-size: 20px;
             font-weight: 300;
             white-space: nowrap;
-            background-color: #7B1FA2;
+            background-color: #e53935;
             color: #fff;
-            z-index: 1;
             transition: 300ms ease-in-out;
         }
         paper-tab {
             background-color: #fafafa;
-            z-index: 1;
         }
         paper-tabs {
             transition: 300ms ease-in-out;
@@ -123,19 +120,15 @@
             background-color: #fafafa;
             color: #333;
             box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
-            z-index: 1;
         }
         paper-tabs[noink][nobar] paper-tab.core-selected {
             color: #8BC34A;
-            z-index: 1;
         }
         paper-tabs::shadow #selectionBar {
             background-color: #8BC34A;
-            z-index: 1;
         }
         paper-tabs paper-tab::shadow #ink {
             color: #8BC34A;
-            z-index: 1;
         }
         [drawer] {
             background-color: #eee;
@@ -156,7 +149,7 @@
             position: fixed;
             bottom: 16px;
             right: 16px;
-            background-color: #007e9e;
+            background-color: #e53935;
         }
         #cards {
             height: 100%;
@@ -167,7 +160,8 @@
         }
         swipeable-card {
             height: auto;
-            width: 320px;
+            width: 90%;
+            /*max-width: 500px;*/
             margin: 20px auto;
             box-shadow: none;
         }
@@ -175,58 +169,89 @@
             display: inline-block;
             background: white;
             box-sizing: border-box;
-            width: 320px;
+            width: 100%;
             height: auto;
             min-height: 200px;
-            padding: 8px;
+            padding: 12px 24px;
             border-radius: 2px;
         }
-        #search-card {
-            transition: 300ms ease-in-out;
-            min-height: 32px;
-            width: 100%;
-            padding: 0px 16px;
-        }
         .slide {
-            /*for just search bar*/
             transform: translate(0, -4em);
-            /*for search bar + tabs*/
-            /*transform: translate(0, -7.4em);*/
-            /*for search bar, tabs, + toolbar*/
-            /*transform: translate(0, -11.4em);*/
         }
         #details {
             padding: 20px;
             font-size: 12px;
             color: #fafafa;
+            padding-top: 0;
+            margin-top: -10px;
+            /*background: -moz-linear-gradient(top, rgba(0,0,0,0) 70%, rgba(0,0,0,1) 100%); *//* FF3.6+ */
+            /*background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,1))); *//* Chrome,Safari4+ */
+            /*background: -webkit-linear-gradient(top, rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); *//* Chrome10+,Safari5.1+ */
+            /*background: -o-linear-gradient(top, rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); *//* Opera 11.10+ */
+            /*background: -ms-linear-gradient(top, rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%); *//* IE10+ */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.7) 20%); /* W3C */
         }
         #account {
-            background-color: #7B1FA2;
+            background-color: #333;
+            background: url("http://aquariusmotorhomes.com.au/wp-content/themes/aquarius/img/motorhomes-4.jpg");
+            background-size: cover;
+            height: 200px;
+        }
+        #account core-image {
+            padding-top: 16px;
         }
         paper-item {
             color: #333;
             text-decoration: none;
         }
-        .app {
-            width: 120px;
-            height: 120px;
-            text-align: center;
-        }
-        .home-icon {
-          width: 44px;
-          height: 44px;
-          color: #7b0c9d;
-            padding: 0;
-        }
         paper-icon-button.huge::shadow #icon {
         width: 44px;
         height: 44px;
       }
-    .iconLabel {
-            margin:0;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
+        h1 {
+            font-size: 20px;
+            color: #888;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 16px;
+            color: #888;
+            font-weight: 300;
+        }
+        h3 {
+            font-size: 13px;
+            color: #2196f3;
+            font-weight: 200;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 13px;
+            color: #888;
+            font-weight: 300;
+        }
+        ul {
+            font-size: 13px;
+            color: #888;
+            font-weight: 300;
+        }
+        core-menu core-icon {
+            margin-right: 16px;
+        }
+        .inverse {
+            color: white;
+        }
+        core-tooltip.fancy::shadow .core-tooltip {
+            opacity: 0;
+            -webkit-transition: all 300ms cubic-bezier(0, 1.92, .99, 1.07);
+            transition: all 300ms cubic-bezier(0, 1.92, .99, 1.07);
+            -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0);
+        }
+        core-tooltip.fancy:hover::shadow .core-tooltip,
+        core-tooltip.fancy:focus::shadow .core-tooltip {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
         }
     </style>
 
@@ -237,32 +262,28 @@
     <core-drawer-panel>
 
         <div drawer>
-            <div horizontal layout id="account">
-                <div id="icon">
-                    <core-icon icon="account-circle" class="active-inverse" style="height: 64px; width: 64px; color: #fafafa;"></core-icon>
+            <div vertical layout id="account">
+                <div id="icon" horizontal layout center-justified="">
+                    <core-image src="http://www.chriswrightmotorhomes.com.au/App_Themes/red/images/logo.gif"></core-image>
                 </div>
                 <div id="details" class="body1.inverse" flex>
                     <div>
-                        <div id="name" style="font-weight:600">Mr Kit Brown-Watts</div>
-                        <div id="mail">kbw@uq.edu.au</div>
+                        <div id="name" style="font-weight:600"><h1 class="inverse">Chris Write Motorhomes &amp; Solar</h1></div>
+                        <div id="mail"><h2 class="inverse">Motorhome Conversions &amp; Accessories</h2></div>
                     </div>
                 </div>
             </div>
             <core-menu selectedAttribute="">
-                <paper-item on-tap="{{togglePage}}">
-                    <core-icon icon="dashboard"></core-icon>Dashboard</paper-item>
-                <paper-item>
-                    <core-icon icon="lock"></core-icon>Logout</paper-item>
-                <paper-item>
-                    <core-icon icon="event"></core-icon>Booking</paper-item>
-                <paper-item>
-                    <core-icon icon="maps:local-library"></core-icon>Borrowing</paper-item>
-                <paper-item>
-                    <core-icon icon="schedule"></core-icon>Hours</paper-item>
-                <paper-item>
-                    <core-icon icon="hardware:desktop-windows"></core-icon>Computers</paper-item>
-                <paper-item>
-                    <core-icon icon="maps:school"></core-icon>Courses</paper-item>
+                <paper-item onclick="homePage()"><core-icon icon="home"></core-icon> Home</paper-item>
+                <paper-item id="examples" onclick="examplesPage()"><core-icon icon="av:recent-actors"></core-icon> Examples</paper-item>
+                <!--<paper-item><core-icon icon="dashboard"></core-icon> Austral Tourmaster, Denning Landseer and MAN 4x4</paper-item>-->
+                <!--<paper-item><core-icon icon="dashboard"></core-icon> Toyota Coaster, Mercedes-Benz</paper-item>-->
+                <!--<paper-item><core-icon icon="dashboard"></core-icon> Hino RJ 182 B Photos</paper-item>-->
+                <paper-item><core-icon icon="extension"></core-icon> Accessories</paper-item>
+                <paper-item><core-icon icon="loyalty"></core-icon> Testimonials</paper-item>
+                <paper-item><core-icon icon="account-child"></core-icon> About Us</paper-item>
+                <paper-item><core-icon icon="shopping-cart"></core-icon> Products and Services</paper-item>
+                <paper-item><core-icon icon="question-answer"></core-icon> Contact Us</paper-item>
             </core-menu>
         </div>
 
@@ -271,157 +292,95 @@
                 <div id="clicker" on-tap="{{clickAction}}">
                     <core-toolbar>
                         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                        <div flex>Polymer Template</div>
+                        <div flex>Home</div>
                         <paper-icon-button icon="search" id="search"></paper-icon-button>
                         <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
                     </core-toolbar>
                 </div>
             </template>
 
-            <paper-tabs selected="0">
+            <paper-tabs selected="0" style="display:none">
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
-            <paper-shadow class="card" z="1" id="search-card">
-                <p>
-                    <paper-input-decorator label="Search" id="start">
-                        <input is="core-input">
-                    </paper-input-decorator>
-                </p>
-            </paper-shadow>
-            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
 
-                <div>
-                    <div flex class="apps" horizontal layout wrap>
-
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="event" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Booking</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="maps:local-library" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Borrowing</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="hardware:desktop-mac" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Computers</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="social:school" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Courses</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="schedule" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Hours</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="communication:forum" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Library Chat</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="perm-identity" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Masquerade</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="communication:comment" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Feedback</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel" for>Logout</p>
-                                    </div>
-                        </core-label>
-                        
-<!--
-                            <div flex class="app">
-                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon" id="testIcon"></paper-icon-button>
-                                <core-label for="#testIcon">    
-                                <p class="iconLabel">Logout</p>
-                                    </core-label>
-                                    </div>
-                        
-                        <core-label for>
-                            <div flex class="app">
-                                <paper-button fill="false" style="border-radius:100%">
-  <core-icon class="huge home-icon" icon="favorite"></core-icon><br>
-  <p class="iconLabel">label goes here</p>
-</paper-button>
-                            </div>
-                        </core-label>
--->
+            <core-animated-pages selected="{{selected}}" transitions="slide-from-bottom">
 
 
-                    </div>
-                </div>
+                    <!--<div flex class="apps" horizontal layout wrap>-->
 
-                <div>
+                        <div id="cards">
+                            <swipeable-card renewable removable>
+                                <paper-shadow class="card" z="1">
+                                    <h1>Imagine this:</h1>
+                                    <p>
+                                        ... you're sitting on the banks of a quiet, meandering stream,
+                                        smoke caressing the night sky, the aroma of your camp oven dinner
+                                        tempting your taste buds, the stars seem so close you could almost
+                                        pick them like ripe apples, and the woes of the world are forgotten.
+                                    </p>
+                                    <p>
+                                        This is a dream that Chris Wright Motorhomes can help make happen.
+                                    </p>
+                                    <p>
+                                        Browse through this site to find products, photo's and contact details.
+                                        We hope we can make your dreams come true too.
+                                    </p>
+                                    <p>
+                                        If you have any questions about our bus conversions, accessories, sales
+                                        and service, or may be a pre-trip check - then give us a call.
+                                    </p>
+                                    <p>
+                                        Contact us at:
+                                        <a href="mailto:kaileachris@bigpond.com">kaileachris@bigpond.com</a> or
+                                        <a href="mailto:christhefixer@hotmail.com">christhefixer@hotmail.com</a>.
+                                    </p>
+                                    <p>
+                                        Mobile: <a href="tel:+61408772636">0408 772 636</a>
+                                    </p>
+                                    <p>
+                                        For more information on our motorhome conversions please ask for our free DVD.
+                                    </p>
+                                </paper-shadow>
+                            </swipeable-card>
+                        </div>
                     <div id="cards">
-                        <swipeable-card>
+                        <swipeable-card renewable removable>
                             <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
-
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
+                                <h1>Austral Tourmaster, Denning Landseer and M.A.N 4x4</h1>
+                                <h2>Austral Tourmaster, conversion inclusion</h2>
+                                <ul>
+                                    <li>Roof raised 200mm                    Dometic windows                    Automatic satellite TV System</li>
+                                    <li>4 x 195 watt Solar                      Ibis Air Conditioner                 Truma Ducted Air Conditioner</li>
+                                    <li>Deisel Air Heater                        Suburban Hot Water                Dometc Roof Hatch</li>
+                                    <li>Washing machine                       Clothed Drier                          Ducted vacuum system</li>
+                                    <li>Separate Shower / Toilet            New Guinea Rose Wood cabinetry throughout.</li>
+                                    <li>L.E.D lighting                            Drop down TV                         Guest Queen Bed</li>
+                                    <li>Corian Bench Tops                     Push Button Locks</li>
+                                    <li>Plus much more ................</li>
+                                </ul>
+                                <div horizontal center-justified layout>
+                                <core-image src="http://www.chriswrightmotorhomes.com.au/MyImages/_NDI2685.jpg" style="border-radius:2px; width:300px; height: 200px; background-color: lightgray;"
+                                            sizing="cover" preload fade></core-image>
+                                </div>
                             </paper-shadow>
                         </swipeable-card>
                     </div>
-                </div>
+
+                    <!--</div>-->
+
+
+
 
             </core-animated-pages>
-            <paper-fab icon="add"></paper-fab>
+            <core-tooltip label="Get in touch with us!" noarrow class="fancy" position="left" style="position: fixed;bottom:46px;right: 75px";>
+            <paper-fab icon="communication:chat"></paper-fab>
+                </core-tooltip>
         </div>
 
     </core-drawer-panel>
 
     <script>
-        function slideElements(name) {
-            document.querySelector(name).classList.toggle('slide');
-        }
-
-        function clickAction(e) {
-            var t = e.target;
-            if (t.localName === 'paper-icon-button') {
-                // if user clicks 'search'
-                if (t.id == "search") {
-                    // slideElements('paper-tabs');
-                    slideElements('#search-card');
-                    slideElements('core-animated-pages');
-                    // setTimeout(function() {
-                    // slideElements('paper-tabs');
-                    // slideElements('#search-card');
-                    // slideElements('core-animated-pages');
-                    // }, 200);
-
-                    // slideElements('core-toolbar');
-                }
-                // console.log('click', t);
-            }
-        }
-        addEventListener('template-bound', function (e) {
-            e.target.clickAction = clickAction;
-        });
-
-
         var tabs = document.querySelector('paper-tabs');
         var pages = document.querySelector('core-animated-pages');
 
@@ -429,9 +388,19 @@
             pages.selected = tabs.selected;
         });
 
+        function homePage() {
+            console.log('next page!');
+            pages.selected=0;
+        }
+        function examplesPage() {
+            console.log('next page!');
+            pages.selected=1;
+        }
+
         function showToast() {
             document.querySelector('#main-toast').show();
         }
+
 
         document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function (e) {
             e.target.parentNode.removeChild(e.target);
@@ -447,9 +416,10 @@
                 e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
             }, 10);
         });
+
     </script>
 
-    <paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
+    <paper-toast id="main-toast" role="alert" text="Done for now">
         <!-- <div>Action</div> -->
     </paper-toast>
 

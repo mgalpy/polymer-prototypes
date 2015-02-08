@@ -19,6 +19,8 @@
     <link rel="import" href="bower_components/core-ajax/core-ajax.html">
     <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
     <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-bottom.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-down.html">
     <link rel="import" href="bower_components/core-collapse/core-collapse.html">
     <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
     <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
@@ -311,9 +313,9 @@
                 <paper-item>
                     <core-icon icon="lock"></core-icon> Logout</paper-item>
                 <hr>
-                <paper-item>
+                <paper-item onclick="nextPage()">
                     <core-icon icon="event"></core-icon> Booking</paper-item>
-                <paper-item>
+                <paper-item onclick="lastPage()">
                     <core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
                 <paper-item>
                     <core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
@@ -351,7 +353,7 @@
                     </core-toolbar>
                 </div>
             </template>
-            <paper-tabs selected="0">
+            <paper-tabs selected="0" style="display:none">
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
@@ -362,7 +364,7 @@
                     </p>
                 </paper-shadow>
             </div>
-            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+            <core-animated-pages selected="{{selected}}" transitions="slide-from-bottom">
                 <div>
                     Page 1
                 </div>
@@ -444,6 +446,16 @@
     tabs.addEventListener('core-select', function() {
         pages.selected = tabs.selected;
     });
+
+    function nextPage() {
+        console.log('next page!');
+        pages.selected++;
+    }
+    function lastPage() {
+        console.log('next page!');
+        pages.selected--;
+    }
+
 
     function showToast() {
         document.querySelector('#main-toast').show();
