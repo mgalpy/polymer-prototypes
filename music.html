@@ -187,10 +187,28 @@
             .card-album-title {
                 font-size: 2em;
             }
+            paper-icon-button.huge::shadow #icon {
+                color: #333;
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1);
+                /*background-color: rgba(0,0,0,0.9);*/
+                width: 44px;
+                height: 44px;
+            }
+            paper-icon-button {
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+                border-radius: 50%;
+            }
+            paper-icon-button:hover {
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+                color: #000;
+                background-color: rgba(0,0,0,0.2);
+                border-radius: 50%;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+            }
             </style>
 
             <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
-
+                
                 <section>
 
                     <div class="chip-container" hero-p on-tap="{{transition}}">
@@ -220,7 +238,7 @@
                         <div class="card-right" flex>
                             <div layout horizontal center>
                                 <div>
-                                    <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+                                    <div class="card-icon" style="background:{{selectedAlbum.color}};"><paper-icon-button on-tap={{playAudio}} class="huge" icon="av:play-arrow" title="with :hover style"></paper-icon-button></div>
                                 </div>
                                 <div flex>
                                     <div class="card-album-title">{{selectedAlbum.album}}</div>
@@ -244,35 +262,46 @@
                 artist: 'Tycho',
                 album: 'Fragments',
                 color: '#f4db33',
+                play: 'this',
                 image: 'img/flint1.jpg'
 //                image: 'https://clairemusicthoughts.files.wordpress.com/2011/05/imageh0-aboriginal-music-nt-20060914_125633212550.jpg'
             }, {
                 artist: 'Tycho',
                 album: 'Past Prologue',
                 color: '#972ff8',
+                play: 'this',
                 image: 'img/flint2.jpg'
 //                image: 'http://www.travelnt.com/~/media/images/consumer/darwin%20and%20surrounds/traditional_indigenous_dance_dar_sur_u_1170866_540x304.ashx'
             }, {
                 artist: 'Tycho',
                 album: 'Spectre',
                 color: '#7dd6fe',
+                play: 'this',
                 image: 'http://www.blackarmband.com.au/wp-content/uploads/2012/06/Archie-Roach.jpg'
             }, {
                 artist: 'Tycho',
                 album: 'Awake',
                 color: '#dc3c84',
+                play: 'this',
                 image: 'http://i.ytimg.com/vi/zSyp65n9AZk/hqdefault.jpg'
             }],
 
             selectedAlbum: null,
 
             transition: function(e) {
+                console.log(e.target.className);
                 if (this.page === 0 && e.target.templateInstance.model.item) {
                     this.selectedAlbum = e.target.templateInstance.model.item;
                     this.page = 1;
+                } else if (e.target.className == 'huge') {
+                    console.log("playing audio!");
                 } else {
                     this.page = 0;
                 }
+            },
+            playAudio: function(e) {
+//                e.preventDefault();
+                console.log("playing audio!");
             }
         });
         </script>
@@ -285,7 +314,6 @@
             <!--<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_Giants_Cap_Insignia.svg/200px-San_Francisco_Giants_Cap_Insignia.svg.png" />-->
         </google-map-marker>
         </google-map>
-        <google-map-directions startAddress="San Francisco" endAddress="Mountain View"></google-map-directions>
     </div>
 
     <music-demo></music-demo>
