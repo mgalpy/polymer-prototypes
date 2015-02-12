@@ -198,8 +198,8 @@
                         <template repeat="{{items as item}}">
 
                             <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
-                                <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
-                                <!--<div class="chip-top" style="background:url('{{selectedAlbum.image}}');background-size: contain;background-repeat: no-repeat;" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}">-->
+                                <!--<div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>-->
+                                <div class="chip-top" style="background:url('{{item.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
                                 <!--<core-image src="{{selectedAlbum.image}}" style="width:270px; height:200px;" sizing="cover"></core-image>-->
                                 <div class="chip-bottom">
                                     <div class="chip-album-title">{{item.album}}</div>
@@ -215,8 +215,8 @@
                 <section id="details">
 
                     <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-                        <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
-                        <!--<div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}">-->
+                        <!--<div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>-->
+                        <div class="card-left" style="background:url('{{selectedAlbum.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
                         <div class="card-right" flex>
                             <div layout horizontal center>
                                 <div>
@@ -244,12 +244,14 @@
                 artist: 'Tycho',
                 album: 'Fragments',
                 color: '#f4db33',
-                image: 'https://clairemusicthoughts.files.wordpress.com/2011/05/imageh0-aboriginal-music-nt-20060914_125633212550.jpg'
+                image: 'img/flint1.jpg'
+//                image: 'https://clairemusicthoughts.files.wordpress.com/2011/05/imageh0-aboriginal-music-nt-20060914_125633212550.jpg'
             }, {
                 artist: 'Tycho',
                 album: 'Past Prologue',
                 color: '#972ff8',
-                image: 'http://www.travelnt.com/~/media/images/consumer/darwin%20and%20surrounds/traditional_indigenous_dance_dar_sur_u_1170866_540x304.ashx'
+                image: 'img/flint2.jpg'
+//                image: 'http://www.travelnt.com/~/media/images/consumer/darwin%20and%20surrounds/traditional_indigenous_dance_dar_sur_u_1170866_540x304.ashx'
             }, {
                 artist: 'Tycho',
                 album: 'Spectre',
