@@ -107,6 +107,8 @@
     <link rel="import" href="bower_components/font-roboto/roboto.html">
     <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
     <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+    <link rel="import" href="bower_components/google-map/google-map.html">
+    <link rel="import" href="bower_components/google-map/google-map-directions.html">
 
     <style>
     body {
@@ -197,6 +199,8 @@
 
                             <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
                                 <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+                                <!--<div class="chip-top" style="background:url('{{selectedAlbum.image}}');background-size: contain;background-repeat: no-repeat;" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}">-->
+                                <!--<core-image src="{{selectedAlbum.image}}" style="width:270px; height:200px;" sizing="cover"></core-image>-->
                                 <div class="chip-bottom">
                                     <div class="chip-album-title">{{item.album}}</div>
                                     <div class="chip-artist">{{item.artist}}</div>
@@ -212,6 +216,7 @@
 
                     <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
                         <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+                        <!--<div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}">-->
                         <div class="card-right" flex>
                             <div layout horizontal center>
                                 <div>
@@ -238,19 +243,23 @@
             items: [{
                 artist: 'Tycho',
                 album: 'Fragments',
-                color: '#f4db33'
+                color: '#f4db33',
+                image: 'https://clairemusicthoughts.files.wordpress.com/2011/05/imageh0-aboriginal-music-nt-20060914_125633212550.jpg'
             }, {
                 artist: 'Tycho',
                 album: 'Past Prologue',
-                color: '#972ff8'
+                color: '#972ff8',
+                image: 'http://www.travelnt.com/~/media/images/consumer/darwin%20and%20surrounds/traditional_indigenous_dance_dar_sur_u_1170866_540x304.ashx'
             }, {
                 artist: 'Tycho',
                 album: 'Spectre',
-                color: '#7dd6fe'
+                color: '#7dd6fe',
+                image: 'http://www.blackarmband.com.au/wp-content/uploads/2012/06/Archie-Roach.jpg'
             }, {
                 artist: 'Tycho',
                 album: 'Awake',
-                color: '#dc3c84'
+                color: '#dc3c84',
+                image: 'http://i.ytimg.com/vi/zSyp65n9AZk/hqdefault.jpg'
             }],
 
             selectedAlbum: null,
@@ -267,7 +276,15 @@
         </script>
     </polymer-element>
 
-    <div class="green"></div>
+    <div class="green">
+        <google-map latitude="37.779" longitude="-122.3892" minZoom="9" maxZoom="11" fit>
+        <google-map-marker latitude="37.779" longitude="-122.3892"
+                           title="Flint Collection Marker 1" draggable="true">Flint Collection Marker 1
+            <!--<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_Giants_Cap_Insignia.svg/200px-San_Francisco_Giants_Cap_Insignia.svg.png" />-->
+        </google-map-marker>
+        </google-map>
+        <google-map-directions startAddress="San Francisco" endAddress="Mountain View"></google-map-directions>
+    </div>
 
     <music-demo></music-demo>
 </body>
