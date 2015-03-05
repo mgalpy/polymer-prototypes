@@ -122,6 +122,10 @@
         background-color: #fafafa;
         /*z-index: 1;*/
     }
+    paper-tab.core-selected {
+        color: #8BC34A;
+        font-weight: 800;
+    }
     paper-tabs {
         transition: 300ms ease-in-out;
         height: 55px;
@@ -143,12 +147,12 @@
         z-index: 1;
     }
     [drawer] {
-        background-color: #eee;
+        background-color: #fafafa;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
         /*box-shadow: 3px 0px 40px rgba(0, 0, 0, 0.5);*/
     }
     [main] {
-        background-color: #fafafa;
+        background-color: #eee;
     }
     core-animated-pages {
         height: 100%;
@@ -353,9 +357,16 @@
                     </core-toolbar>
                 </div>
             </template>
-            <paper-tabs selected="0" style="display:none">
-                <paper-tab>Page 1</paper-tab>
-                <paper-tab>Page 2</paper-tab>
+            <paper-tabs selected="0" scrollable>
+                <paper-tab>Summon</paper-tab>
+                <paper-tab>Books</paper-tab>
+                <paper-tab>Journal Articles</paper-tab>
+                <paper-tab>Journals</paper-tab>
+                <paper-tab>Databases</paper-tab>
+                <paper-tab>Multimedia</paper-tab>
+                <paper-tab>Past Exams</paper-tab>
+                <paper-tab>Course Reading Lists</paper-tab>
+
             </paper-tabs>
             <div horizontal center-justified layout>
                 <paper-shadow class="card" z="2" id="suggest-card">
@@ -364,7 +375,7 @@
                     </p>
                 </paper-shadow>
             </div>
-            <core-animated-pages selected="{{selected}}" transitions="slide-from-bottom">
+            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
                 <div>
                     Page 1
                 </div>

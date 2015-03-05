@@ -108,7 +108,7 @@
             font-size: 20px;
             font-weight: 300;
             white-space: nowrap;
-            background-color: #7B1FA2;
+            background-color: #49075E;
             color: #fff;
             z-index: 1;
             transition: 300ms ease-in-out;
@@ -138,11 +138,11 @@
             z-index: 1;
         }
         [drawer] {
-            background-color: #eee;
+            background-color: #fafafa;
             border-right: 1px solid #ccc;
         }
         [main] {
-            background-color: #fafafa;
+            background-color: #eee;
         }
         core-animated-pages {
             height: 100%;
@@ -184,8 +184,19 @@
         #search-card {
             transition: 300ms ease-in-out;
             min-height: 32px;
-            width: 100%;
+            width: 96%;
             padding: 0px 16px;
+            margin: 16px;
+        }
+        paper-input-decorator /deep/ .unfocused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
+        }
+        paper-input-decorator /deep/ .focused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
         }
         .slide {
             /*for just search bar*/
@@ -196,12 +207,12 @@
             /*transform: translate(0, -11.4em);*/
         }
         #details {
-            padding: 20px;
+            padding: 18px;
             font-size: 12px;
             color: #fafafa;
         }
         #account {
-            background-color: #7B1FA2;
+            background-color: #49075E;
         }
         paper-item {
             color: #333;
@@ -278,13 +289,13 @@
                 </div>
             </template>
 
-            <paper-tabs selected="0">
+            <paper-tabs selected="0" style="display:none">
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
             <paper-shadow class="card" z="1" id="search-card">
                 <p>
-                    <paper-input-decorator label="Search" id="start">
+                    <paper-input-decorator label="Search UQ Library" id="start">
                         <input is="core-input">
                     </paper-input-decorator>
                 </p>
@@ -348,6 +359,8 @@
                                     <p class="iconLabel" for>Logout</p>
                                     </div>
                         </core-label>
+
+
                         
 <!--
                             <div flex class="app">
@@ -369,6 +382,16 @@
 
 
                     </div>
+                    <swipeable-card>
+                        <paper-shadow class="card" z="1">
+                            <p>You recently searched for "electrocytosis"</p>
+                            <p>Would you like to receive search alerts for this keyword?</p>
+                            <p>130 other UQ users currently receive search alerts for this keyword</p>
+                            <br>
+                            <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>
+                            <paper-button affirmative raised style="float:right">No</paper-button>
+                        </paper-shadow>
+                    </swipeable-card>
                 </div>
 
                 <div>
