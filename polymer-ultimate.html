@@ -175,11 +175,14 @@
             display: inline-block;
             background: white;
             box-sizing: border-box;
-            width: 320px;
+            width: 420px;
             height: auto;
             min-height: 200px;
-            padding: 8px;
+            padding: 8px 24px 16px 24px;
             border-radius: 2px;
+        }
+        .alert {
+            width: 90%;
         }
         #search-card {
             transition: 300ms ease-in-out;
@@ -382,14 +385,27 @@
 
 
                     </div>
+                    <!--<swipeable-card>-->
+                        <!--<paper-shadow class="card" z="1">-->
+                            <!--<h2><core-icon icon="markunread-mailbox"></core-icon> Search Alerts</h2>-->
+                            <!--<p>You recently searched for "electrocytosis"</p>-->
+                            <!--<p>Would you like to receive search alerts for this keyword?</p>-->
+                            <!--<p>130 other UQ users currently receive search alerts for this keyword.</p>-->
+                            <!--<br>-->
+                            <!--<paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>-->
+                            <!--<paper-button affirmative style="float:right">No</paper-button>-->
+                        <!--</paper-shadow>-->
+                    <!--</swipeable-card>-->
+
                     <swipeable-card>
                         <paper-shadow class="card" z="1">
+                            <h2>New content available</h2>
                             <p>You recently searched for "electrocytosis"</p>
                             <p>Would you like to receive search alerts for this keyword?</p>
-                            <p>130 other UQ users currently receive search alerts for this keyword</p>
+                            <p>130 other UQ users currently receive search alerts for this keyword.</p>
                             <br>
                             <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>
-                            <paper-button affirmative raised style="float:right">No</paper-button>
+                            <paper-button affirmative style="float:right">No</paper-button>
                         </paper-shadow>
                     </swipeable-card>
                 </div>
