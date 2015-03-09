@@ -102,314 +102,380 @@
     <link rel="import" href="bower_components/icon-transition/icon-transition.html">
 
     <style>
-    * {
-        font-family: 'Roboto', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        /*font-size: 14px;*/
-    }
-    core-toolbar {
-        font-size: 20px;
-        font-weight: 400;
-        white-space: nowrap;
-        background-color: #49075E;
-        color: #fff;
-        z-index: 1;
-        /*transition: 300ms ease-in-out;*/
-        
-        transition: background .15s;
-    }
-    paper-tab {
-        background-color: #fafafa;
-        /*z-index: 1;*/
-    }
-    paper-tab.core-selected {
-        color: #8BC34A;
-        font-weight: 800;
-    }
-    paper-tabs {
-        transition: 300ms ease-in-out;
-        height: 55px;
-        background-color: #fafafa;
-        color: #333;
-        box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    paper-tabs[noink][nobar] paper-tab.core-selected {
-        color: #8BC34A;
-        z-index: 1;
-    }
-    paper-tabs::shadow #selectionBar {
-        background-color: #8BC34A;
-        z-index: 1;
-    }
-    paper-tabs paper-tab::shadow #ink {
-        color: #8BC34A;
-        z-index: 1;
-    }
-    [drawer] {
-        background-color: #fafafa;
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-        /*box-shadow: 3px 0px 40px rgba(0, 0, 0, 0.5);*/
-    }
-    [main] {
-        background-color: #eee;
-    }
-    core-animated-pages {
-        height: 100%;
-        transition: 300ms ease-in-out;
-    }
-    core-icon {
-        padding-right: 20px;
-    }
-    paper-input-decorator {
-        background-image: url('img/ic_search_white_24dp.png');
-        background-repeat: no-repeat;
-        background-position: 16px 8px;
-        background-size: 24px;
-        margin: 0;
-        padding: 3px 0;
-        font-size: 16px;
-        padding-left: 64px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 2px;
-        color: #fafafa;
-    }
-    paper-input-decorator:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-    paper-input-decorator /deep/::-webkit-input-placeholder {
-        /* platform specific rules for placeholder text */
-        
-        color: #fafafa;
-        /*font-weight: 300;*/
-    }
-    paper-input-decorator /deep/ .unfocused-underline {
-        /* line color when the input is unfocused */
-        
-        background-color: transparent;
-    }
-    paper-input-decorator /deep/ .focused-underline {
-        /* line color when the input is unfocused */
-        
-        background-color: transparent;
-    }
-    .darkText /deep/::-webkit-input-placeholder {
-        color: #333;
-    }
-    paper-fab {
-        position: fixed;
-        bottom: 16px;
-        right: 16px;
-        background-color: #007e9e;
-    }
-    #cards {
-        height: 100%;
-        margin: 0 auto;
-        overflow: auto;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-    }
-    swipeable-card {
-        height: auto;
-        width: 320px;
-        margin: 20px auto;
-        box-shadow: none;
-    }
-    .card {
-        display: inline-block;
-        background: white;
-        box-sizing: border-box;
-        width: 320px;
-        height: auto;
-        min-height: 200px;
-        padding: 8px;
-        border-radius: 2px;
-    }
-    #search-card {
-        transition: 300ms ease-in-out;
-        min-height: 32px;
-        width: 100%;
-        padding: 0px 16px;
-    }
-    .slide {
-        /*for just search bar*/
-        
-        transform: translate(0, 27em);
-        /*for search bar + tabs*/
-        /*transform: translate(0, -7.4em);*/
-        /*for search bar, tabs, + toolbar*/
-        /*transform: translate(0, -11.4em);*/
-    }
-    .turnWhite {
-        background: #f6f6f6;
-        color: #333;
-    }
-    .turnWhite2 {
-        background: #fff;
-        color: #333;
-        background-image: url('img/ic_search_black_24dp.png');
-        background-repeat: no-repeat;
-        background-position: 16px 8px;
-        background-size: 24px;
-    }
-    #suggest-card {
-        transition: 300ms ease-in-out;
-        width: 50%;
-        top: -300px;
-        left: 50%;
-        margin-left: -200px;
-        position: absolute;
-        z-index: 5;
-    }
-    #details {
-        padding: 18px;
-        font-size: 12px;
-        color: #fafafa;
-    }
-    #account {
-        background-color: #49075E;
-    }
-    paper-item {
-        color: #333;
-        text-decoration: none;
-    }
-    .menu {
-        margin: 8px;
-    }
-    #feedback {
-        color: #333;
-        padding: 0;
-    }
-    #feedback /deep/ .unfocused-underline {
-        color: #333;
-        background-color: #333;
-    }
-    #feedback /deep/ .focused-underline {
-        color: #333;
-        background-color: #333;
-    }
-    #feedback /deep/::-webkit-input-placeholder {
-        color: #777;
-    }
+        * {
+            font-family: 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            /*font-size: 14px;*/
+        }
+        core-toolbar {
+            font-size: 20px;
+            font-weight: 400;
+            white-space: nowrap;
+            background-color: #49075E;
+            color: #fff;
+            z-index: 1;
+            /*transition: 300ms ease-in-out;*/
+
+            transition: background .15s;
+        }
+        paper-tab {
+            background-color: #fafafa;
+            /*z-index: 1;*/
+            cursor: pointer;
+        }
+        paper-tab:hover {
+            background-color: #eee;
+            /*color: #8BC34A;*/
+        }
+        paper-tab.core-selected {
+            color: #8BC34A;
+            font-weight: 800;
+        }
+        paper-tabs {
+            transition: 300ms ease-in-out;
+            height: 55px;
+            background-color: #fafafa;
+            color: #333;
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        paper-tabs[noink][nobar] paper-tab.core-selected {
+            color: #8BC34A;
+            z-index: 1;
+        }
+        paper-tabs::shadow #selectionBar {
+            background-color: #8BC34A;
+            z-index: 1;
+        }
+        paper-tabs paper-tab::shadow #ink {
+            color: #8BC34A;
+            z-index: 1;
+        }
+        [drawer] {
+            background-color: #fafafa;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            /*box-shadow: 3px 0px 40px rgba(0, 0, 0, 0.5);*/
+        }
+        [main] {
+            background-color: #eee;
+        }
+        core-animated-pages {
+            height: 100%;
+            transition: 300ms ease-in-out;
+        }
+        core-icon {
+            padding-right: 20px;
+        }
+        paper-input-decorator {
+            background-image: url('img/ic_search_white_24dp.png');
+            background-repeat: no-repeat;
+            background-position: 16px 8px;
+            background-size: 24px;
+            margin: 0;
+            padding: 3px 0;
+            font-size: 16px;
+            padding-left: 64px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            color: #fafafa;
+        }
+        paper-input-decorator:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        paper-input-decorator /deep/::-webkit-input-placeholder {
+            /* platform specific rules for placeholder text */
+
+            color: #fafafa;
+            /*font-weight: 300;*/
+        }
+        paper-input-decorator /deep/ .unfocused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
+        }
+        paper-input-decorator /deep/ .focused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
+        }
+        .darkText /deep/::-webkit-input-placeholder {
+            color: #333;
+        }
+        paper-fab {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            background-color: #007e9e;
+        }
+        #cards {
+            height: auto;
+            margin: 0 auto;
+            overflow: auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+        swipeable-card {
+            height: auto;
+            width: 90%;
+            margin: 20px auto;
+            box-shadow: none;
+        }
+        .card {
+            display: inline-block;
+            background: white;
+            box-sizing: border-box;
+            width: 95%;
+            max-width: 800px;
+            height: auto;
+            min-height: 200px;
+            padding: 16px 20px;
+            border-radius: 2px;
+            margin: 20px auto;
+        }
+        #search-card {
+            transition: 300ms ease-in-out;
+            min-height: 32px;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .slide {
+            /*for just search bar*/
+
+            transform: translate(0, 27em);
+            /*for search bar + tabs*/
+            /*transform: translate(0, -7.4em);*/
+            /*for search bar, tabs, + toolbar*/
+            /*transform: translate(0, -11.4em);*/
+        }
+        .turnWhite {
+            background: #f6f6f6;
+            color: #333;
+        }
+        .turnWhite2 {
+            background: #fff;
+            color: #333;
+            background-image: url('img/ic_search_black_24dp.png');
+            background-repeat: no-repeat;
+            background-position: 16px 8px;
+            background-size: 24px;
+        }
+        #suggest-card {
+            transition: 300ms ease-in-out;
+            width: 50%;
+            top: -300px;
+            left: 50%;
+            margin-left: -200px;
+            position: absolute;
+            z-index: 5;
+        }
+        #details {
+            padding: 18px;
+            font-size: 12px;
+            color: #fafafa;
+        }
+        #account {
+            background-color: #49075E;
+        }
+        paper-item {
+            color: #333;
+            text-decoration: none;
+        }
+        paper-item:hover {
+            background-color: #eee;
+            text-decoration: none;
+        }
+        .menu {
+            margin: 8px;
+        }
+        #feedback {
+            color: #333;
+            padding: 0;
+        }
+        #feedback /deep/ .unfocused-underline {
+            color: #333;
+            background-color: #333;
+        }
+        #feedback /deep/ .focused-underline {
+            color: #333;
+            background-color: #333;
+        }
+        #feedback /deep/::-webkit-input-placeholder {
+            color: #777;
+        }
+        p {
+            margin: 2px 0;
+        }
+        a {
+            /*color: #007e9e;*/
+        }
+        .title a {
+            text-decoration: none;
+        }
+        .title a:hover {
+            text-decoration: underline;
+        }
+        .authors a {
+            color: #38852e;
+        }
+        .descrip {
+
+        }
+        .cited a {
+            margin-right: 8px;
+            text-decoration: none;
+        }
+        .cited a:hover {
+            text-decoration: underline;
+        }
+        .type {
+            color: #666;
+        }
+        hr {
+            margin: 16px -20px;
+        }
     </style>
 
 </head>
 
 <body fullbleed unresolved>
 
-    <core-drawer-panel>
+<core-drawer-panel>
 
-        <div drawer>
-            <div horizontal layout id="account">
-                <div id="icon">
-                    <core-icon icon="account-circle" class="active-inverse" style="height: 64px; width: 64px; color: #fafafa;"></core-icon>
-                </div>
-                <div id="details" class="body1.inverse" flex>
-                    <div>
-                        <div id="name" style="font-weight:600">Mr Kit Brown-Watts</div>
-                        <div id="mail">kbw@uq.edu.au</div>
-                    </div>
+    <div drawer>
+        <div horizontal layout id="account">
+            <div id="icon">
+                <core-icon icon="account-circle" class="active-inverse" style="height: 64px; width: 64px; color: #fafafa;"></core-icon>
+            </div>
+            <div id="details" class="body1.inverse" flex>
+                <div>
+                    <div id="name" style="font-weight:600">Mr Kit Brown-Watts</div>
+                    <div id="mail">kbw@uq.edu.au</div>
                 </div>
             </div>
-            <core-menu selectedAttribute="">
-                <paper-item>
-                    <core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
-                <paper-item>
-                    <core-icon icon="lock"></core-icon> Logout</paper-item>
-                <hr>
-                <paper-item onclick="nextPage()">
-                    <core-icon icon="event"></core-icon> Booking</paper-item>
-                <paper-item onclick="lastPage()">
-                    <core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
-                <paper-item>
-                    <core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
-                <paper-item>
-                    <core-icon icon="maps:school"></core-icon> Courses</paper-item>
-                <paper-item>
-                    <core-icon icon="schedule"></core-icon> Hours</paper-item>
-
-
-            </core-menu>
         </div>
+        <core-menu selectedAttribute="">
+            <paper-item>
+                <core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
+            <paper-item>
+                <core-icon icon="lock"></core-icon> Logout</paper-item>
+            <hr>
+            <paper-item onclick="nextPage()">
+                <core-icon icon="event"></core-icon> Booking</paper-item>
+            <paper-item onclick="lastPage()">
+                <core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
+            <paper-item>
+                <core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
+            <paper-item>
+                <core-icon icon="maps:school"></core-icon> Courses</paper-item>
+            <paper-item>
+                <core-icon icon="schedule"></core-icon> Hours</paper-item>
 
-        <div main>
-            <template is="auto-binding">
-                <div id="clicker" on-tap="{{clickAction}}">
-                    <core-toolbar>
-                        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                        <div>UQ Library</div>
-                        <div flex>
-                            <paper-input-decorator label="Search" id="search">
-                                <input is="core-input">
-                            </paper-input-decorator>
-                        </div>
 
-                        <paper-menu-button>
-                            <paper-icon-button icon="more-vert" noink></paper-icon-button>
-                            <paper-dropdown halign="right" class="dropdown">
-                                <core-menu class="menu">
-                                    <paper-item>Help</paper-item>
-                                    <paper-item>Settings</paper-item>
-                                    <paper-item>Feedback</paper-item>
-                                </core-menu>
-                            </paper-dropdown>
-                        </paper-menu-button>
-                    </core-toolbar>
-                </div>
-            </template>
-            <paper-tabs selected="0" scrollable>
-                <paper-tab>Summon</paper-tab>
-                <paper-tab>Books</paper-tab>
-                <paper-tab>Journal Articles</paper-tab>
-                <paper-tab>Journals</paper-tab>
-                <paper-tab>Databases</paper-tab>
-                <paper-tab>Multimedia</paper-tab>
-                <paper-tab>Past Exams</paper-tab>
-                <paper-tab>Course Reading Lists</paper-tab>
+        </core-menu>
+    </div>
 
-            </paper-tabs>
-            <div horizontal center-justified layout>
-                <paper-shadow class="card" z="2" id="suggest-card">
-                    <p>
-                        {{Search Suggestions}}
-                    </p>
-                </paper-shadow>
-            </div>
-            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
-                <div>
-                    Page 1
-                </div>
-
-                <div>
-                    <div id="cards">
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>Do you have feedback for us?</p>
-                                <paper-input-decorator floatinglabel label="Type your feedback here" id="feedback">
-                                    <input is="core-input">
-                                </paper-input-decorator>
-                                <br>
-                                <br>
-                                <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Send feedback</paper-button>
-                                <paper-button affirmative raised style="float:right">Cancel</paper-button>
-                            </paper-shadow>
-                        </swipeable-card>
-
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>{{Content}}</p>
-                            </paper-shadow>
-                        </swipeable-card>
+    <div main>
+        <template is="auto-binding">
+            <div id="clicker" on-tap="{{clickAction}}">
+                <core-toolbar>
+                    <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+                    <div>UQ Library</div>
+                    <div flex>
+                        <paper-input-decorator label="Search" id="search">
+                            <input is="core-input">
+                        </paper-input-decorator>
                     </div>
-                </div>
 
-            </core-animated-pages>
-            <paper-fab icon="add"></paper-fab>
+                    <paper-menu-button>
+                        <paper-icon-button icon="more-vert" noink></paper-icon-button>
+                        <paper-dropdown halign="right" class="dropdown">
+                            <core-menu class="menu">
+                                <paper-item>Help</paper-item>
+                                <paper-item>Settings</paper-item>
+                                <paper-item>Feedback</paper-item>
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-menu-button>
+                </core-toolbar>
+            </div>
+        </template>
+        <paper-tabs selected="0" scrollable>
+            <paper-tab>Summon</paper-tab>
+            <paper-tab>Books</paper-tab>
+            <paper-tab>Journal Articles</paper-tab>
+            <paper-tab>Journals</paper-tab>
+            <paper-tab>Databases</paper-tab>
+            <paper-tab>Multimedia</paper-tab>
+            <paper-tab>Past Exams</paper-tab>
+            <paper-tab>Course Reading Lists</paper-tab>
+
+        </paper-tabs>
+        <div horizontal center-justified layout>
+            <paper-shadow class="card" z="2" id="suggest-card">
+                <p>
+                    Search suggestions
+                </p>
+                <p>Recently searched</p>
+            </paper-shadow>
         </div>
-    </core-drawer-panel>
+        <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+            <div>
+                <div id="cards" vertical center-justified layout>
+
+                    <paper-shadow class="card" z="1">
+                        <p class="title"><a href="#" class="title">User experience - a research agenda</a></p>
+                        <p class="authors"><a href="#" class="authors">M Hassenzahl, N Tractinsky - Behaviour & information technology, 2006 - Taylor & Francis</a></p>
+                        <p class="descrip">Over the last decade,'user experience'(UX) became a buzzword in the field of human-
+                            computer interaction (HCI) and interaction design. As technology matured, interactive
+                            products became not only more useful and usable, but also fashionable, fascinating things ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Understanding, scoping and defining user experience: a survey approach</a></p>
+                        <p class="authors"><a href="#" class="authors">ELC Law, V Roto, M Hassenzahl - Proceedings of the..., 2009 - dl.acm.org</a></p>
+                        <p class="descrip">Abstract Despite the growing interest in user experience (UX), it has been hard to gain a
+                            common agreement on the nature and scope of UX. In this paper, we report a survey that
+                            gathered the views on UX of 275 researchers and practitioners from academia and ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+                    </paper-shadow>
+
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Books</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Books</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+        </core-animated-pages>
+        <paper-fab icon="add"></paper-fab>
+    </div>
+</core-drawer-panel>
 
 
-    <script>
+<script>
     function sendFeedback() {
         // see https://medium.com/@mariusc23/send-an-email-using-only-javascript-b53319616782
         console.log("Feedback sent!");
@@ -486,11 +552,11 @@
             e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
         }, 10);
     });
-    </script>
+</script>
 
-    <paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
-        <!-- <div>Action</div> -->
-    </paper-toast>
+<paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
+    <!-- <div>Action</div> -->
+</paper-toast>
 
 </body>
 
