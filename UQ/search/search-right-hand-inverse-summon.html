@@ -37,14 +37,20 @@
                                <link rel="shortcut icon" href="../assets/ico/favicon.ico">
 
       <style>
-          /*#searchButton {*/
-              /*background-color: #8CB800;*/
-              /*border: 1px solid #8CB800;;*/
-          /*}*/
-          /*#searchButton:hover {*/
-              /*background-color: #38852e;*/
-              /*border: 1px solid #8CB800;;*/
-          /*}*/
+          #searchButton {
+              background-color: #5fa90a;
+              border: 1px solid #589c0a;
+              border-right: 1px solid rgba(0, 0, 0, 0.1);
+          }
+          #searchButton:hover {
+              background-color: #589c0a;
+          }
+          #dropdownButton {
+              background-color: #5fa90a;
+          }
+          #dropdownButton:hover {
+              background-color: #589c0a;
+          }
           a {
               color: #007e9e;
           }
@@ -64,8 +70,11 @@
         <div class="input-group">
 
           <input type="text" class="form-control" placeholder="Find books, articles, databases, conferences and more...">
+            <span class="input-group-btn"><button class="btn btn-success" id="searchButton" type="button" style="border-radius: 0;">Search</button>
+            <!--<button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>-->
+          </span>
             <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border-radius: 0"><i class="fa fa-globe"></i> Search <span class="pictogram" style="color: #333;font-size: 26px">&#59215;</span></button>
+                <button type="button" id="dropdownButton" class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="border: 1px solid #5fa90a"><span class="caret" style="color: #fff;font-size: 26px"></span></button>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#"><span class="pictogram">&#128213;</span> Books</a></li>
                     <li><a href="#"><span class="pictogram">&#127891;</span> Journal Articles</a></li>
@@ -77,10 +86,8 @@
                     <li><a href="#"><span class="pictogram">&#57349;</span> Course Reading Lists</a></li>
                 </ul>
             </div><!-- /btn-group -->
-            <span class="input-group-btn">
-            <button class="btn btn-success" id="searchButton" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                <!--<button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>-->
-          </span>
+            <!--<span class="input-group-btn"><button class="btn btn-success" id="searchButton" type="button"><span class="pictogram" style="color: #fff;font-size: 26px">&#59215;</span></button>-->
+
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->      
     </div><!-- /.row --><br>
