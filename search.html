@@ -241,7 +241,7 @@
         .slide {
             /*for just search bar*/
 
-            transform: translate(0, 27em);
+            transform: translate(0, 26em);
             /*for search bar + tabs*/
             /*transform: translate(0, -7.4em);*/
             /*for search bar, tabs, + toolbar*/
@@ -261,11 +261,9 @@
         }
         #suggest-card {
             transition: 300ms ease-in-out;
-            width: 50%;
-            top: -300px;
-            left: 50%;
-            margin-left: -200px;
-            position: absolute;
+            width: 100%;
+            top: -500px;
+            /*position: absolute;*/
             z-index: 5;
         }
         #details {
@@ -333,6 +331,9 @@
         hr {
             margin: 16px -20px;
         }
+        .menuLine {
+            margin: 12px 0;
+        }
     </style>
 
 </head>
@@ -358,7 +359,7 @@
                 <core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
             <paper-item>
                 <core-icon icon="lock"></core-icon> Logout</paper-item>
-            <hr>
+            <hr class="menuLine">
             <paper-item onclick="nextPage()">
                 <core-icon icon="event"></core-icon> Booking</paper-item>
             <paper-item onclick="lastPage()">
@@ -410,7 +411,7 @@
             <paper-tab>Course Reading Lists</paper-tab>
 
         </paper-tabs>
-        <div horizontal center-justified layout>
+        <div horizontal center-justified layout style="height:0">
             <paper-shadow class="card" z="2" id="suggest-card">
                 <p>
                     Search suggestions
@@ -455,7 +456,109 @@
             <div>
                 <div id="cards" vertical center-justified layout>
                     <paper-shadow class="card" z="1">
-                        <p class="type">Books</p>
+                        <p class="type">Books - Chapters, eBooks</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Journal Articles</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Journals</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Databases</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Multimedia - Images, Music, Video</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Past Exam Papers</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Course Reading Lists</p>
                         <hr>
                         <p class="title"><a href="#" class="title">[BOOK] Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
                         <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
