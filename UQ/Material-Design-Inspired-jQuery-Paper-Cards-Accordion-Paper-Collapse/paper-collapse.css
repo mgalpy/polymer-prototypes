@@ -44,6 +44,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.collapse-card .title .subs {
+    display: block;
+    margin-left: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 400 !important;
+}
 .collapse-card .title strong::after {
   color: #404040;
   font-family: 'FontAwesome';
