@@ -277,6 +277,14 @@
             background-color: #eee;
             text-decoration: none;
         }
+        paper-progress {
+            height: 13px;
+            width: 99%;
+            padding: 4px;
+        }
+        paper-progress::shadow #activeProgress {
+            background-color: #38852e;
+        }
         .menu {
             margin: 8px;
         }
@@ -547,12 +555,12 @@
                             </div>
                         </paper-shadow>
 
-                    <!--<paper-shadow class="card" z="1">-->
-                        <!--<p class="type">My Researcher Profile</p>-->
-                        <!--<hr>-->
-                        <!--<paper-progress></paper-progress>-->
-                        <!--<br>-->
-                    <!--</paper-shadow>-->
+                    <paper-shadow class="card" z="1">
+                        <p class="type">My Researcher Profile</p>
+                        <hr>
+                        <paper-progress value="90%"></paper-progress>
+                        <br>
+                    </paper-shadow>
 
                     <paper-shadow class="card" z="1">
                         <p class="type">Connect your research IDs for more metrics</p>
