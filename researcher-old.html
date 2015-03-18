@@ -244,6 +244,32 @@
             color: #666;
             font-size: 14px;
         }
+    .mine {
+        transition: 100ms ease-in-out;
+        background-color: #c8e6c9;
+    }
+        .mine:hover {
+            transition: 100ms ease-in-out;
+            background-color: #a5d6a7;
+        }
+    .not-mine {
+        transition: 100ms ease-in-out;
+        background-color: #ffcdd2;
+    }
+        .not-mine:hover {
+            transition: 100ms ease-in-out;
+            background-color: #ef9a9a;
+        }
+        left-swipe-action-button {
+            border-radius: 2px;
+        }
+        .researcherCard {
+            /*background-color: #ffffff;*/
+            padding: 16px;
+            margin: 16px;
+            border-radius: 2px;
+            height: 80%;
+        }
     </style>
 
 </head>
@@ -259,8 +285,8 @@
                 </div>
                 <div id="details" class="body1.inverse" flex>
                     <div>
-                        <div id="name" style="font-weight:600">Mr Kit Brown-Watts</div>
-                        <div id="mail">kbw@uq.edu.au</div>
+                        <div id="name" style="font-weight:600">Miss Jane Researcher</div>
+                        <div id="mail">uqjresear@uq.edu.au</div>
                     </div>
                 </div>
             </div>
@@ -287,7 +313,7 @@
                 <div id="clicker" on-tap="{{clickAction}}">
                     <core-toolbar>
                         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                        <div flex>Polymer Template</div>
+                        <div flex>My Research</div>
                         <paper-icon-button icon="search" id="search"></paper-icon-button>
                         <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
                     </core-toolbar>
@@ -298,134 +324,20 @@
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
-            <paper-shadow class="card" z="1" id="search-card">
-                <p>
-                    <paper-input-decorator label="Search UQ Library" id="start">
-                        <input is="core-input">
-                    </paper-input-decorator>
-                </p>
-            </paper-shadow>
+                <br>
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
 
-                <div>
-                    <div flex class="apps" horizontal layout wrap>
+                <div class="researcherCard">
 
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="event" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Booking</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="maps:local-library" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Borrowing</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="hardware:desktop-mac" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Computers</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="social:school" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Courses</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="schedule" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Hours</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="communication:forum" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Library Chat</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="perm-identity" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Masquerade</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="communication:comment" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Feedback</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel" for>Logout</p>
-                                    </div>
-                        </core-label>
+                    <left-swipe-action shadow>
+                        <div style="padding: 18px;">
+                            <div>Authors</div>
+                            <div><strong>Title</strong></div>
+                        </div>
+                        <left-swipe-action-button class="not-mine" onclick="alert('not mine')">Not Mine</left-swipe-action-button>
+                        <left-swipe-action-button class="mine" onclick="alert('mine')">Mine</left-swipe-action-button>
+                    </left-swipe-action>
 
-
-                        
-<!--
-                            <div flex class="app">
-                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon" id="testIcon"></paper-icon-button>
-                                <core-label for="#testIcon">    
-                                <p class="iconLabel">Logout</p>
-                                    </core-label>
-                                    </div>
-                        
-                        <core-label for>
-                            <div flex class="app">
-                                <paper-button fill="false" style="border-radius:100%">
-  <core-icon class="huge home-icon" icon="favorite"></core-icon><br>
-  <p class="iconLabel">label goes here</p>
-</paper-button>
-                            </div>
-                        </core-label>
--->
-
-
-                    </div>
-                    <!--<swipeable-card>-->
-                        <!--<paper-shadow class="card" z="1">-->
-                            <!--<h2><core-icon icon="markunread-mailbox"></core-icon> Search Alerts</h2>-->
-                            <!--<p>You recently searched for "electrocytosis"</p>-->
-                            <!--<p>Would you like to receive search alerts for this keyword?</p>-->
-                            <!--<p>130 other UQ users currently receive search alerts for this keyword.</p>-->
-                            <!--<br>-->
-                            <!--<paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>-->
-                            <!--<paper-button affirmative style="float:right">No</paper-button>-->
-                        <!--</paper-shadow>-->
-                    <!--</swipeable-card>-->
-
-                    <swipeable-card>
-                        <paper-shadow class="card" z="1">
-                            <h2>New content available</h2>
-                            <p>You recently searched for "electrocytosis"</p>
-                            <p>Would you like to receive search alerts for this keyword?</p>
-                            <p>130 other UQ users currently receive search alerts for this keyword.</p>
-                            <br>
-                            <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>
-                            <paper-button affirmative style="float:right">No</paper-button>
-                        </paper-shadow>
-                    </swipeable-card>
-                </div>
-
-                <div>
-                    <div id="cards">
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
-
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
-                    </div>
                 </div>
 
             </core-animated-pages>
