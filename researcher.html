@@ -278,9 +278,8 @@
             text-decoration: none;
         }
         paper-progress {
-            height: 13px;
-            width: 99%;
-            padding: 4px;
+            height: 14px;
+            width: 100%;
         }
         paper-progress::shadow #activeProgress {
             background-color: #38852e;
@@ -385,34 +384,57 @@
             font-size: 24px;
         }
         .type-cites {
+            color: #333 !important;
             font-size: 11px;
+        }
+        .border-top {
+            border-top: 1px solid #ccc;
+        }
+        .border-right {
+            border-right: 1px solid #ccc;
+        }
+        .border-left {
+            border-left: 1px solid #ccc;
+        }
+        .border-bottom {
+            border-bottom: 1px solid #ccc;
         }
         .wos {
             padding: 8px 16px;
-            background-color: #ce4627;
-            color: #ffffff;
+            background-color: #fafafa;
+            color: #ce4627;
         }
         .scopus {
             padding: 8px 16px;
-            background-color: #2874d7;
-            color: #ffffff;
+            background-color: #fafafa;
+            color: #2874d7;
         }
         .altmetrics {
             padding: 8px 16px;
-            background-color: #ccc;
+            background-color: #fafafa;
         }
         .espace {
             padding: 8px 16px;
-            background-color: #bda14e;
-            color: #333;
+            color: #bda14e;
         }
         .h-index {
             padding: 8px 16px;
-            background-color: #cccccc;
             color: #333;
         }
         .centre {
             text-align: center;
+        }
+        .completion {
+            padding: 8px;
+            margin-bottom: -18px;
+        }
+        .completion-desc {
+            color: rgba(0,0,0,.54);
+            margin:2px;
+
+        }
+        .metric-text {
+            margin-left: 8px;
         }
     </style>
 
@@ -480,7 +502,7 @@
                 </core-toolbar>
             </div>
         </template>
-        <paper-tabs selected="0">
+        <paper-tabs selected="1">
             <paper-tab>Recent</paper-tab>
             <paper-tab>Metrics</paper-tab>
             <paper-tab>Mine to Claim</paper-tab>
@@ -506,9 +528,9 @@
                                 <div class="journal"><em>Journal of Neuroscience</em></div>
                             </div></div>
                             <div><div vertical layout class="metrics" flex self-stretch>
-                                <div self-stretch class="wos"><div class="num-cites">86</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
-                                <div self-stretch class="scopus"><div class="num-cites">37</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
-                                <div self-stretch class="altmetrics"><div class="num-cites">103</div><div class="type-cites">Altmetrics</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left border-bottom wos"><div class="num-cites">86</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left border-bottom scopus"><div class="num-cites">37</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left altmetrics"><div class="num-cites">103</div><div class="type-cites">Altmetrics</div><div class="type-cites">Citations</div></div>
                             </div></div>
                         </div>
                     </paper-shadow>
@@ -521,9 +543,9 @@
                                 <div class="journal"><em>Nature</em></div>
                             </div></div>
                             <div><div vertical layout class="metrics" flex self-stretch>
-                                <div self-stretch class="wos"><div class="num-cites">42</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
-                                <div self-stretch class="scopus"><div class="num-cites">86</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
-                                <div self-stretch class="altmetrics"><div class="num-cites">77</div><div class="type-cites">Altmetrics</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left border-bottom wos"><div class="num-cites">42</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left border-bottom scopus"><div class="num-cites">86</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left altmetrics"><div class="num-cites">77</div><div class="type-cites">Altmetrics</div><div class="type-cites">Citations</div></div>
                             </div></div>
                         </div>
                     </paper-shadow>
@@ -542,15 +564,21 @@
                         <paper-shadow class="card" z="1">
                             <p class="type">My Metrics</p>
                             <div vertical layout>
-                                <div horizontal layout class="centre">
-                                    <div flex class="h-index"><div class="num-cites">4</div>h-index</div>
-                                    <div flex class="espace"><div class="num-cites">12</div>eSpace Publications</div>
+                                <div horizontal layout around-justified class="border-top">
+                                    <div horizontal layout start-justified class="h-index">
+                                        <div self-center class="num-cites">4</div>
+                                        <div self-center class="metric-text">h-index</div>
+                                    </div>
+                                    <div horizontal layout start-justified class="espace">
+                                        <div self-center class="num-cites">105</div>
+                                        <div self-center class="metric-text">eSpace<br>Publications</div>
+                                    </div>
                                 </div>
                                 <div horizontal layout class="centre">
-                                    <div flex class="wos"><div class="num-cites">42</div><div class="type-cites">Web of Science</div><div class="type-cites">Papers</div></div>
-                                    <div flex class="wos"><div class="num-cites">23</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
-                                    <div flex class="scopus"><div class="num-cites">22</div><div class="type-cites">Scopus</div><div class="type-cites">Papers</div></div>
-                                    <div flex class="scopus"><div class="num-cites">92</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
+                                    <div flex class="border-top wos"><div class="num-cites">42</div><div class="type-cites">Web of Science</div><div class="type-cites">Papers</div></div>
+                                    <div flex class="border-left border-top wos"><div class="num-cites">23</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
+                                    <div flex class="border-left border-top scopus"><div class="num-cites">22</div><div class="type-cites">Scopus</div><div class="type-cites">Papers</div></div>
+                                    <div flex class="border-left border-top scopus"><div class="num-cites">92</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
                                 </div>
                             </div>
                         </paper-shadow>
@@ -558,7 +586,11 @@
                     <paper-shadow class="card" z="1">
                         <p class="type">My Researcher Profile</p>
                         <hr>
-                        <paper-progress value="90%"></paper-progress>
+                        <div class="completion">
+                            <p class="completion-desc">Research profile 75% complete</p>
+                        <paper-progress value="75%"></paper-progress>
+
+                        </div>
                         <br>
                     </paper-shadow>
 
@@ -646,7 +678,7 @@
 
 
         </core-animated-pages>
-        <paper-fab icon="add"></paper-fab>
+        <!--<paper-fab icon="add"></paper-fab>-->
     </div>
 </core-drawer-panel>
 
