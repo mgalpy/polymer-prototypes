@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Search</title>
+    <title>My Research</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
@@ -436,8 +436,13 @@
         .metric-text {
             margin-left: 8px;
         }
-        core-icon[icon="trending-up"] {
+        core-icon[icon="arrow-drop-up"] {
             /*color: #8cb800;*/
+            margin: -10px;
+            padding: 0;
+            left: 10px;
+        }
+        core-icon[icon="arrow-drop-down"] {
             margin: -10px;
             padding: 0;
             left: 10px;
@@ -509,7 +514,7 @@
             </div>
         </template>
         <paper-tabs selected="0">
-            <paper-tab>Recent</paper-tab>
+            <paper-tab>Trending</paper-tab>
             <paper-tab>Metrics</paper-tab>
             <paper-tab>Mine to Claim</paper-tab>
 
@@ -549,9 +554,9 @@
                                 <div class="journal"><em>Nature</em></div>
                             </div></div>
                             <div><div vertical layout class="metrics" flex self-stretch>
-                                <div self-stretch class="border-left border-bottom wos"><div class="num-cites">42<core-icon icon="trending-up"></core-icon></div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left border-bottom wos"><div class="num-cites">42<core-icon icon="arrow-drop-up"></core-icon></div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
                                 <div self-stretch class="border-left border-bottom scopus"><div class="num-cites">86</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
-                                <div self-stretch class="border-left altmetrics"><div class="num-cites">77<core-icon icon="trending-up"></core-icon></div><div class="type-cites">Altmetrics</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left altmetrics"><div class="num-cites">77<core-icon icon="arrow-drop-up"></core-icon></div><div class="type-cites">Altmetrics</div><div class="type-cites">Citations</div></div>
                             </div></div>
                         </div>
                     </paper-shadow>
