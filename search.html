@@ -306,6 +306,9 @@
         a {
             /*color: #007e9e;*/
         }
+        a:hover {
+            color: #49075e;
+        }
         .title a {
             text-decoration: none;
         }
@@ -313,7 +316,7 @@
             text-decoration: underline;
         }
         .authors a {
-            color: #38852e;
+            /*color: #38852e;*/
         }
         .descrip {
 
@@ -326,13 +329,30 @@
             text-decoration: underline;
         }
         .type {
-            color: #666;
+            /*color: #666;*/
         }
         hr {
             margin: 16px -20px;
         }
         .menuLine {
             margin: 12px 0;
+        }
+        .title {
+            text-decoration: none;
+            padding-bottom: 8px;
+        }
+        .authors {
+            font-size: 13px;
+            /*color: #38852e;*/
+            padding-bottom: 8px;
+            /*font-weight: 800;*/
+        }
+        .journal {
+            padding-bottom: 4px;
+        }
+        .cover {
+            margin-right:20px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
         }
     </style>
 
@@ -424,19 +444,39 @@
                 <div id="cards" vertical center-justified layout>
 
                     <paper-shadow class="card" z="1">
-                        <p class="title"><a href="#" class="title">User experience - a research agenda</a></p>
-                        <p class="authors"><a href="#" class="authors">M Hassenzahl, N Tractinsky - Behaviour & information technology, 2006 - Taylor & Francis</a></p>
-                        <p class="descrip">Over the last decade,'user experience'(UX) became a buzzword in the field of human-
-                            computer interaction (HCI) and interaction design. As technology matured, interactive
-                            products became not only more useful and usable, but also fashionable, fascinating things ...</p>
-                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+                        <div horizontal layout>
+                            <div><div vertical layout flex self-stretch>
+                                <div self-stretch><div class="cover"><img src="img/cover1.jpg"></div></div>
+                            </div></div>
+                            <div flex><div vertical layout class="year">
+                                <div horizontal layout><div class="title"><a href="#">Mobile user experience: patterns to make sense of it all</a></div></div>
+                                <div class="authors">by <a href="#">Mendoza, Adrian</a></div>
+                                <div class="authors">2014</div>
+                                <div class="authors">.... First, you'll start off learning how to communicate mobile UX flows visually. From there, you'll learn about applying and using 10 unique user experience patterns or archetypes for mobile...</div>
+                                <div class="authors"><core-icon icon="book"></core-icon>eBook: <a href="#">Full Text Online</a></div>
+                            </div></div>
+                            <div><div vertical layout class="metrics" flex self-stretch>
+                                <!--<div self-stretch class="border-left border-bottom wos"><div class="num-cites"><core-icon icon="arrow-forward"></core-icon></div></div>-->
+                                <div self-stretch class="border-left altmetrics"><div class="num-cites"><core-icon icon="av:my-library-add"></core-icon></div></div>
+                            </div></div>
+                        </div>
                         <hr>
-                        <p class="title"><a href="#" class="title">Understanding, scoping and defining user experience: a survey approach</a></p>
-                        <p class="authors"><a href="#" class="authors">ELC Law, V Roto, M Hassenzahl - Proceedings of the..., 2009 - dl.acm.org</a></p>
-                        <p class="descrip">Abstract Despite the growing interest in user experience (UX), it has been hard to gain a
-                            common agreement on the nature and scope of UX. In this paper, we report a survey that
-                            gathered the views on UX of 275 researchers and practitioners from academia and ...</p>
-                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+                        <div horizontal layout>
+                            <div><div vertical layout flex self-stretch>
+                                <div self-stretch><div class="cover"><img src="img/cover2.jpg"></div></div>
+                            </div></div>
+                            <div flex><div vertical layout class="year">
+                                <div horizontal layout><div class="title"><a href="#">Measuring the user experience: collecting, analyzing, and presenting usability metrics</a></div></div>
+                                <div class="authors">by <a href="#">Tullis, Tom</a>; <a href="#">Albert, Bill</a></div>
+                                <div class="authors">2013</div>
+                                <div class="authors">Measuring the User Experience was the first book that focused on how to quantify the user experience...</div>
+                                <div class="authors"><core-icon icon="book"></core-icon>eBook: <a href="#">Full Text Online</a></div>
+                            </div></div>
+                            <div><div vertical layout class="metrics" flex self-stretch>
+                                <!--<div self-stretch class="border-left border-bottom wos"><div class="num-cites"><core-icon icon="arrow-forward"></core-icon></div></div>-->
+                                <div self-stretch class="border-left altmetrics"><div class="num-cites"><core-icon icon="av:my-library-add"></core-icon></div></div>
+                            </div></div>
+                        </div>
                     </paper-shadow>
 
                     <paper-shadow class="card" z="1">

@@ -450,6 +450,9 @@
             padding: 0;
             left: 10px;
         }
+        .type-cites-header {
+            /*vertical-align: middle;*/
+        }
     </style>
 
 </head>
@@ -543,7 +546,7 @@
                             </div></div>
                             <div><div vertical layout class="metrics" flex self-stretch>
                                 <div self-stretch class="border-left border-bottom wos"><div class="num-cites">86</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
-                                <div self-stretch class="border-left border-bottom scopus"><div class="num-cites">37</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
+                                <div self-stretch class="border-left border-bottom scopus"><div class="num-cites">37<core-icon icon="arrow-drop-up"></core-icon></div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
                                 <div self-stretch class="border-left altmetrics"><div class="num-cites">103</div><div class="type-cites">Altmetrics</div><div class="type-cites">Citations</div></div>
                             </div></div>
                         </div>
@@ -579,20 +582,26 @@
                             <p class="type">My Metrics</p>
                             <div vertical layout>
                                 <div horizontal layout around-justified class="border-top">
-                                    <div horizontal layout start-justified class="h-index">
-                                        <div self-center class="num-cites">4</div>
-                                        <div self-center class="metric-text">h-index</div>
-                                    </div>
+                                    <!--<div horizontal layout start-justified class="h-index">-->
+                                        <!--<div self-center class="num-cites">4</div>-->
+                                        <!--<div self-center class="metric-text">h-index</div>-->
+                                    <!--</div>-->
                                     <div horizontal layout start-justified class="espace">
                                         <div self-center class="num-cites">105</div>
-                                        <div self-center class="metric-text">eSpace<br>Publications</div>
+                                        <div self-center class="metric-text">eSpace Publications</div>
                                     </div>
                                 </div>
                                 <div horizontal layout class="centre">
-                                    <div flex class="border-top wos"><div class="num-cites">42</div><div class="type-cites">Web of Science</div><div class="type-cites">Papers</div></div>
-                                    <div flex class="border-left border-top wos"><div class="num-cites">23</div><div class="type-cites">Web of Science</div><div class="type-cites">Citations</div></div>
-                                    <div flex class="border-left border-top scopus"><div class="num-cites">22</div><div class="type-cites">Scopus</div><div class="type-cites">Papers</div></div>
-                                    <div flex class="border-left border-top scopus"><div class="num-cites">92</div><div class="type-cites">Scopus</div><div class="type-cites">Citations</div></div>
+                                    <div flex class="border-top wos"><div class="type-cites-header">Web of Science</div></div>
+                                    <div flex class="border-left border-top wos"><div class="num-cites">23</div><div class="type-cites">h-index</div></div>
+                                    <div flex class="border-left border-top wos"><div class="num-cites">22</div><div class="type-cites">Papers</div></div>
+                                    <div flex class="border-left border-top wos"><div class="num-cites">92</div><div class="type-cites">Citations</div></div>
+                                </div>
+                                <div horizontal layout class="centre">
+                                    <div flex class="border-top scopus"><div class="type-cites-header">Scopus</div></div>
+                                    <div flex class="border-left border-top scopus"><div class="num-cites">23</div><div class="type-cites">h-index</div></div>
+                                    <div flex class="border-left border-top scopus"><div class="num-cites">22</div><div class="type-cites">Papers</div></div>
+                                    <div flex class="border-left border-top scopus"><div class="num-cites">92</div><div class="type-cites">Citations</div></div>
                                 </div>
                             </div>
                         </paper-shadow>
