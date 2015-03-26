@@ -725,7 +725,7 @@
         var t = e.target;
         // console.log(t.localName);
         if ((t.localName != 'paper-icon-button') && (t.localName != 'paper-item')) {
-            searchAnimation();
+//            searchAnimation();
         }
         // searchAnimation();
         // if ((t.localName == 'paper-input-decorator') || (t.localName == 'input')) {
@@ -735,12 +735,12 @@
         // }
     }
     addEventListener('template-bound', function(e) {
-        e.target.clickAction = clickAction;
+//        e.target.clickAction = clickAction;
     });
 
     document.querySelector('core-animated-pages').addEventListener("click", function() {
         if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
-            searchAnimation();
+//            searchAnimation();
         }
     });
 
