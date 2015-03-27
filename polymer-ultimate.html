@@ -161,17 +161,19 @@
             background-color: #007e9e;
         }
         #cards {
-            height: 100%;
+            height: 300px;
             margin: 0 auto;
             overflow: auto;
             -webkit-user-select: none;
             -moz-user-select: none;
         }
-        swipeable-card {
+        html /deep/ swipeable-card {
             height: auto;
             width: 320px;
             margin: 20px auto;
             box-shadow: none;
+            background-color: transparent;
+            border: none;
         }
         .card {
             display: inline-block;
@@ -182,6 +184,7 @@
             min-height: 200px;
             padding: 8px 24px 16px 24px;
             border-radius: 2px;
+            margin: 20px;
         }
         .alert {
             width: 90%;
@@ -249,7 +252,7 @@
     .iconSlide {
         transition: 300ms ease-in-out;
         opacity: 0;
-        transform: translate(-497px, 0);
+        transform: translate(-1000px, 0);
     }
     .slideIn {
         transition: 300ms ease-in-out;
@@ -257,7 +260,7 @@
         transform: translate(0, 0);
     }
         paper-input-decorator {
-            transform: translate(497px, 0);
+            transform: translate(1000px, 0);
             opacity: 0;
             transition: 300ms ease-in-out;
             background-image: url('img/ic_search_white_24dp.png');
@@ -353,135 +356,22 @@
                 <paper-tab>Page 1</paper-tab>
                 <paper-tab>Page 2</paper-tab>
             </paper-tabs>
-            <paper-shadow class="card" z="1" id="search-card">
-                <p>
-                    <paper-input-decorator label="Search UQ Library" id="start">
-                        <input is="core-input">
-                    </paper-input-decorator>
-                </p>
-            </paper-shadow>
+
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
 
-                <div>
-                    <div flex class="apps" horizontal layout wrap>
-
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="event" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Booking</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="maps:local-library" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Borrowing</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="hardware:desktop-mac" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Computers</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="social:school" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Courses</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="schedule" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Hours</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="communication:forum" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Library Chat</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="perm-identity" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Masquerade</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="communication:comment" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel">Feedback</p>
-                                    </div>
-                        </core-label>
-                        <core-label>
-                            <div flex class="app">
-                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon"></paper-icon-button>
-                                    <p class="iconLabel" for>Logout</p>
-                                    </div>
-                        </core-label>
-
-
-                        
-<!--
-                            <div flex class="app">
-                                <paper-icon-button icon="lock" title="Logout" on-tap="{{toggleLogout}}" class="huge home-icon" id="testIcon"></paper-icon-button>
-                                <core-label for="#testIcon">    
-                                <p class="iconLabel">Logout</p>
-                                    </core-label>
-                                    </div>
-                        
-                        <core-label for>
-                            <div flex class="app">
-                                <paper-button fill="false" style="border-radius:100%">
-  <core-icon class="huge home-icon" icon="favorite"></core-icon><br>
-  <p class="iconLabel">label goes here</p>
-</paper-button>
-                            </div>
-                        </core-label>
--->
-
-
-                    </div>
-                    <!--<swipeable-card>-->
-                        <!--<paper-shadow class="card" z="1">-->
-                            <!--<h2><core-icon icon="markunread-mailbox"></core-icon> Search Alerts</h2>-->
-                            <!--<p>You recently searched for "electrocytosis"</p>-->
-                            <!--<p>Would you like to receive search alerts for this keyword?</p>-->
-                            <!--<p>130 other UQ users currently receive search alerts for this keyword.</p>-->
-                            <!--<br>-->
-                            <!--<paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>-->
-                            <!--<paper-button affirmative style="float:right">No</paper-button>-->
-                        <!--</paper-shadow>-->
-                    <!--</swipeable-card>-->
-
-                    <swipeable-card>
-                        <paper-shadow class="card" z="1">
-                            <h2>New content available</h2>
-                            <p>You recently searched for "electrocytosis"</p>
-                            <p>Would you like to receive search alerts for this keyword?</p>
-                            <p>130 other UQ users currently receive search alerts for this keyword.</p>
-                            <br>
-                            <paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>
-                            <paper-button affirmative style="float:right">No</paper-button>
-                        </paper-shadow>
-                    </swipeable-card>
+                <div id="cards" horizontal center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <h2>New content available</h2>
+                        <p>You recently searched for "electrocytosis"</p>
+                        <p>Would you like to receive search alerts for this keyword?</p>
+                        <p>130 other UQ users currently receive search alerts for this keyword.</p>
+                        <br>
+                        <!--<paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>-->
+                        <!--<paper-button affirmative style="float:right">No</paper-button>-->
+                    </paper-shadow>
                 </div>
 
-                <div>
-                    <div id="cards">
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
 
-                        <swipeable-card>
-                            <paper-shadow class="card" z="1">
-                                <p>SWIPEABLE CARD</p>
-                            </paper-shadow>
-                        </swipeable-card>
-                    </div>
-                </div>
 
             </core-animated-pages>
             <paper-fab icon="add"></paper-fab>
