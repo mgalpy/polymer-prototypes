@@ -193,16 +193,6 @@
             padding: 0px 16px;
             margin: 16px;
         }
-        paper-input-decorator /deep/ .unfocused-underline {
-            /* line color when the input is unfocused */
-
-            background-color: transparent;
-        }
-        paper-input-decorator /deep/ .focused-underline {
-            /* line color when the input is unfocused */
-
-            background-color: transparent;
-        }
         .slide {
             /*for just search bar*/
             transform: translate(0, -4em);
@@ -238,11 +228,71 @@
         width: 44px;
         height: 44px;
       }
+        paper-icon-button {
+            transition: 150ms ease-in-out;
+            border-radius: 50%;
+        }
+        paper-icon-button:hover {
+            transition: 150ms ease-in-out;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+        }
     .iconLabel {
             margin:0;
             text-align: center;
             color: #666;
             font-size: 14px;
+        }
+    #search {
+        transition: 300ms ease-in-out;
+    }
+    .iconSlide {
+        transition: 300ms ease-in-out;
+        opacity: 0;
+        transform: translate(-497px, 0);
+    }
+    .slideIn {
+        transition: 300ms ease-in-out;
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+        paper-input-decorator {
+            transform: translate(497px, 0);
+            opacity: 0;
+            transition: 300ms ease-in-out;
+            background-image: url('img/ic_search_white_24dp.png');
+            background-repeat: no-repeat;
+            background-position: 16px 8px;
+            background-size: 24px;
+            margin: 0;
+            padding: 3px 0;
+            font-size: 16px;
+            padding-left: 64px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            color: #fafafa;
+        }
+        paper-input-decorator:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        paper-input-decorator /deep/::-webkit-input-placeholder {
+            /* platform specific rules for placeholder text */
+
+            color: #fafafa;
+            /*font-weight: 300;*/
+        }
+        paper-input-decorator /deep/ .unfocused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
+        }
+        paper-input-decorator /deep/ .focused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
+        }
+        .darkText /deep/::-webkit-input-placeholder {
+            color: #333;
         }
     </style>
 
@@ -259,7 +309,7 @@
                 </div>
                 <div id="details" class="body1.inverse" flex>
                     <div>
-                        <div id="name" style="font-weight:600">Mr Kit Brown-Watts</div>
+                        <div id="name" style="font-weight:600">Miss Cour Sework</div>
                         <div id="mail">kbw@uq.edu.au</div>
                     </div>
                 </div>
@@ -287,7 +337,12 @@
                 <div id="clicker" on-tap="{{clickAction}}">
                     <core-toolbar>
                         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-                        <div flex>Polymer Template</div>
+                        <div>UQ Library</div>
+                        <div flex>
+                            <paper-input-decorator label="Search" id="searchInput">
+                                <input is="core-input">
+                            </paper-input-decorator>
+                        </div>
                         <paper-icon-button icon="search" id="search"></paper-icon-button>
                         <paper-icon-button icon="more-vert" id="more"></paper-icon-button>
                     </core-toolbar>
@@ -435,18 +490,25 @@
     </core-drawer-panel>
 
     <script>
-        function slideElements(name) {
-            document.querySelector(name).classList.toggle('slide');
+        function slideElements(name, type) {
+            document.querySelector(name).classList.toggle(type);
         }
 
         function clickAction(e) {
             var t = e.target;
+            showToast("Clicked " + t.id);
             if (t.localName === 'paper-icon-button') {
+                slideElements('#search', 'iconSlide');
+                slideElements('#searchInput', 'slideIn');
                 // if user clicks 'search'
                 if (t.id == "search") {
+
+//                    document.querySelector('#search').classList.toggle('iconSlide');
+//                    document.querySelector('#searchInput').classList.toggle('slideIn');
+
                     // slideElements('paper-tabs');
-                    slideElements('#search-card');
-                    slideElements('core-animated-pages');
+//                    slideElements('#search-card');
+//                    slideElements('core-animated-pages');
                     // setTimeout(function() {
                     // slideElements('paper-tabs');
                     // slideElements('#search-card');
@@ -470,7 +532,8 @@
             pages.selected = tabs.selected;
         });
 
-        function showToast() {
+        function showToast(message) {
+            document.querySelector('#main-toast').text = message;
             document.querySelector('#main-toast').show();
         }
 
@@ -478,7 +541,7 @@
             e.target.parentNode.removeChild(e.target);
             document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
 
-            showToast();
+            showToast("Done for now");
 
             // wait for 10ms so the animations can kick in
             setTimeout(function () {
@@ -490,7 +553,7 @@
         });
     </script>
 
-    <paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
+    <paper-toast id="main-toast" role="alert" text="Done for now">
         <!-- <div>Action</div> -->
     </paper-toast>
 
