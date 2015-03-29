@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bootstrap, a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.">
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+
+<title>
+
+    7 - Search Aggregate
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+
+      
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="css/docs.min.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+                               <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+      <style>
+          /*#searchButton {*/
+              /*background-color: #8CB800;*/
+              /*border: 1px solid #8CB800;;*/
+          /*}*/
+          /*#searchButton:hover {*/
+              /*background-color: #38852e;*/
+              /*border: 1px solid #8CB800;;*/
+          /*}*/
+          #searchButton {
+              background-color: #5fa90a;
+              border: 1px solid #5fa90a;
+              border-left: 1px solid rgba(0, 0, 0, 0.1);
+          }
+          #searchButton:hover {
+              background-color: #589c0a;
+          }
+          #dropdownButton {
+              color: white;
+              background-color: #5fa90a;
+          }
+          #dropdownButton:hover {
+              background-color: #589c0a;
+          }
+          a {
+              color: #007e9e;
+          }
+      </style>
+
+  </head>
+  <body style="background-image: url('img/bg2.png'); background-size:1600px; background-repeat: no-repeat;">
+      <br><br><br><br>
+      <div style="margin-left:314px; width:676px; float: left; position: relative; padding-left: 15px; padding-right: 15px; margin-top: 92px;">
+          
+      <div style="padding: 0px 24px 24px 24px; margin-bottom: 10px; min-height: 20px;background-color: #f5f5f5;border: 1px solid #e3e3e3;border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);border-radius: 6px;"><h3>UQ Library Search</h3>
+          <div class="row">
+
+      
+<!--      .col-xs-6 .col-sm-4-->
+      <div class="col-xs-12">
+        <div class="input-group">
+
+          <input type="text" class="form-control" placeholder="Find books, articles, databases, conferences and more..." style="border-radius: 3px; width: 98%">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" id="dropdownButton" data-toggle="dropdown" style="border-radius: 3px; margin-right: 8px;"><i class="fa fa-filter"></i> Filter <span class="pictogram" style="color: #fff;font-size: 26px">&#59215;</span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#"><span class="pictogram">&#128213;</span> Books</a></li>
+                    <li><a href="#"><span class="pictogram">&#127891;</span> Journal Articles</a></li>
+                    <li><a href="#"><span class="pictogram">&#127916;</span> Multimedia</a></li>
+                    <li><a href="#"><span class="pictogram">&#128240;</span> Journals</a></li>
+                    <li><a href="#"><span class="pictogram">&#128248;</span> Databases</a></li>
+                    <li><a href="#"><span class="pictogram">&#59392;</span> Catalogue</a></li>
+                    <li><a href="#"><span class="pictogram">&#9998;</span> Past Exams</a></li>
+                    <li><a href="#"><span class="pictogram">&#57349;</span> Course Reading Lists</a></li>
+                </ul>
+            </div><!-- /btn-group -->
+            <span class="input-group-btn">
+            <button class="btn btn-success" id="searchButton" type="button" style="border-radius: 3px;"><span class="glyphicon glyphicon-search"></span></button>
+                <!--<button class="btn btn-success" type="button"><i class="fa fa-search"></i></button>-->
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->      
+    </div><!-- /.row --><br>
+<span class="pull-right"><a href="#">Search help</a>&nbsp;&nbsp;&nbsp;<a href="#">Advanced search</a></span>
+</div>
+      </div>
+      
+      
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/docs.min.js"></script>
+
+
+
+<script>
+  window.twttr = (function (d,s,id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
+    js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+  }(document, "script", "twitter-wjs"));
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Icon-transition</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="polymer.png">
+
+    <!-- WEB COMPONENTS JS -->
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- CORE POLYMER -->
+
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+    <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
+    <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-dropdown/core-dropdown.html">
+    <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+    <link rel="import" href="bower_components/core-field/core-field.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/core-image/core-image.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+    <link rel="import" href="bower_components/core-label/core-label.html">
+    <link rel="import" href="bower_components/core-layout-grid/core-layout-grid.html">
+    <link rel="import" href="bower_components/core-layout-trbl/core-layout-trbl.html">
+    <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+    <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="bower_components/core-menu-button/core-menu-button.html">
+    <link rel="import" href="bower_components/core-meta/core-meta.html">
+    <link rel="import" href="bower_components/core-overlay/core-overlay.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+    <link rel="import" href="bower_components/core-range/core-range.html">
+    <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+    <link rel="import" href="bower_components/core-scroll-threshold/core-scroll-threshold.html">
+    <link rel="import" href="bower_components/core-selection/core-selection.html">
+    <link rel="import" href="bower_components/core-selector/core-selector.html">
+    <link rel="import" href="bower_components/core-shared-lib/core-shared-lib.html">
+    <link rel="import" href="bower_components/core-signals/core-signals.html">
+    <link rel="import" href="bower_components/core-splitter/core-splitter.html">
+    <link rel="import" href="bower_components/core-style/core-style.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
+    <link rel="import" href="bower_components/core-transition/core-transition.html">
+
+    <!-- load the other icons -->
+    <link rel="import" href="bower_components/core-icons/av-icons.html">
+    <link rel="import" href="bower_components/core-icons/maps-icons.html">
+    <link rel="import" href="bower_components/core-icons/image-icons.html">
+    <link rel="import" href="bower_components/core-icons/device-icons.html">
+    <link rel="import" href="bower_components/core-icons/editor-icons.html">
+    <link rel="import" href="bower_components/core-icons/social-icons.html">
+    <link rel="import" href="bower_components/core-icons/hardware-icons.html">
+    <link rel="import" href="bower_components/core-icons/notification-icons.html">
+    <link rel="import" href="bower_components/core-icons/communication-icons.html">
+
+    <!-- POLYMER PAPER ELEMENTS -->
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+    <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+    <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+
+    <!-- MATERIAL DESIGN -->
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+
+    <style>
+    html,
+    body {
+        height: 100%;
+    }
+    body {
+        font-family: sans-serif;
+        margin: 0;
+    }
+    </style>
+
+</head>
+
+<body fullbleed unresolved>
+
+    <polymer-element name="shape-demo" attributes="shape" touch-action="none">
+        <template>
+            <style>
+            #hero {
+                display: block;
+                padding: 20px;
+            }
+            icon-transition {
+                display: inline-block;
+            }
+            core-toolbar {
+                color: #fff;
+                background-color: #009688;
+            }
+            paper-button {
+                color: #4285f4;
+            }
+            h2 {
+                color: #666;
+            }
+            main {
+                margin: 20px;
+            }
+            paper-fab {
+                z-index: -1;
+                opacity: 0;
+                position: fixed;
+                bottom: 50px;
+                right: 23px;
+                transition: 300ms ease-in-out;
+                cursor: pointer;
+            }
+            .slide {
+                transform: translate(0, -2em);
+                opacity: 1;
+                z-index: 2;
+            }
+            .slide2 {
+                transform: translate(0, -5em);
+                opacity: 1;
+                z-index: 2;
+            }
+            #goal {
+                transition: 300ms ease-in-out;
+                padding: 12px;
+                background-color: #4CAF50;
+                color: #fff;
+                border-radius: 50%;
+                box-shadow: 1px 1px 6px #333;
+                position: fixed;
+                bottom: 16px;
+                right: 16px;
+                cursor: pointer;
+            }
+            #reference2 {
+                background-color: #3F51B5;
+            }
+            </style>
+            <div>
+
+                <core-toolbar>
+                    <icon-transition color="#fff" id="hero" shape="menu"></icon-transition>
+                    <span flex>Toolbar</span>
+                    <core-icon-button icon="refresh"></core-icon-button>
+                    <core-icon-button icon="add"></core-icon-button>
+                </core-toolbar>
+
+                <main>
+                    <h2>Transition icon on click</h2>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="menu">Switch to menu</paper-button>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="more">Switch to more</paper-button>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="check">Switch to check</paper-button>
+                    <paper-button on-tap="{{triggerTransition}}" data-shape="cancel">Switch to cancel</paper-button>
+
+                    <h2>Transition icon on hover</h2>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="plus"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="image:edit"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="cancel"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="check"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="menu"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="more"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="more-vert"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="right"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="left"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="up"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="down"></icon-transition>
+
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="right-arrow"></icon-transition>
+                    <icon-transition on-mouseover="{{ pickShape }}" shape="left-arrow"></icon-transition>
+
+                    <p>A prototype of Material Design <a href="http://www.google.com/design/spec/animation/delightful-details.html#delightful-details-delightful-details">delightful details</a>.</p>
+
+                    <icon-transition id="goal" on-mouseover="{{ makeShape }}" on-mouseleave="{{ revertShape }}" color="white" shape="{{ shape }}"></icon-transition>
+
+                    <paper-fab mini id="reference" icon="image:edit"></paper-fab>
+                    <paper-fab mini id="reference2" icon="today"></paper-fab>
+                </main>
+
+            </div>
+        </template>
+        <script>
+        Polymer('shape-demo', {
+            shape: 'plus',
+            pickShape: function(e, target, sender) {
+                this.shape = sender.shape;
+                // console.log(e);
+                // console.log(target);
+                // console.log(sender);
+            },
+            makeShape: function(e, target, sender) {
+                this.shape = "check";
+                e.path[1].childNodes[43].classList.toggle('slide');
+                e.path[1].childNodes[45].classList.toggle('slide2');
+                // this.classList.toggle('slide');
+            },
+            revertShape: function(e, target, sender) {
+                this.shape = "plus";
+                e.path[1].childNodes[43].classList.toggle('slide');
+                e.path[1].childNodes[45].classList.toggle('slide2');
+                // this.classList.toggle('slide');
+            },
+            triggerTransition: function(e, target, sender) {
+                // console.log(e);
+                // console.log(target);
+                // console.log(sender);
+                var shape = sender.attributes['data-shape'].value;
+                if (!!shape) {
+                    this.shape = shape;
+                }
+            }
+        });
+        </script>
+    </polymer-element>
+    <shape-demo id='demo'></shape-demo>
+
+</body>
+
+</html>

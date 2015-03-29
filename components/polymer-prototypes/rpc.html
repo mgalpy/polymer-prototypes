@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+<head>
+  <title>Your Learning Resources</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="https://www.polymer-project.org/components/webcomponentsjs/webcomponents.js"></script>
+
+  <link rel="import" href="https://www.polymer-project.org/components/font-roboto/roboto.html">
+  <link rel="import" href="https://www.polymer-project.org/components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-pages/core-pages.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-media-query/core-media-query.html">
+  <link rel="import" href="https://www.polymer-project.org/components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="https://www.polymer-project.org/components/swipeable-card/swipeable-card.html">
+
+  <link href="https://www.polymer-project.org/components/core-collapse/core-collapse.html" rel="import">
+  <link href="https://www.polymer-project.org/components/core-menu/core-menu.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-button/paper-button.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-dropdown/paper-dropdown.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-icon-button/paper-icon-button.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-item/paper-item.html" rel="import">
+  <link rel="import" href="https://www.polymer-project.org/components/paper-toast/paper-toast.html">
+
+  <link href="https://www.polymer-project.org/components/paper-menu-button/paper-menu-button.html" rel="import">
+
+  <link href="https://www.polymer-project.org/components/core-animated-pages/core-animated-pages.html" rel="import">
+  <link href="https://www.polymer-project.org/components/core-animated-pages/transitions/slide-from-right.html" rel="import">
+
+  <link href="https://www.polymer-project.org/components/paper-shadow/paper-shadow.html" rel="import">
+
+  <link rel="import" href="https://www.polymer-project.org/components/core-image/core-image.html">
+
+  <link href="https://www.polymer-project.org/components/paper-input/paper-autogrow-textarea.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-input/paper-input-decorator.html" rel="import">
+  <link href="https://www.polymer-project.org/components/paper-input/paper-input.html" rel="import">
+
+    <!-- load default set -->
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/core-icons.html">
+  <!-- load the rest -->
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/av-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/communication-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/device-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/editor-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/hardware-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/image-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/maps-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/notification-icons.html">
+  <link rel="import" href="https://www.polymer-project.org/components/core-icons/social-icons.html">
+
+  <style>
+
+  body {
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      margin: 0;
+      color: #333;
+      /*background: #E0E0E0;*/ /*Grey-300*/
+      /*background: #F5F5F5;*/ /*Grey-100*/
+      background: #EEEEEE; /*Grey-200*/
+    }
+
+    a {
+      color: #2962FF;
+      text-decoration: none;
+    }
+    
+    core-toolbar {
+      background-color: #7B1FA2;
+      color: #fff;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    paper-tabs {
+      height: 55px;
+      background-color: #fafafa;
+      color: #333;
+      box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    paper-tabs[noink][nobar] paper-tab.core-selected {
+      color: #8BC34A;
+    }
+    
+    h3 {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    
+    paper-tabs::shadow #selectionBar {
+      background-color: #8BC34A;
+    }
+    paper-tabs paper-tab::shadow #ink {
+      color: #8BC34A;
+    }
+
+    .deck {
+      margin: 0 auto;
+      overflow: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+    }
+  
+    swipeable-card {
+      /*height: auto;*/
+      height: auto;
+      width: 320px;
+      margin: 20px auto;
+      box-shadow: none;
+      /*padding: 8px 16px;*/
+    }
+    .card {
+      display: inline-block;
+      background: white;
+      box-sizing: border-box;
+      width: 320px;
+      height: auto;
+      /*margin: 16px;*/
+      /*padding: 16px;*/
+      border-radius: 2px;
+    }
+
+    paper-menu-button /deep/ core-icon[role=img] {
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    left: 80px;
+    top: 4px;
+  }
+    .sized {
+      width: 60px;
+      height: 100px;
+      float:right;
+      clear: both;
+      bottom:100px;
+    }
+    .gray {
+      background-color: lightgray;
+    }
+
+    h1 {
+      font-size:20px;font-weight:300;padding: 4px 0px 0px 16px;
+    }
+    h2 {
+      font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#333;vertical-align:middle;cursor:pointer;
+    }
+    h3 {
+      font-size:14px;font-weight:300;padding: 0px 0px 0px 16px; font-style:italic; color: #777;
+    }
+    h4 {
+      font-size:16px;font-weight:400;padding: 2px 0px 0px 16px;color:#2962FF;vertical-align:middle;cursor:pointer;
+    }
+    hr {
+      height:1px;border:none;color:#ccc;background-color:#ddd;
+    }
+    span {
+      color:#7B1FA2;font-weight:400;
+    }
+    core-icon {
+      width: 17px !important; height: 17px !important;color:#2962FF; margin-top:-2px;
+    }
+    paper-input-decorator {
+      margin: 0 10%;
+    }
+    paper-button {
+      margin: 18px;
+      float: right;
+      color: #7B1FA2;
+    }
+      
+    .arrow-icon {
+      background-color: #2962FF;
+      border-radius:50%;
+      color: white;
+    }
+  </style>
+
+</head>
+<body unresolved>
+<core-toolbar>
+  
+    <paper-icon-button icon="menu"></paper-icon-button>
+    <div flex style="font-size:24px;font-weight:300;white-space:nowrap">Assignment Planner</div>
+    <paper-icon-button icon="search"></paper-icon-button>
+    <paper-icon-button icon="more-vert"></paper-icon-button>
+    
+  
+  </core-toolbar>
+  <paper-tabs selected="0">
+  
+    <paper-tab><span style="text-align:center;font-size:16px;font-weight:300">Select Dates</span></paper-tab>
+    <paper-tab><span style="text-align:center;font-size:16px;font-weight:300">View Schedule</span></paper-tab>
+    
+  </paper-tabs>
+
+  <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+    <div>
+    <div id="cards">
+
+      <swipeable-card id="main-card">
+
+        <paper-shadow class="card" z="1">
+          <h1>Select your dates</h1>
+          <hr>
+          <paper-input-decorator label="Start date" floatingLabel type="date" error="input is required!" id="start">
+            <input is="core-input" required>
+          </paper-input-decorator>
+          <paper-input-decorator label="Due date" floatingLabel type="date" error="input is required!" id="end">
+            <input is="core-input" required>
+          </paper-input-decorator>
+          <paper-button onclick="validateAll()">Calculate</paper-button>
+        </paper-shadow>
+
+      </swipeable-card>
+
+    </div>
+    </div>
+    
+    <div>
+    <div id="cards2" class="deck">
+
+      <swipeable-card>
+
+        <paper-shadow class="card" z="1">
+          <h1>Step 1</h1>
+          <hr>
+          <h2>By Fri Feb 9, 2015:</h2>
+          <h3>Understand your assignment</h3>
+          <hr>
+          <h4><core-icon icon="arrow-forward" class="arrow-icon" ></core-icon> Suggestions for understanding assignment sheets</h2>
+        </paper-shadow>
+
+      </swipeable-card>
+
+      <swipeable-card>
+
+        <paper-shadow class="card" z="1">
+          <h1>Step 2</h1>
+          <hr>
+          <h2>By Fri Feb 10, 2015:</h2>
+          <h3>Select and focus topic</h3>
+          <hr>
+          <h4><core-icon icon="arrow-forward" class="arrow-icon" ></core-icon> Refine your topic</h2>
+          <h4><core-icon icon="arrow-forward" class="arrow-icon" ></core-icon> How to begin</h2>
+        </paper-shadow>
+
+      </swipeable-card>
+<!-- 
+      <swipeable-card>
+
+        <paper-shadow class="card" z="1">
+          <h1>Past Exam Papers</h1>
+          <h3>No Past Exam Papers for this course</h3>
+          <hr>
+          <h2><core-icon icon="arrow-forward"></core-icon> Search for other exam papers</h2>
+        </paper-shadow>
+
+      </swipeable-card> -->
+
+     <!--  <swipeable-card style="height:304px">
+
+        <paper-shadow class="card" z="1" style="height:304px">
+          <h1>Library Guides</h1>
+          <hr>
+          <h2>ENGG1100 Library Guide</h2>
+          <core-image id="preload3cfade" class="sized gray" sizing="cover" preload  placeholder="http://lgimages.s3.amazonaws.com/data/imagemanager/83368/5229_73768_press_conference_to_launch_global_change_institute_single_use__request_permission.jpg" fade></core-image>
+          <hr>
+          <h2>Aboriginal and Torres Strait Islander Studies</h2>
+          <core-image id="preload3cfade" class="sized gray" sizing="cover" preload  placeholder="http://lgimages.s3.amazonaws.com/data/imagemanager/83239/3561886005_62c602cb78.jpg" fade></core-image>
+          <hr>
+          <h2><core-icon icon="arrow-forward"></core-icon> See All Guides</h2>
+        </paper-shadow>
+
+      </swipeable-card>
+
+      <swipeable-card>
+
+        <paper-shadow class="card" z="1">
+          <h1>Electronic Course Profile</h1>
+          <hr>
+          <h2><core-icon icon="arrow-forward"></core-icon> Link to ECP</h2>
+        </paper-shadow>
+
+      </swipeable-card> -->
+      
+    </div>
+    </div>
+
+  </core-animated-pages>
+
+
+
+    <!-- detect when window is narrow -->
+  <core-media-query id="mediaQuery" query="max-width: 640px"></core-media-query>
+  
+  <script>
+
+  function validateAll() {
+
+        var $d = document.querySelectorAll('paper-input-decorator');
+        Array.prototype.forEach.call($d, function(d) {
+          d.isInvalid = !d.querySelector('input').validity.valid;
+        });
+
+       if (!(document.querySelectorAll('paper-input-decorator')[0].isInvalid) && !(document.querySelectorAll('paper-input-decorator')[1].isInvalid)) {
+            tabs.selected=1;
+            pages.selected=1;
+          }
+        }
+
+
+    var decks = document.getElementsByTagName('div');
+      var x = 0;
+
+      while (x < decks.length) {
+        if ((decks[x].id.indexOf("cards")) == 0) {
+          addCardListener(decks[x].id);
+        }
+        x++;
+      }
+
+      function addCardListener(name) {
+        document.querySelector('#' + name).addEventListener('swipeable-card-swipe-away', function(e) {
+          e.target.parentNode.removeChild(e.target); // removes this card
+          document.querySelector('#' + name).appendChild(e.target); // adds this card to the end of the set of cards
+          
+          // wait for 50ms so the animations can kick in
+          setTimeout(function(){
+            e.target.style.opacity = 1; // set opacity back to 1 (default)
+            // set it's position and location back to default (and in webkit-based browsers)
+            e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)"; 
+            e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            document.querySelector('#undoswipe-toast').show();
+          },10);
+        });
+      }
+
+      function undoHideCard() {
+      }
+
+    document.querySelector('#mediaQuery').addEventListener('core-media-change',
+      function(e) {
+        document.body.classList.toggle('core-narrow', e.detail.matches);
+        // document.querySelector('#scrollableTabs').updateBar();
+      });
+
+    var tabs = document.querySelector('paper-tabs');
+    var pages = document.querySelector('core-animated-pages');
+
+    tabs.addEventListener('core-select',function(){
+      pages.selected = tabs.selected;
+    });
+
+    function showToast() {
+      var val = Math.random();
+      if (val < 0.33) {
+        document.querySelector('#exam-toast').show();
+      } else if (val <= .66) {
+        document.querySelector('#libguides-toast').show();
+      } else if (val > .66) {
+        document.querySelector('#lib101-toast').show();
+      }
+    }
+
+  </script>
+
+  <!-- alert role is for important, time-sensitive notifications - screenreaders will be interrupted, for example -->
+
+  <paper-toast id="exam-toast" role="alert" text="Did you know there are past exam papers for ENGG1100?">
+    <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW ALL</div></paper-toast>
+
+  <paper-toast id="libguides-toast" role="alert" text="Have you seen the ENGG1100 Library Guide? We've put together great resources for you.">
+    <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW</div></paper-toast>
+
+  <paper-toast id="lib101-toast" role="alert" text="New to UQ? Get acquainted with Library 101!">
+    <div style="color: #8BC34A;" onclick="console.log('RETRY')">VIEW</div></paper-toast>
+
+  <paper-toast id="undoswipe-toast" role="alert" text="Done for now">
+    <div style="color: #8BC34A;" onclick="undoHideCard()">UNDO</div></paper-toast>
+  
+</body>
+</html>

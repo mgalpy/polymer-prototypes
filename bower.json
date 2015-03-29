@@ -1,0 +1,7 @@
+{
+  "name": "polymer-prototypes#gh-pages",
+  "private": true,
+  "dependencies": {
+    "polymer-prototypes": "uqlibrary/polymer-prototypes#master"
+  }
+}

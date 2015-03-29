@@ -1,0 +1,212 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+
+<head>
+
+    <title>Grid demo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="polymer.png">
+
+    <!-- WEB COMPONENTS JS -->
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- CORE POLYMER -->
+
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+    <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
+    <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-dropdown/core-dropdown.html">
+    <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+    <link rel="import" href="bower_components/core-field/core-field.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/core-image/core-image.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+    <link rel="import" href="bower_components/core-label/core-label.html">
+    <link rel="import" href="bower_components/core-layout-grid/core-layout-grid.html">
+    <link rel="import" href="bower_components/core-layout-trbl/core-layout-trbl.html">
+    <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+    <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="bower_components/core-menu-button/core-menu-button.html">
+    <link rel="import" href="bower_components/core-meta/core-meta.html">
+    <link rel="import" href="bower_components/core-overlay/core-overlay.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+    <link rel="import" href="bower_components/core-range/core-range.html">
+    <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+    <link rel="import" href="bower_components/core-scroll-threshold/core-scroll-threshold.html">
+    <link rel="import" href="bower_components/core-selection/core-selection.html">
+    <link rel="import" href="bower_components/core-selector/core-selector.html">
+    <link rel="import" href="bower_components/core-shared-lib/core-shared-lib.html">
+    <link rel="import" href="bower_components/core-signals/core-signals.html">
+    <link rel="import" href="bower_components/core-splitter/core-splitter.html">
+    <link rel="import" href="bower_components/core-style/core-style.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
+    <link rel="import" href="bower_components/core-transition/core-transition.html">
+
+    <!-- load the other icons -->
+    <link rel="import" href="bower_components/core-icons/av-icons.html">
+    <link rel="import" href="bower_components/core-icons/maps-icons.html">
+    <link rel="import" href="bower_components/core-icons/image-icons.html">
+    <link rel="import" href="bower_components/core-icons/device-icons.html">
+    <link rel="import" href="bower_components/core-icons/editor-icons.html">
+    <link rel="import" href="bower_components/core-icons/social-icons.html">
+    <link rel="import" href="bower_components/core-icons/hardware-icons.html">
+    <link rel="import" href="bower_components/core-icons/notification-icons.html">
+    <link rel="import" href="bower_components/core-icons/communication-icons.html">
+
+    <!-- POLYMER PAPER ELEMENTS -->
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+    <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+    <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+
+    <!-- MATERIAL DESIGN -->
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+
+    <style>
+    body {
+        font-family: sans-serif;
+    }
+    .toolbar {
+        background-color: #49075E;
+        color: white;
+    }
+    #container {
+        overflow: hidden;
+    }
+    #noscroll {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .card {
+        position: relative;
+        height: 150px;
+        width: 150px;
+        font-size: 50px;
+        margin: 8px;
+        background-color: #fafafa;
+        border-radius: 4px;
+        cursor: default;
+    }
+    .card:hover {
+        background-color: #eee;
+    }
+    .view {
+        font-size: 250px;
+        background-color: #eee;
+    }
+    </style>
+
+</head>
+
+<body unresolved fullbleed vertical layout>
+    <template is="auto-binding">
+        <core-toolbar class="toolbar">
+            <core-icon-button icon="{{$.pages.selected != 0 ? 'arrow-back' : 'menu'}}" on-tap="{{back}}"></core-icon-button>
+            <div flex>Stuff</div>
+            <core-icon-button icon="more-vert"></core-icon-button>
+        </core-toolbar>
+        <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
+
+            <section vertical layout>
+
+                <div id="noscroll" fit hero-p>
+                    <div id="container" flex horizontal wrap around-justified layout cross-fade>
+                        <template repeat="{{item in items}}">
+                            <div class="card" vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || lastSelected === item + 1}}" on-tap="{{selectView}}"><span cross-fade>{{item}}</span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+            </section>
+
+            <template repeat="{{item in items}}">
+                <section vertical layout>
+                    <div class="view" flex vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || $.pages.selected === 0}}"><span cross-fade>{{item}}</span>
+                    </div>
+                </section>
+            </template>
+
+        </core-animated-pages>
+    </template>
+
+    <script>
+    addEventListener('template-bound', function(e) {
+        var scope = e.target;
+        var items = [],
+            count = 50;
+        for (var i = 0; i < count; i++) {
+            items.push(i);
+        }
+
+        scope.items = items;
+
+        scope.selectView = function(e) {
+            var i = e.target.templateInstance.model.item;
+            this.$.pages.selected = i + 1;
+        }
+
+        scope.back = function() {
+            this.lastSelected = this.$.pages.selected;
+            console.log(this.lastSelected);
+            this.$.pages.selected = 0;
+        }
+
+        scope.transitionend = function() {
+            if (this.lastSelected) {
+                this.lastSelected = null;
+            }
+        }
+    })
+    </script>
+
+</body>
+
+</html>

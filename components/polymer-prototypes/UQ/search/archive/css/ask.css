@@ -1,0 +1,353 @@
+#qpchatwidget {
+    margin-left: 100px;
+    border-style: 1px solid black;
+}
+
+#qpchatwidget img {
+    /*display: none;*/
+}
+
+#qpchat_emailbar {
+    display: none;
+}
+
+#Grace {
+    background: #fff;
+    border-radius: 6px;
+    font: 12px Helvetica;
+    box-shadow: 0 1px 2px #aaa;
+    border: #fafafa solid 1px;
+    width: 250px !important;
+}
+
+#qpchat_go {
+        display: inline-block;
+    margin-bottom: 3px;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+        color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+#qpchat_go:hover {
+        color: #333;
+    background-color: #ebebeb;
+    border-color: #adadad;
+}
+
+#qpchat_text {
+    width:98%;
+    margin: 0px 2px 3px 0px;
+}
+
+#qpchat_emaildiv {
+    width:98%;
+}
+
+
+.QPChatContainer {
+    width: 160px !important;
+    height: 250px !important;
+    margin:0;
+    padding:0px 2px 0px 2px;
+    background: url(../../images/chat/gray_small.gif) no-repeat;
+    border: 0;
+    font:11px Roboto, Helvetica, sans-serif;
+}
+
+
+.QPChatContainer TEXTAREA { 
+    border: 1px solid #a5a5a5;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    background: #ffffff;
+    font: 11px Roboto, Helvetica, sans-serif;
+    color: #000000;
+    text-align: left;
+   
+  
+ }
+.QPChatContainer INPUT { 
+   border: 1px solid #a5a5a5;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    background: #ffffff;
+    font: 11px Roboto, Helvetica, sans-serif;
+    color: #000000;
+    text-align:left;
+ }
+.QPChatEmailWindow { 
+  border: 1px solid #a5a5a5;
+  width: 152px;
+  height: 120px;
+  margin: 0px;
+  padding: 0px;
+  background: #666666;
+  font: bold 11px Roboto, Helvetica, sans-serif;
+  cursor: default;
+  overflow:auto;
+  color: #FFFFFF;
+ }
+  .QPChatEmailWindow table { 
+        border: none;
+        background: #666666;
+        margin: 0px;
+        font: bold 11px Roboto, Helvetica, sans-serif;
+        color: #FFFFFF;
+   }
+   .QPChatEmailWindow tr { 
+        border: none;
+        background: #666666; 
+        font: bold 11px Roboto, Helvetica, sans-serif;
+        color: #FFFFFF;
+   }
+   .QPChatEmailWindow td { 
+        border: none;
+        font: bold 11px Roboto, Helvetica, sans-serif;
+        color: #FFFFFF;
+        background: #666666;
+   }
+.QPChatWindowTitleBar {
+    font-family:Roboto, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:11px;
+    height: 17px;
+    width: 154px !important;
+    /*overflow: hidden;*/
+    margin:0px 0px 0px 0px;
+    padding:  1px 0px 3px 3px; 
+    color: #FFFFFF;
+    cursor: default;
+    line-height: 17px;
+    text-align: top;
+    border: none;
+    background: none;
+}
+
+.QPChatWindowTitleBar table { 
+   border: 0px;
+   background:none;
+   height: 17px;
+   width: 155px !important;
+   margin:0px 0px 0px 0px;
+   padding:  0px 0px 0px 0px; 
+   font-family:Roboto, Helvetica, sans-serif;
+   font-weight:bold;
+   font-size:11px;
+   color: #FFFFFF;
+  
+ }
+.QPChatWindowTitleBar tr { 
+   height: 17px;
+   border: none;
+   background:none;
+   margin:0px 0px 0px 0px;
+   padding:  0px 0px 0px 0px; 
+   text-align:top;
+   font-family:Roboto, Helvetica, sans-serif;
+   font-weight:bold;
+   font-size:11px;
+   color: #FFFFFF;
+ }
+.QPChatWindowTitleBar td {
+   height: 17px;
+   font-family:Roboto, Helvetica, sans-serif;
+   font-weight:bold;
+   font-size:11px;
+   color: #FFFFFF;
+   border: none; 
+   background:none;
+   margin:0px 0px 0px 0px;
+   padding:  0px 0px 0px 0px;  
+   text-align:top;
+ }
+.QPChatWindowTitleBar img { 
+   border: none; 
+   background:none;
+   text-align:top;
+ }
+.QPChatWindowTitle {
+    font: bold 11px Roboto, Helvetica, sans-serif;
+    height: 17px;
+    width: 154px !important;
+    overflow: hidden;
+    margin:0px 0px 0px 0px;
+    padding:  1px 0px 0px 3px; 
+    color: #FFFFFF;
+    cursor: default;
+    line-height: 17px;
+    text-align: left;
+    vertical-align:top
+    border: none; 
+    background:none;
+}
+
+.QPChatLogo { 
+  border: none;
+  margin: 0px 0px 0px 39px;
+}
+
+.QPChatEmailLogo { 
+  border: none;
+  margin: 0px 0px 0px 30px;
+}
+
+.QPChatWindowStatusArea {
+    margin: 3px 7px 1px 3px;
+    padding: 0px;
+    height: 20px;
+    overflow: auto;
+    font: 11px Roboto, Helvetica, sans-serif;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.QPChatWindowTextArea {
+    width: 152px;
+    border: 1px solid #a5a5a5;
+    margin: 0px 2px 0px 0px;
+    padding: 0px;
+    height: 102px;
+    overflow: auto;
+    background: #ffffff;
+    font: 10px Roboto, Helvetica, sans-serif;
+    color: #959595;
+    text-align: left;
+}
+.QPChatWindowTextArea p{ 
+  font: 10px Roboto, Helvetica, sans-serif;
+  color: #ffffff;
+  background:#666666;
+  text-align:left;
+}
+
+.QPChatWindowTextArea span {
+	font:  10px Roboto, Helvetica, sans-serif;
+	color: #000000;
+        background: #ffffff;
+        padding: 0px;
+        text-align:left;
+}
+.QPChatWindowTextAreaShort {
+    width: 152px;
+    border: 1px solid #a5a5a5;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    height: 92px;
+    overflow: auto;
+    background: #ffffff;
+    font: Roboto, Helvetica, sans-serif;
+    color: #959595;
+    text-align: left;
+}
+.QPChatWindowTextAreaShort p{ 
+  font: 10px Roboto, Helvetica, sans-serif;
+  color: #959595;
+}
+
+.QPChatWindowTextAreaShort span {
+	font:  10px Roboto, Helvetica, sans-serif;
+	color: #000000;
+        padding: 0px;
+}
+.QPChatWindowTextAreaInput {
+    border: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;  
+    font: 11px Roboto, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #000000;
+}
+.QPChatWindowTextAreaInput TEXTAREA { 
+    border: 0px
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background: #ffffff;
+    font: 11px Roboto, Helvetica, sans-serif;
+    color: #009900;
+    vertical-align:left;
+    text-align:left;
+    float: left;
+  
+ }
+
+.QPChatWindowTextArea div {
+    display: inline;
+}
+
+.QPChatWindowTextArea p {
+    margin: 0; padding: 0;
+}
+
+.QPChatWindow {
+    height: 250px;
+}
+
+.QPChatWindowTextInput {
+    height:15px;
+    border:1px solid #a5a5a5;
+    padding: 0px;
+    font:10px Roboto, Helvetica, sans-serif;
+    margin:1px 0px 0px 0px;
+    background:#ffffff;
+    color: #000000;
+}
+.QPChatWindowTextInput INPUT { 
+    border: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background: #ffffff;
+    font: 11px Roboto, Helvetica, sans-serif;
+    color: #000000;
+    
+ } 
+.QPChatWindowButton {
+   font:bold 11px Roboto, Helvetica, sans-serif;
+   color:#ffffff;
+   background-color:#666666;
+   border-style:outset;
+   border-color:#999999;
+   border-width:2px;
+   width: 150px;
+   margin:1px 3px 0px 2px;
+}
+.QPChatEmailButton { 
+   font: bold 11px Roboto, Helvetica, sans-serif;
+   color:#ffffff;
+   background-color:#666666;
+   border-style:outset;
+   border-color:#999999;
+   border-width:2px;
+   width: 80px;
+ }
+
+
+.QPChatCloseButton { 
+   font: bold 11px Roboto, Helvetica, sans-serif;
+   color:#ffffff;
+   background-color:#666666;
+   border-style:outset;
+   border-color:#999999;
+   border-width:2px;
+   margin: 1px 1px 1px 1px;
+   padding: 0px 1px 1px 1px
+   width: 3px;
+   #height: 18px;
+ }
+
+
+

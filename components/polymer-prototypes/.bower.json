@@ -1,0 +1,14 @@
+{
+  "name": "polymer-prototypes",
+  "homepage": "https://github.com/uqlibrary/polymer-prototypes",
+  "_release": "b00f3ab8ca",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b00f3ab8cac8ec6e1c1f50eb0e20be17e78c9b31"
+  },
+  "_source": "git://github.com/uqlibrary/polymer-prototypes.git",
+  "_target": "master",
+  "_originalSource": "uqlibrary/polymer-prototypes",
+  "_direct": true
+}

@@ -1,0 +1,360 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+
+<head>
+    <title>Music demo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="polymer.png">
+
+    <!-- WEB COMPONENTS JS -->
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- CORE POLYMER -->
+
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+    <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
+    <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-dropdown/core-dropdown.html">
+    <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+    <link rel="import" href="bower_components/core-field/core-field.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/core-image/core-image.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+    <link rel="import" href="bower_components/core-label/core-label.html">
+    <link rel="import" href="bower_components/core-layout-grid/core-layout-grid.html">
+    <link rel="import" href="bower_components/core-layout-trbl/core-layout-trbl.html">
+    <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+    <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="bower_components/core-menu-button/core-menu-button.html">
+    <link rel="import" href="bower_components/core-meta/core-meta.html">
+    <link rel="import" href="bower_components/core-overlay/core-overlay.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+    <link rel="import" href="bower_components/core-range/core-range.html">
+    <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+    <link rel="import" href="bower_components/core-scroll-threshold/core-scroll-threshold.html">
+    <link rel="import" href="bower_components/core-selection/core-selection.html">
+    <link rel="import" href="bower_components/core-selector/core-selector.html">
+    <link rel="import" href="bower_components/core-shared-lib/core-shared-lib.html">
+    <link rel="import" href="bower_components/core-signals/core-signals.html">
+    <link rel="import" href="bower_components/core-splitter/core-splitter.html">
+    <link rel="import" href="bower_components/core-style/core-style.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
+    <link rel="import" href="bower_components/core-transition/core-transition.html">
+
+    <!-- load the other icons -->
+    <link rel="import" href="bower_components/core-icons/av-icons.html">
+    <link rel="import" href="bower_components/core-icons/maps-icons.html">
+    <link rel="import" href="bower_components/core-icons/image-icons.html">
+    <link rel="import" href="bower_components/core-icons/device-icons.html">
+    <link rel="import" href="bower_components/core-icons/editor-icons.html">
+    <link rel="import" href="bower_components/core-icons/social-icons.html">
+    <link rel="import" href="bower_components/core-icons/hardware-icons.html">
+    <link rel="import" href="bower_components/core-icons/notification-icons.html">
+    <link rel="import" href="bower_components/core-icons/communication-icons.html">
+
+    <!-- POLYMER PAPER ELEMENTS -->
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+    <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+    <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+
+    <!-- MATERIAL DESIGN -->
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+    <link rel="import" href="bower_components/google-map/google-map.html">
+    <link rel="import" href="bower_components/google-map/google-map-directions.html">
+
+    <style>
+        body {
+            font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            background: #f1f1f1;
+        }
+        .green {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 350px;
+            background: #70c26f;
+        }
+    </style>
+</head>
+
+<body>
+
+<polymer-element name="music-demo">
+    <template>
+
+        <style>
+            .chip-container {
+                position: absolute;
+                top: 275px;
+                right: 0;
+                left: 0;
+                text-align: center;
+            }
+            .chip {
+                display: inline-block;
+                position: relative;
+                border-radius: 3px;
+                margin: 4px;
+                overflow: hidden;
+                text-align: start;
+                background-color: #fff;
+                box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+            }
+            .chip-top {
+                width: 200px;
+                height: 200px;
+            }
+            .chip-bottom {
+                padding: 8px;
+                line-height: 1.5;
+            }
+            .chip-album-title {
+                font-weight: bold;
+            }
+            #details {
+                padding: 200px 10% 0;
+            }
+            .card {
+                height: 400px;
+                border-radius: 3px;
+                text-align: start;
+                overflow: hidden;
+                background: #fff;
+                box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .card-left {
+                width: 400px;
+            }
+            .card-right {
+                padding: 24px;
+            }
+            .card-icon {
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                margin-right: 16px;
+            }
+            .card-album-title {
+                font-size: 2em;
+            }
+            paper-icon-button.huge::shadow #icon {
+                color: #333;
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease-in-out;
+                /*background-color: rgba(0,0,0,0.9);*/
+                width: 44px;
+                height: 44px;
+            }
+            paper-icon-button {
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),  opacity 300ms ease-in-out;
+                border-radius: 50%;
+                box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+            }
+            paper-icon-button:hover {
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease-in-out;
+                color: #000;
+                background-color: rgba(0,0,0,0.2);
+                border-radius: 50%;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+            }
+            audio {
+                width: 100%;
+                margin-top: 260px;
+                transition: opacity 300ms ease-in-out;
+                border-radius: 10px;
+                box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+            }
+            .hidden {
+                opacity: 0;
+            }
+            .showing {
+                opacity: 1;
+            }
+            .toggleable {
+                display:none;
+            }
+        </style>
+
+        <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+
+            <section>
+
+                <div class="chip-container" hero-p on-tap="{{transition}}">
+
+                    <template repeat="{{items as item}}">
+
+                        <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
+                            <!--<div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>-->
+                            <div class="chip-top" style="background:url('{{item.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+                            <!--<core-image src="{{selectedAlbum.image}}" style="width:270px; height:200px;" sizing="cover"></core-image>-->
+                            <div class="chip-bottom">
+                                <div class="chip-album-title">{{item.album}}</div>
+                                <div class="chip-artist">{{item.artist}}</div>
+                            </div>
+                        </div>
+
+                    </template>
+
+                </div>
+            </section>
+
+            <section id="details">
+
+                <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
+                    <!--<div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>-->
+                    <div class="card-left" style="background:url('{{selectedAlbum.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+                    <div class="card-right" flex>
+                        <div layout horizontal center>
+                            <div>
+                                <div class="card-icon" style="background:{{selectedAlbum.color}};">
+                                    <paper-icon-button id="play" on-tap={{playAudio}} class="huge" icon="av:play-arrow" title="with :hover style"></paper-icon-button>
+                                    <paper-icon-button id="pause" on-tap={{playAudio}} class="huge toggleable" icon="av:pause" title="with :hover style"></paper-icon-button>
+                                </div>
+                            </div>
+                            <div flex>
+                                <div class="card-album-title">{{selectedAlbum.album}}</div>
+                                <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+                            </div>
+                        </div>
+                        <audio controls class="hidden">
+                            <source src="audio/aboriginal-dreamtime-story.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+            </section>
+
+        </core-animated-pages>
+
+    </template>
+    <script>
+        Polymer('music-demo', {
+
+            page: 0,
+
+            items: [{
+                artist: 'Tycho',
+                album: 'Fragments',
+                color: '#f4db33',
+                play: 'this',
+                image: 'img/flint1.jpg'
+//                image: 'https://clairemusicthoughts.files.wordpress.com/2011/05/imageh0-aboriginal-music-nt-20060914_125633212550.jpg'
+            }, {
+                artist: 'Tycho',
+                album: 'Past Prologue',
+                color: '#972ff8',
+                play: 'this',
+                image: 'img/flint2.jpg'
+//                image: 'http://www.travelnt.com/~/media/images/consumer/darwin%20and%20surrounds/traditional_indigenous_dance_dar_sur_u_1170866_540x304.ashx'
+            }, {
+                artist: 'Tycho',
+                album: 'Spectre',
+                color: '#7dd6fe',
+                play: 'this',
+                image: 'http://www.blackarmband.com.au/wp-content/uploads/2012/06/Archie-Roach.jpg'
+            }, {
+                artist: 'Tycho',
+                album: 'Awake',
+                color: '#dc3c84',
+                play: 'this',
+                image: 'http://i.ytimg.com/vi/zSyp65n9AZk/hqdefault.jpg'
+            }],
+
+            selectedAlbum: null,
+
+            transition: function(e) {
+                console.log(e.target.className);
+                if (this.page === 0 && e.target.templateInstance.model.item) {
+                    this.selectedAlbum = e.target.templateInstance.model.item;
+                    this.page = 1;
+                } else if (e.target.id == 'play') {
+                    e.preventDefault();
+                    console.log("clicked play!");
+                } else if (e.target.id == 'pause') {
+                    e.preventDefault();
+                    console.log("clicked pause!");
+                } else {
+                    this.page = 0;
+                }
+            },
+            playAudio: function(e) {
+                e.preventDefault();
+
+                document.querySelector('html /deep/ #play').classList.toggle('toggleable');
+                document.querySelector('html /deep/ #pause').classList.toggle('toggleable');
+                document.querySelector('html /deep/ audio').classList.toggle('hidden');
+                document.querySelector('html /deep/ audio').classList.toggle('showing');
+                if (document.querySelector('html /deep/ audio').classList.contains('showing')) {
+                    document.querySelector('html /deep/ audio').play();
+                } else if (document.querySelector('html /deep/ audio').classList.contains('hidden')) {
+                    document.querySelector('html /deep/ audio').pause();
+                }
+//                console.log("playing audio!");
+            }
+        });
+    </script>
+</polymer-element>
+
+<div class="green">
+    <google-map latitude="37.779" longitude="-122.3892" minZoom="9" maxZoom="11" fit>
+        <google-map-marker latitude="37.779" longitude="-122.3892"
+                           title="Flint Collection Marker 1" draggable="true">Flint Collection Marker 1
+            <!--<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_Giants_Cap_Insignia.svg/200px-San_Francisco_Giants_Cap_Insignia.svg.png" />-->
+        </google-map-marker>
+    </google-map>
+</div>
+
+<music-demo></music-demo>
+</body>
+
+</html>

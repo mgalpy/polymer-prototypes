@@ -1,0 +1,339 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+
+<head>
+    <title>Quiz demo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="polymer.png">
+
+    <!-- WEB COMPONENTS JS -->
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- CORE POLYMER -->
+
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+    <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
+    <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-dropdown/core-dropdown.html">
+    <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+    <link rel="import" href="bower_components/core-field/core-field.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/core-image/core-image.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+    <link rel="import" href="bower_components/core-label/core-label.html">
+    <link rel="import" href="bower_components/core-layout-grid/core-layout-grid.html">
+    <link rel="import" href="bower_components/core-layout-trbl/core-layout-trbl.html">
+    <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+    <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="bower_components/core-menu-button/core-menu-button.html">
+    <link rel="import" href="bower_components/core-meta/core-meta.html">
+    <link rel="import" href="bower_components/core-overlay/core-overlay.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+    <link rel="import" href="bower_components/core-range/core-range.html">
+    <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+    <link rel="import" href="bower_components/core-scroll-threshold/core-scroll-threshold.html">
+    <link rel="import" href="bower_components/core-selection/core-selection.html">
+    <link rel="import" href="bower_components/core-selector/core-selector.html">
+    <link rel="import" href="bower_components/core-shared-lib/core-shared-lib.html">
+    <link rel="import" href="bower_components/core-signals/core-signals.html">
+    <link rel="import" href="bower_components/core-splitter/core-splitter.html">
+    <link rel="import" href="bower_components/core-style/core-style.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
+    <link rel="import" href="bower_components/core-transition/core-transition.html">
+
+    <!-- load the other icons -->
+    <link rel="import" href="bower_components/core-icons/av-icons.html">
+    <link rel="import" href="bower_components/core-icons/maps-icons.html">
+    <link rel="import" href="bower_components/core-icons/image-icons.html">
+    <link rel="import" href="bower_components/core-icons/device-icons.html">
+    <link rel="import" href="bower_components/core-icons/editor-icons.html">
+    <link rel="import" href="bower_components/core-icons/social-icons.html">
+    <link rel="import" href="bower_components/core-icons/hardware-icons.html">
+    <link rel="import" href="bower_components/core-icons/notification-icons.html">
+    <link rel="import" href="bower_components/core-icons/communication-icons.html">
+
+    <!-- POLYMER PAPER ELEMENTS -->
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+    <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+    <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+
+    <!-- MATERIAL DESIGN -->
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+
+    <style>
+    body {
+        font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        background: #f1f1f1;
+    }
+    quiz-demo {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    </style>
+</head>
+
+<body>
+
+    <polymer-element name="quiz-demo">
+        <template>
+
+            <style>
+            core-animated-pages {
+                height: 100%;
+            }
+            section {
+                overflow: hidden;
+            }
+            .fab {
+                position: absolute;
+                fill: #fff;
+            }
+            .fab-0 {
+                bottom: 50px;
+                right: 24px;
+            }
+            .fab-1 {
+                top: 210px;
+                right: 24px;
+            }
+            paper-fab {
+                background-color: #ff4081;
+            }
+            .top {
+                background-color: #ffff8d;
+            }
+            .top-image {
+                background: url(quiz1-intro.png);
+                height: 287px;
+                width: 202px;
+            }
+            .bottom {
+                box-sizing: border-box;
+                position: relative;
+                height: 80px;
+                background-color: #ffeb3b;
+                padding: 24px;
+                color: #fff;
+                font-size: 32px;
+            }
+            .tall-toolbar {
+                box-sizing: border-box;
+                height: 240px;
+                position: relative;
+                color: #fff;
+                padding: 48px;
+                font-size: 48px;
+            }
+            .tall-toolbar.categories {
+                background-color: #00bbd3;
+                margin-bottom: 2px;
+            }
+            .tall-toolbar.questions {
+                background-color: #ffeb3b;
+            }
+            .middle {
+                background-color: #fafafa;
+                color: #3f3f3f;
+                padding: 24px 48px;
+                font-size: 24px;
+                line-height: 1.5;
+            }
+            .footer {
+                height: 80px;
+            }
+            .avatar {
+                height: 80px;
+                width: 80px;
+                background-color: #ff80ab;
+            }
+            .footer-right,
+            .score {
+                border-top: 1px solid #ccc;
+                background-color: #fff;
+                padding: 30px;
+            }
+            .tile {
+                box-sizing: border-box;
+                float: left;
+                height: 200px;
+                width: 49%;
+                margin: 3px;
+            }
+            .tile-bottom {
+                padding: 8px;
+                color: #fff;
+            }
+            </style>
+
+            <core-animated-pages selected="{{page}}" transitions="hero-transition slide-up slide-down cross-fade list-cascade" on-core-animated-pages-transition-end="{{complete}}">
+
+                <section layout vertical>
+
+                    <div class="tall-toolbar categories" slide-down>
+                        <span>Flint Collection Project</span>
+                    </div>
+
+                    <div class="tiles-container">
+                        <div class="tile" style="background-color:#ccc;" layout vertical>
+                            <div class="tile-top" flex></div>
+                            <div class="tile-bottom" style="background-color:#aaa;">
+                                Yolnu Language area
+                            </div>
+                        </div>
+                        <div class="tile" hero-id="category-image" hero style="background-color:#ffff8d;" layout vertical on-tap="{{transition}}">
+                            <div class="tile-top" flex></div>
+                            <div class="tile-bottom" hero-id="footer" hero style="background-color:#ffeb3b;">
+                                Rembarrnga Language area
+                            </div>
+                        </div>
+                        <div class="tile" style="background-color:#b9f6ca;" layout vertical>
+                            <div class="tile-top" flex></div>
+                            <div class="tile-bottom" style="background-color:#0f9d58;">
+                                Ndjebbana Language area
+                            </div>
+                        </div>
+                        <div class="tile" style="background-color:#ff8a80;" layout vertical>
+                            <div class="tile-top" flex></div>
+                            <div class="tile-bottom" style="background-color:#db4437;">
+                                Gunwinggu Language area
+                            </div>
+                        </div>
+                        <div class="tile" style="background-color:#82b1ff;" layout vertical>
+                            <div class="tile-top" flex></div>
+                            <div class="tile-bottom" style="background-color:#4285f4;">
+                                Kriol Language area
+                            </div>
+                        </div>
+                        <div class="tile" style="background-color:#b388ff;" layout vertical>
+                            <div class="tile-top" flex></div>
+                            <div class="tile-bottom" style="background-color:#7e57c2;">
+                                Jawoyn Language area
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section layout vertical>
+
+                    <div class="top" hero-id="category-image" hero flex layout horizontal center center-justified>
+                        <div class="top-image" cross-fade></div>
+                    </div>
+                    <div class="bottom" hero-id="footer" hero cross-fade>
+                        <span cross-fade>Rembarrnga Language area</span>
+                    </div>
+                    <div class="fab fab-0" hero-id="fab" hero>
+                        <paper-fab icon="av:play-arrow" on-tap="{{transition}}" hero></paper-fab>
+                    </div>
+                </section>
+
+                <section layout vertical>
+
+                    <div class="tall-toolbar questions" hero-id="footer" hero>
+                        <span cross-fade>Aboriginal Dreamtime Stories</span>
+                    </div>
+                    <div class="fab fab-1" hero-id="fab" hero>
+                        <paper-fab icon="av:play-arrow" on-tap="{{transition}}" hero></paper-fab>
+                    </div>
+
+                    <div flex class="middle" slide-up list-cascade>
+                        <p>Audio file 1</p>
+                        <p>Audio file 2</p>
+                        <p>Audio file 3</p>
+                        <p>Audio file 4</p>
+                        <p>Audio file 5</p>
+
+                        <!--<p>Description here</p>-->
+                        <!--<p>Northern Queensland, Australia</p>-->
+                        <!--<p>Speakers</p>-->
+                        <!--<p>1923</p>-->
+                    </div>
+
+                    <div class="footer" layout horizontal slide-up>
+                        <div class="avatar"></div>
+                        <div class="footer-right" flex>
+                            Aborignal Dreamtime Stories - Audio File 1
+                        </div>
+                        <div class="score">
+                            32 minutes, 12 seconds
+                        </div>
+                    </div>
+
+                </section>
+
+            </core-animated-pages>
+
+        </template>
+        <script>
+        Polymer('quiz-demo', {
+
+            page: 0,
+
+            transition: function(e) {
+                if (this.page === 2) {
+                    this.page = 0;
+                } else {
+                    this.page += 1;
+                }
+            }
+        });
+        </script>
+    </polymer-element>
+
+    <quiz-demo></quiz-demo>
+</body>
+
+</html>

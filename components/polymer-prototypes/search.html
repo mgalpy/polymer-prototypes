@@ -1,0 +1,716 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Search</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="polymer.png">
+
+    <!-- WEB COMPONENTS JS -->
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- CORE POLYMER -->
+
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-bottom.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-down.html">
+    <link rel="import" href="bower_components/core-collapse/core-collapse.html">
+    <link rel="import" href="bower_components/core-doc-viewer/core-doc-viewer.html">
+    <link rel="import" href="bower_components/core-drag-drop/core-drag-drop.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-dropdown/core-dropdown.html">
+    <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html">
+    <link rel="import" href="bower_components/core-field/core-field.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/core-image/core-image.html">
+    <link rel="import" href="bower_components/core-input/core-input.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+    <link rel="import" href="bower_components/core-label/core-label.html">
+    <link rel="import" href="bower_components/core-layout-grid/core-layout-grid.html">
+    <link rel="import" href="bower_components/core-layout-trbl/core-layout-trbl.html">
+    <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+    <link rel="import" href="bower_components/core-media-query/core-media-query.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="bower_components/core-menu-button/core-menu-button.html">
+    <link rel="import" href="bower_components/core-meta/core-meta.html">
+    <link rel="import" href="bower_components/core-overlay/core-overlay.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+    <link rel="import" href="bower_components/core-range/core-range.html">
+    <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+    <link rel="import" href="bower_components/core-scroll-threshold/core-scroll-threshold.html">
+    <link rel="import" href="bower_components/core-selection/core-selection.html">
+    <link rel="import" href="bower_components/core-selector/core-selector.html">
+    <link rel="import" href="bower_components/core-shared-lib/core-shared-lib.html">
+    <link rel="import" href="bower_components/core-signals/core-signals.html">
+    <link rel="import" href="bower_components/core-splitter/core-splitter.html">
+    <link rel="import" href="bower_components/core-style/core-style.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
+    <link rel="import" href="bower_components/core-transition/core-transition.html">
+
+    <!-- load the other icons -->
+    <link rel="import" href="bower_components/core-icons/av-icons.html">
+    <link rel="import" href="bower_components/core-icons/maps-icons.html">
+    <link rel="import" href="bower_components/core-icons/image-icons.html">
+    <link rel="import" href="bower_components/core-icons/device-icons.html">
+    <link rel="import" href="bower_components/core-icons/editor-icons.html">
+    <link rel="import" href="bower_components/core-icons/social-icons.html">
+    <link rel="import" href="bower_components/core-icons/hardware-icons.html">
+    <link rel="import" href="bower_components/core-icons/notification-icons.html">
+    <link rel="import" href="bower_components/core-icons/communication-icons.html">
+
+    <!-- POLYMER PAPER ELEMENTS -->
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+    <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-autogrow-textarea.html">
+    <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+    <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+
+    <!-- MATERIAL DESIGN -->
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
+    <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            /*font-size: 14px;*/
+        }
+        core-toolbar {
+            font-size: 20px;
+            font-weight: 400;
+            white-space: nowrap;
+            background-color: #49075E;
+            color: #fff;
+            z-index: 1;
+            /*transition: 300ms ease-in-out;*/
+
+            transition: background .15s;
+        }
+        paper-tab {
+            background-color: #fafafa;
+            /*z-index: 1;*/
+            cursor: pointer;
+        }
+        paper-tab:hover {
+            background-color: #eee;
+            /*color: #8BC34A;*/
+        }
+        paper-tab.core-selected {
+            color: #8BC34A;
+            font-weight: 800;
+        }
+        paper-tabs {
+            transition: 300ms ease-in-out;
+            height: 55px;
+            background-color: #fafafa;
+            color: #333;
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        paper-tabs[noink][nobar] paper-tab.core-selected {
+            color: #8BC34A;
+            z-index: 1;
+        }
+        paper-tabs::shadow #selectionBar {
+            background-color: #8BC34A;
+            z-index: 1;
+        }
+        paper-tabs paper-tab::shadow #ink {
+            color: #8BC34A;
+            z-index: 1;
+        }
+        [drawer] {
+            background-color: #fafafa;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            /*box-shadow: 3px 0px 40px rgba(0, 0, 0, 0.5);*/
+        }
+        [main] {
+            background-color: #eee;
+        }
+        core-animated-pages {
+            height: 100%;
+            transition: 300ms ease-in-out;
+        }
+        core-icon {
+            padding-right: 20px;
+        }
+        core-icon[icon="book"] {
+            width: 0px;
+            height: 16px;
+            color: #999;
+        }
+        core-icon[icon="av:my-library-add"] {
+            width: 0px;
+            height: 16px;
+            color: #999;
+        }
+        paper-input-decorator {
+            background-image: url('img/ic_search_white_24dp.png');
+            background-repeat: no-repeat;
+            background-position: 16px 8px;
+            background-size: 24px;
+            margin: 0;
+            padding: 3px 0;
+            font-size: 16px;
+            padding-left: 64px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            color: #fafafa;
+        }
+        paper-input-decorator:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        paper-input-decorator /deep/::-webkit-input-placeholder {
+            /* platform specific rules for placeholder text */
+
+            color: #fafafa;
+            /*font-weight: 300;*/
+        }
+        paper-input-decorator /deep/ .unfocused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
+        }
+        paper-input-decorator /deep/ .focused-underline {
+            /* line color when the input is unfocused */
+
+            background-color: transparent;
+        }
+        .darkText /deep/::-webkit-input-placeholder {
+            color: #333;
+        }
+        paper-fab {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            background-color: #007e9e;
+        }
+        #cards {
+            height: auto;
+            margin: 0 auto;
+            overflow: auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+        swipeable-card {
+            height: auto;
+            width: 90%;
+            margin: 20px auto;
+            box-shadow: none;
+        }
+        .card {
+            display: inline-block;
+            background: white;
+            box-sizing: border-box;
+            width: 95%;
+            max-width: 800px;
+            height: auto;
+            min-height: 200px;
+            padding: 16px 20px;
+            border-radius: 2px;
+            margin: 20px auto;
+        }
+        #search-card {
+            transition: 300ms ease-in-out;
+            min-height: 32px;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .slide {
+            /*for just search bar*/
+
+            transform: translate(0, 26em);
+            /*for search bar + tabs*/
+            /*transform: translate(0, -7.4em);*/
+            /*for search bar, tabs, + toolbar*/
+            /*transform: translate(0, -11.4em);*/
+        }
+        .turnWhite {
+            background: #f6f6f6;
+            color: #333;
+        }
+        .turnWhite2 {
+            background: #fff;
+            color: #333;
+            background-image: url('img/ic_search_black_24dp.png');
+            background-repeat: no-repeat;
+            background-position: 16px 8px;
+            background-size: 24px;
+        }
+        #suggest-card {
+            transition: 300ms ease-in-out;
+            width: 100%;
+            top: -500px;
+            /*position: absolute;*/
+            z-index: 5;
+        }
+        #details {
+            padding: 18px;
+            font-size: 12px;
+            color: #fafafa;
+        }
+        #account {
+            background-color: #49075E;
+        }
+        paper-item {
+            color: #333;
+            text-decoration: none;
+        }
+        paper-item:hover {
+            background-color: #eee;
+            text-decoration: none;
+        }
+        .menu {
+            margin: 8px;
+        }
+        #feedback {
+            color: #333;
+            padding: 0;
+        }
+        #feedback /deep/ .unfocused-underline {
+            color: #333;
+            background-color: #333;
+        }
+        #feedback /deep/ .focused-underline {
+            color: #333;
+            background-color: #333;
+        }
+        #feedback /deep/::-webkit-input-placeholder {
+            color: #777;
+        }
+        p {
+            margin: 2px 0;
+        }
+        a {
+            /*color: #007e9e;*/
+        }
+        a:hover {
+            color: #49075e;
+        }
+        .title a {
+            text-decoration: none;
+        }
+        .title a:hover {
+            text-decoration: underline;
+        }
+        .authors a {
+            /*color: #38852e;*/
+        }
+        .descrip {
+
+        }
+        .cited a {
+            margin-right: 8px;
+            text-decoration: none;
+        }
+        .cited a:hover {
+            text-decoration: underline;
+        }
+        .type {
+            /*color: #666;*/
+        }
+        hr {
+            margin: 16px -20px;
+        }
+        .menuLine {
+            margin: 12px 0;
+        }
+        .title {
+            text-decoration: none;
+            padding-bottom: 8px;
+        }
+        .authors {
+            font-size: 13px;
+            /*color: #38852e;*/
+            padding-bottom: 8px;
+            /*font-weight: 800;*/
+        }
+        .journal {
+            padding-bottom: 4px;
+        }
+        .cover {
+            margin-right:20px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+</head>
+
+<body fullbleed unresolved>
+
+<core-drawer-panel>
+
+    <div drawer>
+        <div horizontal layout id="account">
+            <div id="icon">
+                <core-icon icon="account-circle" class="active-inverse" style="height: 64px; width: 64px; color: #fafafa;"></core-icon>
+            </div>
+            <div id="details" class="body1.inverse" flex>
+                <div>
+                    <div id="name" style="font-weight:600">Miss Natalie Undergrad</div>
+                    <div id="mail">s1234567@uq.edu.au</div>
+                </div>
+            </div>
+        </div>
+        <core-menu selectedAttribute="">
+            <paper-item>
+                <core-icon icon="dashboard"></core-icon> Dashboard</paper-item>
+            <paper-item>
+                <core-icon icon="lock"></core-icon> Logout</paper-item>
+            <hr class="menuLine">
+            <paper-item onclick="nextPage()">
+                <core-icon icon="event"></core-icon> Booking</paper-item>
+            <paper-item onclick="lastPage()">
+                <core-icon icon="maps:local-library"></core-icon> Borrowing</paper-item>
+            <paper-item>
+                <core-icon icon="hardware:desktop-windows"></core-icon> Computers</paper-item>
+            <paper-item>
+                <core-icon icon="maps:school"></core-icon> Courses</paper-item>
+            <paper-item>
+                <core-icon icon="schedule"></core-icon> Hours</paper-item>
+
+
+        </core-menu>
+    </div>
+
+    <div main>
+        <template is="auto-binding">
+            <div id="clicker" on-tap="{{clickAction}}">
+                <core-toolbar>
+                    <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+                    <div>UQ Library</div>
+                    <div flex>
+                        <paper-input-decorator label="Search" id="search">
+                            <input is="core-input">
+                        </paper-input-decorator>
+                    </div>
+
+                    <paper-menu-button>
+                        <paper-icon-button icon="more-vert" noink></paper-icon-button>
+                        <paper-dropdown halign="right" class="dropdown">
+                            <core-menu class="menu">
+                                <paper-item>Help</paper-item>
+                                <paper-item>Settings</paper-item>
+                                <paper-item>Feedback</paper-item>
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-menu-button>
+                </core-toolbar>
+            </div>
+        </template>
+        <paper-tabs selected="0" scrollable>
+            <paper-tab>Summon</paper-tab>
+            <paper-tab>Books</paper-tab>
+            <paper-tab>Journal Articles</paper-tab>
+            <paper-tab>Journals</paper-tab>
+            <paper-tab>Databases</paper-tab>
+            <paper-tab>Multimedia</paper-tab>
+            <paper-tab>Past Exams</paper-tab>
+            <paper-tab>Course Reading Lists</paper-tab>
+
+        </paper-tabs>
+        <div horizontal center-justified layout style="height:0">
+            <paper-shadow class="card" z="2" id="suggest-card">
+                <p>
+                    Search suggestions
+                </p>
+                <p>Recently searched</p>
+            </paper-shadow>
+        </div>
+        <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+            <div>
+                <div id="cards" vertical center-justified layout>
+
+                    <paper-shadow class="card" z="1">
+                        <div horizontal layout>
+                            <div><div vertical layout flex self-stretch>
+                                <div self-stretch><div class="cover"><img src="img/cover1.jpg"></div></div>
+                            </div></div>
+                            <div flex><div vertical layout class="year">
+                                <div horizontal layout><div class="title"><a href="#">Mobile user experience: patterns to make sense of it all</a></div></div>
+                                <div class="authors">by <a href="#">Mendoza, Adrian</a></div>
+                                <div class="authors">2014</div>
+                                <div class="authors">.... First, you'll start off learning how to communicate mobile UX flows visually. From there, you'll learn about applying and using 10 unique user experience patterns or archetypes for mobile...</div>
+                                <div class="authors"><core-icon icon="book"></core-icon>eBook: <a href="#">Full Text Online</a></div>
+                            </div></div>
+                            <div><div vertical layout class="metrics" flex self-stretch>
+                                <!--<div self-stretch class="border-left border-bottom wos"><div class="num-cites"><core-icon icon="arrow-forward"></core-icon></div></div>-->
+                                <div self-stretch class="border-left altmetrics"><div class="num-cites"><core-icon icon="av:my-library-add"></core-icon></div></div>
+                            </div></div>
+                        </div>
+                        <hr>
+                        <div horizontal layout>
+                            <div><div vertical layout flex self-stretch>
+                                <div self-stretch><div class="cover"><img src="img/cover2.jpg"></div></div>
+                            </div></div>
+                            <div flex><div vertical layout class="year">
+                                <div horizontal layout><div class="title"><a href="#">Measuring the user experience: collecting, analyzing, and presenting usability metrics</a></div></div>
+                                <div class="authors">by <a href="#">Tullis, Tom</a>; <a href="#">Albert, Bill</a></div>
+                                <div class="authors">2013</div>
+                                <div class="authors">Measuring the User Experience was the first book that focused on how to quantify the user experience...</div>
+                                <div class="authors"><core-icon icon="book"></core-icon>eBook: <a href="#">Full Text Online</a></div>
+                            </div></div>
+                            <div><div vertical layout class="metrics" flex self-stretch>
+                                <!--<div self-stretch class="border-left border-bottom wos"><div class="num-cites"><core-icon icon="arrow-forward"></core-icon></div></div>-->
+                                <div self-stretch class="border-left altmetrics"><div class="num-cites"><core-icon icon="av:my-library-add"></core-icon></div></div>
+                            </div></div>
+                        </div>
+                    </paper-shadow>
+
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Books</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Books - Chapters, eBooks</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Journal Articles</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Journals</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Databases</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Multimedia - Images, Music, Video</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Past Exam Papers</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="type">Course Reading Lists</p>
+                        <hr>
+                        <p class="title"><a href="#" class="title">Elements of User Experience, The: User-Centered Design for the Web and Beyond</a></p>
+                        <p class="authors"><a href="#" class="authors">JJ Garrett - 2010 - books.google.com</a></p>
+                        <p class="descrip">From the moment it was published almost ten years ago, Elements of User Experience
+                            became a vital reference for web and interaction designers the world over, and has come to
+                            define the core principles of the practice. Now, in this updated, expanded, and full-color ...</p>
+                        <p class="cited"><a href="#">Cited by 1068</a> <a href="#">Related articles</a> <a href="#">All 8 versions</a> <a href="#">Web of Science: 263</a> <a href="#">Cite</a> <a href="#">Save</a></p>
+
+                    </paper-shadow>
+
+                </div>
+            </div>
+
+        </core-animated-pages>
+        <!--<paper-fab icon="add"></paper-fab>-->
+    </div>
+</core-drawer-panel>
+
+
+<script>
+    function sendFeedback() {
+        // see https://medium.com/@mariusc23/send-an-email-using-only-javascript-b53319616782
+        console.log("Feedback sent!");
+    }
+
+    function slideElements(name) {
+        document.querySelector(name).classList.toggle('slide');
+    }
+
+    function searchAnimation() {
+        document.querySelector('core-toolbar').classList.toggle('turnWhite');
+        document.querySelector('paper-input-decorator').classList.toggle('turnWhite2');
+        document.querySelector('paper-input-decorator').classList.toggle('darkText');
+        // console.log(document.querySelector('paper-input-decorator').attributes);
+        slideElements('#suggest-card');
+    }
+
+    function clickAction(e) {
+        var t = e.target;
+        // console.log(t.localName);
+        if ((t.localName != 'paper-icon-button') && (t.localName != 'paper-item')) {
+            searchAnimation();
+        }
+        // searchAnimation();
+        // if ((t.localName == 'paper-input-decorator') || (t.localName == 'input')) {
+        //     searchAnimation();
+        // } else if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
+        //     searchAnimation();
+        // }
+    }
+    addEventListener('template-bound', function(e) {
+        e.target.clickAction = clickAction;
+    });
+
+    document.querySelector('core-animated-pages').addEventListener("click", function() {
+        if (document.querySelector('core-toolbar').classList.contains('turnWhite')) {
+            searchAnimation();
+        }
+    });
+
+
+    var tabs = document.querySelector('paper-tabs');
+    var pages = document.querySelector('core-animated-pages');
+
+    tabs.addEventListener('core-select', function() {
+        pages.selected = tabs.selected;
+    });
+
+    function nextPage() {
+        console.log('next page!');
+        pages.selected++;
+    }
+    function lastPage() {
+        console.log('next page!');
+        pages.selected--;
+    }
+
+
+    function showToast() {
+        document.querySelector('#main-toast').show();
+    }
+
+    document.querySelector('#cards').addEventListener('swipeable-card-swipe-away', function(e) {
+        e.target.parentNode.removeChild(e.target);
+        document.querySelector('#cards').appendChild(e.target); // adds this card to the end of the set of cards
+
+        showToast();
+
+        // wait for 10ms so the animations can kick in
+        setTimeout(function() {
+            // set style and position back to (default)
+            e.target.style.opacity = 1;
+            e.target.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+            e.target.style.webkitTransform = "translate3d(0px, 0px, 0px) rotate(0deg)";
+        }, 10);
+    });
+</script>
+
+<paper-toast id="main-toast" class="capsule" role="alert" text="Done for now">
+    <!-- <div>Action</div> -->
+</paper-toast>
+
+</body>
+
+</html>
