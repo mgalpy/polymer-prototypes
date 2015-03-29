@@ -111,28 +111,28 @@
     <link rel="import" href="bower_components/google-map/google-map-directions.html">
 
     <style>
-    body {
-        font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        margin: 0;
-        background: #f1f1f1;
-    }
-    .green {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 350px;
-        background: #70c26f;
-    }
+        body {
+            font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            background: #f1f1f1;
+        }
+        .green {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 350px;
+            background: #70c26f;
+        }
     </style>
 </head>
 
 <body>
 
-    <polymer-element name="music-demo">
-        <template>
+<polymer-element name="music-demo">
+    <template>
 
-            <style>
+        <style>
             .chip-container {
                 position: absolute;
                 top: 275px;
@@ -189,71 +189,95 @@
             }
             paper-icon-button.huge::shadow #icon {
                 color: #333;
-                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1);
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease-in-out;
                 /*background-color: rgba(0,0,0,0.9);*/
                 width: 44px;
                 height: 44px;
             }
             paper-icon-button {
-                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),  opacity 300ms ease-in-out;
                 border-radius: 50%;
+                box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
             }
             paper-icon-button:hover {
-                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+                transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease-in-out;
                 color: #000;
                 background-color: rgba(0,0,0,0.2);
                 border-radius: 50%;
                 box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
             }
-            </style>
+            audio {
+                width: 100%;
+                margin-top: 260px;
+                transition: opacity 300ms ease-in-out;
+                border-radius: 10px;
+                box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+            }
+            .hidden {
+                opacity: 0;
+            }
+            .showing {
+                opacity: 1;
+            }
+            .toggleable {
+                display:none;
+            }
+        </style>
 
-            <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
-                
-                <section>
+        <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
 
-                    <div class="chip-container" hero-p on-tap="{{transition}}">
+            <section>
 
-                        <template repeat="{{items as item}}">
+                <div class="chip-container" hero-p on-tap="{{transition}}">
 
-                            <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
-                                <!--<div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>-->
-                                <div class="chip-top" style="background:url('{{item.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
-                                <!--<core-image src="{{selectedAlbum.image}}" style="width:270px; height:200px;" sizing="cover"></core-image>-->
-                                <div class="chip-bottom">
-                                    <div class="chip-album-title">{{item.album}}</div>
-                                    <div class="chip-artist">{{item.artist}}</div>
-                                </div>
-                            </div>
+                    <template repeat="{{items as item}}">
 
-                        </template>
-
-                    </div>
-                </section>
-
-                <section id="details">
-
-                    <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-                        <!--<div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>-->
-                        <div class="card-left" style="background:url('{{selectedAlbum.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
-                        <div class="card-right" flex>
-                            <div layout horizontal center>
-                                <div>
-                                    <div class="card-icon" style="background:{{selectedAlbum.color}};"><paper-icon-button on-tap={{playAudio}} class="huge" icon="av:play-arrow" title="with :hover style"></paper-icon-button></div>
-                                </div>
-                                <div flex>
-                                    <div class="card-album-title">{{selectedAlbum.album}}</div>
-                                    <div class="card-album-artist">{{selectedAlbum.artist}}</div>
-                                </div>
+                        <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
+                            <!--<div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>-->
+                            <div class="chip-top" style="background:url('{{item.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+                            <!--<core-image src="{{selectedAlbum.image}}" style="width:270px; height:200px;" sizing="cover"></core-image>-->
+                            <div class="chip-bottom">
+                                <div class="chip-album-title">{{item.album}}</div>
+                                <div class="chip-artist">{{item.artist}}</div>
                             </div>
                         </div>
+
+                    </template>
+
+                </div>
+            </section>
+
+            <section id="details">
+
+                <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
+                    <!--<div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>-->
+                    <div class="card-left" style="background:url('{{selectedAlbum.image}}');background-size: cover;background-repeat: no-repeat;" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+                    <div class="card-right" flex>
+                        <div layout horizontal center>
+                            <div>
+                                <div class="card-icon" style="background:{{selectedAlbum.color}};">
+                                    <paper-icon-button id="play" on-tap={{playAudio}} class="huge" icon="av:play-arrow" title="with :hover style"></paper-icon-button>
+                                    <paper-icon-button id="pause" on-tap={{playAudio}} class="huge toggleable" icon="av:pause" title="with :hover style"></paper-icon-button>
+                                </div>
+                            </div>
+                            <div flex>
+                                <div class="card-album-title">{{selectedAlbum.album}}</div>
+                                <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+                            </div>
+                        </div>
+                        <audio controls class="hidden">
+                            <source src="audio/aboriginal-dreamtime-story.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
+                </div>
 
-                </section>
+            </section>
 
-            </core-animated-pages>
+        </core-animated-pages>
 
-        </template>
-        <script>
+    </template>
+    <script>
         Polymer('music-demo', {
 
             page: 0,
@@ -293,30 +317,44 @@
                 if (this.page === 0 && e.target.templateInstance.model.item) {
                     this.selectedAlbum = e.target.templateInstance.model.item;
                     this.page = 1;
-                } else if (e.target.className == 'huge') {
-                    console.log("playing audio!");
+                } else if (e.target.id == 'play') {
+                    e.preventDefault();
+                    console.log("clicked play!");
+                } else if (e.target.id == 'pause') {
+                    e.preventDefault();
+                    console.log("clicked pause!");
                 } else {
                     this.page = 0;
                 }
             },
             playAudio: function(e) {
-//                e.preventDefault();
-                console.log("playing audio!");
+                e.preventDefault();
+
+                document.querySelector('html /deep/ #play').classList.toggle('toggleable');
+                document.querySelector('html /deep/ #pause').classList.toggle('toggleable');
+                document.querySelector('html /deep/ audio').classList.toggle('hidden');
+                document.querySelector('html /deep/ audio').classList.toggle('showing');
+                if (document.querySelector('html /deep/ audio').classList.contains('showing')) {
+                    document.querySelector('html /deep/ audio').play();
+                } else if (document.querySelector('html /deep/ audio').classList.contains('hidden')) {
+                    document.querySelector('html /deep/ audio').pause();
+                }
+//                console.log("playing audio!");
             }
         });
-        </script>
-    </polymer-element>
+    </script>
+</polymer-element>
 
-    <div class="green">
-        <google-map latitude="37.779" longitude="-122.3892" minZoom="9" maxZoom="11" fit>
+<div class="green">
+    <google-map latitude="37.779" longitude="-122.3892" minZoom="9" maxZoom="11" fit>
         <google-map-marker latitude="37.779" longitude="-122.3892"
                            title="Flint Collection Marker 1" draggable="true">Flint Collection Marker 1
             <!--<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_Giants_Cap_Insignia.svg/200px-San_Francisco_Giants_Cap_Insignia.svg.png" />-->
         </google-map-marker>
-        </google-map>
-    </div>
+    </google-map>
+</div>
 
-    <music-demo></music-demo>
+<music-demo></music-demo>
 </body>
 
 </html>
