@@ -162,7 +162,7 @@
         }
         #cards {
             width: 100%;
-            height: 300px;
+            height: auto;
             margin: 0 auto;
             overflow: auto;
             -webkit-user-select: none;
@@ -319,7 +319,10 @@
             box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
         }
         .content {
-            margin-left: 16px;
+            margin-left: 57px;
+        }
+        .result {
+            margin: 0 -24px;
         }
     </style>
 
@@ -399,29 +402,58 @@
                 </div>
             </template>
 
-            <paper-tabs selected="0" style="display:none">
-                <paper-tab>Page 1</paper-tab>
-                <paper-tab>Page 2</paper-tab>
+            <paper-tabs selected="0">
+                <paper-tab>Sample 1</paper-tab>
+                <paper-tab>Sample 2</paper-tab>
             </paper-tabs>
 
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
 
                 <div vertical layout>
-                <div id="cards" horizontal center-justified layout>
-                    <paper-shadow class="card" z="1">
-                        <h2>Language Type 1</h2>
-                        <p>Title</p>
-                        <p>Authors</p>
-                        <p>Description</p>
-                        <br>
-                        <audio controls class="hidden">
-                            <source src="audio/aboriginal-dreamtime-story.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                        <!--<paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>-->
-                        <!--<paper-button affirmative style="float:right">No</paper-button>-->
-                    </paper-shadow>
+                    <div id="cards" horizontal center-justified layout>
+                        <paper-shadow class="card" z="1">
+                            <p>Languages</p>
+                            <hr class="result">
+                            <p>Language 1 results</p>
+                            <p>Language 2 results</p>
+                            <br>
+                        </paper-shadow>
+                    </div>
+                    <div id="cards" horizontal center-justified layout>
+                        <paper-shadow class="card" z="1">
+                            <p>Interviewers</p>
+                            <hr class="result">
+                            <p>Interviewer 1 results</p>
+                            <p>Interviewer 2 results</p>
+                            <br>
+                        </paper-shadow>
+                    </div>
+                    <div id="cards" horizontal center-justified layout>
+                        <paper-shadow class="card" z="1">
+                            <p>Map Locations</p>
+                            <hr class="result">
+                            <p>Location 1 results</p>
+                            <p>Location 2 results</p>
+                            <br>
+                        </paper-shadow>
+                    </div>
+
                 </div>
+
+                <div vertical layout>
+                    <div id="cards" horizontal center-justified layout>
+                        <paper-shadow class="card" z="1">
+                            <h2>Language Type 1</h2>
+                            <p>Title</p>
+                            <p>Authors</p>
+                            <p>Description</p>
+                            <br>
+                            <audio controls class="hidden">
+                                <source src="audio/aboriginal-dreamtime-story.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </paper-shadow>
+                    </div>
                     <div id="cards" horizontal center-justified layout>
                         <paper-shadow class="card" z="1">
                             <h2>Language Type 2</h2>
@@ -429,10 +461,21 @@
                             <p>Authors</p>
                             <p>Description</p>
                             <br>
-                            <!--<paper-button affirmative raised style="float:right;background:#007e9e;color:#fff;" class="coloured" onclick="sendFeedback()">Yes</paper-button>-->
-                            <!--<paper-button affirmative style="float:right">No</paper-button>-->
+                            <audio controls class="hidden">
+                                <source src="audio/aboriginal-dreamtime-story.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
                         </paper-shadow>
                     </div>
+                    <div id="cards" horizontal center-justified layout>
+                        <paper-shadow class="card" z="1">
+                            <h2>Language Type 3</h2>
+                            <p>Title</p>
+                            <p>Authors</p>
+                            <p>Description</p>
+                        </paper-shadow>
+                    </div>
+
                 </div>
 
 

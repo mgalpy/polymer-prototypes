@@ -107,6 +107,8 @@
     <link rel="import" href="bower_components/font-roboto/roboto.html">
     <link rel="import" href="bower_components/swipeable-card/swipeable-card.html">
     <link rel="import" href="bower_components/icon-transition/icon-transition.html">
+    <link rel="import" href="bower_components/google-map/google-map.html">
+    <link rel="import" href="bower_components/google-map/google-map-directions.html">
 
     <style>
     body {
@@ -156,7 +158,7 @@
                 background-color: #ffff8d;
             }
             .top-image {
-                background: url(quiz1-intro.png);
+                background: url("img/rembarrnga.png");
                 height: 287px;
                 width: 202px;
             }
@@ -216,6 +218,13 @@
                 padding: 8px;
                 color: #fff;
             }
+            a {
+                text-decoration: nonea;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: #49075E;
+            }
             </style>
 
             <core-animated-pages selected="{{page}}" transitions="hero-transition slide-up slide-down cross-fade list-cascade" on-core-animated-pages-transition-end="{{complete}}">
@@ -270,7 +279,14 @@
                 <section layout vertical>
 
                     <div class="top" hero-id="category-image" hero flex layout horizontal center center-justified>
-                        <div class="top-image" cross-fade></div>
+
+                                <google-map latitude="37.779" longitude="-122.3892" minZoom="9" maxZoom="11" fit>
+                                    <google-map-marker latitude="37.779" longitude="-122.3892"
+                                                       title="Flint Collection Marker 1" draggable="true">Flint Collection Marker 1
+                                        <!--<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_Giants_Cap_Insignia.svg/200px-San_Francisco_Giants_Cap_Insignia.svg.png" />-->
+                                    </google-map-marker>
+                                </google-map>
+
                     </div>
                     <div class="bottom" hero-id="footer" hero cross-fade>
                         <span cross-fade>Rembarrnga Language area</span>
@@ -290,11 +306,11 @@
                     </div>
 
                     <div flex class="middle" slide-up list-cascade>
-                        <p>Audio file 1</p>
-                        <p>Audio file 2</p>
-                        <p>Audio file 3</p>
-                        <p>Audio file 4</p>
-                        <p>Audio file 5</p>
+                        <p><a href="#">Audio file 1</a></p>
+                        <p><a href="#">Audio file 2</a></p>
+                        <p><a href="#">Audio file 3</a></p>
+                        <p><a href="#">Audio file 4</a></p>
+                        <p><a href="#">Audio file 5</a></p>
 
                         <!--<p>Description here</p>-->
                         <!--<p>Northern Queensland, Australia</p>-->
