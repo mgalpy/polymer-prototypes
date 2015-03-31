@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0122)https://www.library.uq.edu.au/fbs/admin.php?tool=resources&branch_filter=sc149a751c795fe9&machid=sc149bda3e890d16&limit=25 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+      
+      <title>System Administration</title>
+      <link rel="stylesheet" type="text/css" href="System%20Administration_files/fonts-min.css">
+      <link rel="stylesheet" type="text/css" href="System%20Administration_files/container.css">
+      <link rel="stylesheet" type="text/css" href="System%20Administration_files/calendar.css">
+      <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="System%20Administration_files/style.css">
+      <!--[if IE 6]><link rel="stylesheet" href="css/ie6bugs.css" media="screen" type="text/css" /><![endif]-->
+      <!--[if IE 7]><link rel="stylesheet" href="css/ie7bugs.css" media="screen" type="text/css" /><![endif]-->
+      <!--[if IE 8]><link rel="stylesheet" href="css/ie8bugs.css" media="screen" type="text/css" /><![endif]-->
+      <link rel="shortcut icon" href="https://www.library.uq.edu.au/fbs/favicon.ico">
+      <link rel="icon" href="https://www.library.uq.edu.au/fbs/favicon.ico">
+      <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" src="System%20Administration_files/scripts.js"></script>
+      <script type="text/javascript" src="System%20Administration_files/yahoo-dom-event.js"></script>
+      <script type="text/javascript" src="System%20Administration_files/animation-min.js"></script>
+      <script type="text/javascript" src="System%20Administration_files/container_core-min.js"></script>
+      <script type="text/javascript" src="System%20Administration_files/container-min.js"></script>
+      <script type="text/javascript" src="System%20Administration_files/calendar-min.js"></script>
+      <script type="text/javascript" src="System%20Administration_files/menu-uq.js"></script>
+      <script type="text/javascript">
+        <!--
+        YAHOO.namespace("schedule.container");
+
+        YAHOO.util.Event.onContentReady("resources", function () {
+          isIE6 = /msie|MSIE 6/.test(navigator.userAgent);
+          constrain = false;
+          if (screen.height<=767 && (!isIE6)) {
+            constrain  = true;
+          }
+
+          var oMenuBar = new YAHOO.widget.MenuBar("resources", {
+            autosubmenudisplay: true,
+            hidedelay: 750,
+            lazyload: true,
+            iframe: false,
+            constraintoviewport: constrain
+          });
+          YAHOO.schedule.container.tt_color_key_1 = new YAHOO.widget.Tooltip("tt_color_key_1", { context:"color_key_1" });
+          YAHOO.schedule.container.tt_color_key_2 = new YAHOO.widget.Tooltip("tt_color_key_2", { context:"color_key_2" });
+          YAHOO.schedule.container.tt_color_key_3 = new YAHOO.widget.Tooltip("tt_color_key_3", { context:"color_key_3" });
+          YAHOO.schedule.container.tt_color_key_4 = new YAHOO.widget.Tooltip("tt_color_key_4", { context:"color_key_4" });
+          YAHOO.schedule.container.tt_color_key_5 = new YAHOO.widget.Tooltip("tt_color_key_5", { context:"color_key_5" });
+          YAHOO.schedule.container.tt_color_key_6 = new YAHOO.widget.Tooltip("tt_color_key_6", { context:"color_key_6" });
+
+          oMenuBar.render();
+        });
+        //-->
+      </script>
+    </head>
+    <body class="yui-skin-sam"><div id="tt_help_schedule" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_status" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_patrons" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_groups" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_max_part_cap" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_max_booking_notice" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_min_booking_notice" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_max_booking_time" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_min_booking_time" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_notes" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_lapse" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_keyid" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_phone" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_location" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_help_resource_name" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_color_key_6" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_color_key_5" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_color_key_4" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_color_key_3" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_color_key_2" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><div id="tt_color_key_1" class="yui-module yui-overlay yui-tt" style="z-index: 2;"><div class="bd"></div></div><iframe id="_yuiResizeMonitor" title="Text Resize Monitor" style="position: absolute; visibility: visible; width: 10em; height: 10em; top: -160px; left: -160px; border-width: 0px;"></iframe>
+
+    <!--START: For Accessibility -->
+    <p id="top"><a href="https://www.library.uq.edu.au/fbs/admin.php?tool=resources&branch_filter=sc149a751c795fe9&machid=sc149bda3e890d16&limit=25#title" class="skip" accesskey="2">skip nav</a></p>
+    <!--END: For Accessibility -->
+
+    <!--START: Header -->
+    <div id="header">
+      <div id="header-inner">
+        <h1><a href="http://www.uq.edu.au/" title="Home" accesskey="1">The University of Queensland</a></h1>
+        <h2><a href="https://www.library.uq.edu.au/fbs/ctrlpnl.php">Facilities Booking System</a></h2>
+        <div id="mininav">
+          <ul>
+            <li><a href="http://www.uq.edu.au/" accesskey="1">UQ Home</a></li>
+            <li><a href="http://www.uq.edu.au/contacts" accesskey="3">Contacts</a></li>
+            <li><a href="http://www.uq.edu.au/study" accesskey="4">Study</a></li>
+            <li><a href="http://www.uq.edu.au/maps/" accesskey="5">Maps</a></li>
+
+            <li><a href="http://www.uq.edu.au/news" accesskey="6">News</a></li>
+
+            <li><a href="http://www.uq.edu.au/events/" accesskey="7">Events</a></li>
+            <li><a href="http://www.library.uq.edu.au/" accesskey="8">Library</a></li>
+            <li><a href="http://my.uq.edu.au/" accesskey="9">my.UQ</a></li>
+          </ul>
+          <div class="clear">&nbsp;</div>
+        </div>
+        <div class="clear">&nbsp;</div>
+      </div>
+    </div>
+    <div id="topnav">
+      <div id="topnav-inner" class="yui-skin-sam yui-t1 bd yui-main yui-b">
+        <div id="resources" class="yuimenubar yuimenubarnav yui-module yui-overlay visible" style="position: static; display: block; z-index: 0; visibility: visible;">
+          <div class="bd" style="height: 0px;">
+            <ul class="first-of-type">
+                                <li class="yuimenubaritem first-of-type" id="yui-gen0" groupindex="0" index="0">
+                    <a class="yuimenubaritemlabel" href="https://www.library.uq.edu.au/fbs/ctrlpnl.php">Control Panel</a>
+                  </li>
+                  <li class="yuimenubaritem first-of-type yuimenubaritem-hassubmenu" id="yui-gen1" groupindex="0" index="1">
+                    <a class="yuimenubaritemlabel yuimenubaritemlabel-hassubmenu" href="https://www.library.uq.edu.au/fbs/admin.php?tool=resources&branch_filter=sc149a751c795fe9&machid=sc149bda3e890d16&limit=25#resourcelist">&nbsp;&nbsp;Book a Room or Resource&nbsp;&nbsp;</a>
+                    <div id="resourcelist" class="yuimenu yui-module yui-overlay" style="z-index: 2; position: absolute; visibility: hidden;">
+                      <div class="bd" style="height: 406px;">
+                        
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">Dentistry Library Clinical Bldg, Lvl 1 -  Sch of Dentistry, Turbot St Brisb  (hidden)</a>
+													<div id="pim0" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf3d86d07d">eZones  (hidden)</a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">Gatton Library - Gatton Campus (Bldg 8102) </a>
+													<div id="pim1" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a5179d427848">Data Projector </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a5164635eed3">Group Study Rooms - Lower Level </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc1531f93210cdb6">Semester 1 2014 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d43fe58c1d5">eZones - Lower Level </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">Herston Health Sciences Library, Herston Bldg, Block 6 </a>
+													<div id="pim2" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d4133b2a15b">Group Study Rooms - level 6 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14b6946adc35de">Laptops (UQ students only)  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d4152ab7c6c">eZones - Level 6 </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">Ipswich Library, Ipswich Campus (Bldg #8 level 2)  (hidden)</a>
+													<div id="pim3" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d44a56c6a7a">Conference &amp; Other - Level 3  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d41641cd8eb">Group Study Rooms - Level 3  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d4173f161be">Single Study Rooms - Level 3  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d44aa521917">eZones - Level 2  (hidden)</a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">Mater McAuley Library, Mater Hospital Bldg, Aubigny Place </a>
+													<div id="pim4" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d429d44a060">Group Rooms </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d42b76e4aa4">eZones  (hidden)</a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">PACE Health Sciences Library, PACE Precinct, PA Hospital (#870) </a>
+													<div id="pim5" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14b0f178466051">Group Study Rooms </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14b0f179432f81">eZones  (hidden)</a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">Princess Alexandra Hospital/UQ Library, (Bldg #1) </a>
+													<div id="pim6" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc1507645e019571">Consultation Room  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d42e51db3ed">Group Study Rooms </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d44bbbf0e66">eZones </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">St Lucia - Architecture / Music Library, Zelman Cowan Bldg (#51) </a>
+													<div id="pim7" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14b67848b8703f">Data Projector </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bddac733c01">Group  Rooms - Level 3 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bde8e25e066">Individual Rooms - Level 3 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc1537ace60c914f">Intersemester Recess 2014  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bde8fb6fc15">Lockable Desks - Level 3 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bde911a70fd">eZones - Level 3 </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">St Lucia - Biological Sciences Library (#94) </a>
+													<div id="pim8" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdef633f1d9">Data Projectors </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdef46eab95">Group  Rooms - Level 3 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a5422aed3104">Keepad Receiver </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdef7bb3d8c">Lockers - Level 4 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdef90f28f8">eZones - Level 2 </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) </a>
+													<div id="pim9" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14d896ac61ad24">Data Projectors </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14d4a3820e0860">Don Carruthers eXchange Zone - Level 5 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf1be64092">Group Rooms (UQ Students only) - Level 3 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf1d7ba22a">Individual Rooms (UQ students only) - Level 4 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14f46f4ca7c75a">Keypad Receiver (Library Staff)  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf1f5c2f07">Laptops (UQ students only)  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc1521e9b2408be7">Laser Presentation Pointer (Library staff only)  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a52ca4e56947">Research Centre - Staff Laptop (RIS Staff only)  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a529aafdd188">Research Information Service consultation room (RIS &amp; TALS Staff only) </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf210d0caf">eZones (Library staff only) - Level 2 </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">St Lucia - Duhig Building (#2) </a>
+													<div id="pim10" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf526c95ff">Assistive Technology Rooms - Level 4 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a4bf8ec5a20f">Conference Room  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d442b2d166e">Data Projectors - Collect from Ask IT desk, level 2 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf4efab5ef">Group Rooms - Level 5 (No key required) </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf507e90e2">Individual Rooms - Level 5 (No key required) </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf5469e8a6">Lockable Desks - Level 4 (collect key from Ask IT Desk) </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf560eb7a6">Lockable Desks - Level 5 (collect key from Ask IT desk) </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf580c4457">Lockable Desks - Level 5 Circle (collect key from Ask IT desk) </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc1508dcdcc42af1">Meeting Room - Level 6  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc15118560cccddb">USBs  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149bdf595e4972">eZones  (hidden)</a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">St Lucia - Graduate Economics &amp; Business Library, Lvl 2 Colin Clark Bldg, ( </a>
+													<div id="pim11" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d40b1d81b1f">Group Study Rooms </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d412ae255a0">eZones </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) </a>
+													<div id="pim12" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc150bd7c7ae6f17">3M Pocket Projector  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc152ae6d4cd2792">Ask I.T. </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d430e5b3824">Data Projectors  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d42f79e4586">Group Rooms, Levels 2, 3 &amp; 4 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a68f80e8e246">Keypad Receiver  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14a6905e0be576">Keypads  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14f614f559cd4e">Law Library  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d431e55f6a8">Lockable Desks - Level 3 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d432d9a6cda">Lockable Desks - Level 4 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc1539e3bbc1f6bc">Meeting Room (Level 1, IAS)  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d4340d09673">Multimedia Viewing Rooms - Level 1 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14f9904903ca81">Research Information Service Consultation Room (RIS STAFF ONLY) </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc14f6fbc946bd3f">Wireless microphone for central teaching areas  (hidden)</a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>
+												<ul><li class="yuimenuitem">
+													<a class="yuimenuitemlabel" href="javascript:void(null);">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) </a>
+													<div id="pim13" class="yuimenu">
+														<div class="bd">
+															<ul class="first-of-type"><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d41a61bec70">Data Projector </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d418d0a3008">Group Rooms - Levels 2, 3 &amp; 4 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d4432c7902d">Individual Rooms - Levels 3 &amp; 4 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d41fda64082">Laptop Recharge Lockers - Level 2 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d41ac4e1189">Lockable Desks - Level 4 (east)  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d41d4b7f20a">Lockers  (hidden)</a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d423a5cc708">Moot Court - Level 2 </a></li><li class="yuimenuitem"><a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/schedule.php?scheduleid=sc149d42299742c7">eZones - Level 3 </a></li>			</ul>
+														</div>
+													</div>
+												</li></ul>                      </div>
+                    </div>
+                  </li>
+                  <li class="yuimenubaritem first-of-type" id="yui-gen2" groupindex="0" index="2">
+                    <a class="yuimenubaritemlabel" href="javascript: keycontrol();">Key Control</a>
+                  </li>
+                  <li class="yuimenubaritem first-of-type" id="yui-gen3" groupindex="0" index="3">
+                    <a class="yuimenubaritemlabel" href="https://www.library.uq.edu.au/fbs/rescalendar.php">Resource Schedule Calendar</a>
+                  </li>
+                  <li class="yuimenubaritem first-of-type yuimenubaritem-hassubmenu" id="yui-gen4" groupindex="0" index="4">
+                    <a class="yuimenubaritemlabel yuimenubaritemlabel-hassubmenu" href="https://www.library.uq.edu.au/fbs/admin.php?tool=resources&branch_filter=sc149a751c795fe9&machid=sc149bda3e890d16&limit=25#loglist">&nbsp;&nbsp;Logs&nbsp;&nbsp;</a>
+                    <div id="loglist" class="yuimenu yui-module yui-overlay" style="z-index: 2; position: absolute; visibility: hidden;">
+                      <div class="bd" style="height: 29px;">
+                        <ul><li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/admin_log.php">Search Admin Log</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="yuimenubaritem first-of-type yuimenubaritem-hassubmenu" id="yui-gen5" groupindex="0" index="5">
+                    <a class="yuimenubaritemlabel yuimenubaritemlabel-hassubmenu" href="https://www.library.uq.edu.au/fbs/admin.php?tool=resources&branch_filter=sc149a751c795fe9&machid=sc149bda3e890d16&limit=25#helplist">&nbsp;&nbsp;Help&nbsp;&nbsp;</a>
+                    <div id="helplist" class="yuimenu yui-module yui-overlay" style="z-index: 2; position: absolute; visibility: hidden;">
+                      <div class="bd" style="height: 145px;">
+                        <ul><li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" href="https://www.library.uq.edu.au/fbs/help.php">Main Help</a>
+                          </li>
+                          <li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" onclick="return ! window.open(this.href);" href="http://libnet.library.uq.edu.au/display/libnet/FBS+Procedures+for+Administrators#FBSProceduresforAdministrators-branches">Managing Branches</a>
+                          </li>
+                          <li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" onclick="return ! window.open(this.href);" href="http://libnet.library.uq.edu.au/display/libnet/FBS+Procedures+for+Administrators#FBSProceduresforAdministrators-resource">Managing Resources</a>
+                          </li>
+                          <li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" onclick="return ! window.open(this.href);" href="http://libnet.library.uq.edu.au/display/libnet/FBS+Procedures+for+Administrators#FBSProceduresforAdministrators-usersgroups">Managing Users and Groups</a>
+                          </li>
+                          <li class="yuimenuitem">
+                            <a class="yuimenuitemlabel" onclick="return ! window.open(this.href);" href="http://libnet.library.uq.edu.au/display/libnet/FBS+Procedures+for+Administrators#FBSProceduresforAdministrators-bookings">Managing Booking</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+
+                
+                <li class="yuimenubaritem first-of-type" id="yui-gen6" groupindex="0" index="6">
+                  <a class="yuimenubaritemlabel" href="https://www.library.uq.edu.au/fbs/index.php?logout=true">Log Out</a>
+                </li>
+                          </ul>
+          </div>
+        </div>
+        <div class="clear">&nbsp;</div>
+      </div>
+    </div>
+    <!--END: Header -->
+    <!-- START: Wrapper  -->
+    <div class="wrapper">
+    <!-- START: Content -->
+    <div id="content">
+    <div id="schedule">
+  <h2>St Lucia - Biological Sciences Library (#94) - Group  Rooms - Level 3 - Group Room 1</h2>
+<script type="text/javascript">
+	YAHOO.util.Event.onContentReady("resources", function () {
+    	YAHOO.schedule.container.tt_help_resource_name = new YAHOO.widget.Tooltip("tt_help_resource_name", { context:"help_resource_name", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_location = new YAHOO.widget.Tooltip("tt_help_location", { context:"help_location", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_phone = new YAHOO.widget.Tooltip("tt_help_phone", { context:"help_phone", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_keyid = new YAHOO.widget.Tooltip("tt_help_keyid", { context:"help_keyid", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_lapse = new YAHOO.widget.Tooltip("tt_help_lapse", { context:"help_lapse", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_notes = new YAHOO.widget.Tooltip("tt_help_notes", { context:"help_notes", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_min_booking_time = new YAHOO.widget.Tooltip("tt_help_min_booking_time", { context:"help_min_booking_time", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_max_booking_time = new YAHOO.widget.Tooltip("tt_help_max_booking_time", { context:"help_max_booking_time", autodismissdelay: 10000 });
+
+    	YAHOO.schedule.container.tt_help_min_booking_notice = new YAHOO.widget.Tooltip("tt_help_min_booking_notice", { context:"help_min_booking_notice", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_max_booking_notice = new YAHOO.widget.Tooltip("tt_help_max_booking_notice", { context:"help_max_booking_notice", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_max_part_cap = new YAHOO.widget.Tooltip("tt_help_max_part_cap", { context:"help_max_part_cap", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_groups = new YAHOO.widget.Tooltip("tt_help_groups", { context:"help_groups", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_patrons = new YAHOO.widget.Tooltip("tt_help_patrons", { context:"help_patrons", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_status = new YAHOO.widget.Tooltip("tt_help_status", { context:"help_status", autodismissdelay: 10000 });
+    	YAHOO.schedule.container.tt_help_schedule = new YAHOO.widget.Tooltip("tt_help_schedule", { context:"help_schedule", autodismissdelay: 10000 });
+
+     });
+</script>
+
+<form name="addResource" method="post" action="https://www.library.uq.edu.au/fbs/admin_update.php">
+<table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
+	<tbody><tr>
+		<td class="tableBorder">
+		<table width="100%" border="0" cellspacing="1" cellpadding="0">
+			<tbody><tr>
+				<td width="200" class="formNames">Resource Name</td>
+				<td class="cellColor"><input type="text" name="name" class="textbox" value="Group Room 1">
+					&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The resource name as shown in the resource schedule" id="help_resource_name"></td>
+			</tr>
+			<tr>
+				<td class="formNames">Location</td>
+				<td class="cellColor"><input type="text" name="location" class="textbox" value="Room 312">
+					&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The location of this resource" id="help_location">
+				</td>
+			</tr>
+      <tr>
+        <td class="formNames">Campus</td>
+        <td class="cellColor"><input type="text" name="campus" class="textbox" value="St Lucia">
+          &nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The campus of this resource" id="help_campus">
+        </td>
+      </tr>
+      <tr>
+        <td class="formNames">Building</td>
+        <td class="cellColor"><input type="text" name="building" class="textbox" value="Biological Sciences Library (#94)">
+          &nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The building of this resource" id="help_building">
+        </td>
+      </tr>
+      <tr>
+        <td class="formNames">Url</td>
+        <td class="cellColor"><input type="text" name="url" class="textbox" value="">
+          &nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The url of this resource" id="help_url">
+        </td>
+      </tr>
+			<tr>
+				<td class="formNames">Phone</td>
+				<td class="cellColor"><input type="text" name="rphone" class="textbox" value="">
+					&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The phone number for this resource" id="help_phone">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Key Id</td>
+				<td class="cellColor"><input type="text" name="keyid" class="textbox" value="34067030046220">
+					&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The Key ID if integrating with MilCirc for check-in/outs" id="help_keyid">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Lapse</td>
+				<td class="cellColor"><select name="lapse" class="textbox">
+					<option value="1" class="textbox">Yes</option>
+					<option value="0" class="textbox" selected="">No</option>
+				</select>
+				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="When using a key, should bookings lapse if not filled&lt;br /&gt;by a patron within 15 minutes from the booking start time?" id="help_lapse">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Notes</td>
+				<td class="cellColor"><textarea name="notes" class="textbox" rows="3" cols="30">6 chairs, 1 table, PC, Large Screen, whiteboard. 
+
+The PC is temporarily out of order.</textarea>
+					&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="Any notes such as additional resources available" id="help_notes">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Minimum Booking Time</td>
+				<td class="cellColor"><select name="minH" class="textbox" id="minH">
+					<option value="0" selected="selected">0 hours</option>
+<option value="1">1 hours</option>
+<option value="2">2 hours</option>
+<option value="3">3 hours</option>
+<option value="4">4 hours</option>
+<option value="5">5 hours</option>
+<option value="6">6 hours</option>
+<option value="7">7 hours</option>
+<option value="8">8 hours</option>
+<option value="9">9 hours</option>
+<option value="10">10 hours</option>
+<option value="11">11 hours</option>
+<option value="12">12 hours</option>
+<option value="13">13 hours</option>
+<option value="14">14 hours</option>
+<option value="15">15 hours</option>
+<option value="16">16 hours</option>
+<option value="17">17 hours</option>
+<option value="18">18 hours</option>
+<option value="19">19 hours</option>
+<option value="20">20 hours</option>
+<option value="21">21 hours</option>
+<option value="22">22 hours</option>
+<option value="23">23 hours</option>
+<option value="24">24 hours</option>
+				</select> <select name="minM" class="textbox" id="minM">
+					<option value="0">0 minutes</option>
+<option value="30" selected="selected">30 minutes</option>
+				</select>
+				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The minimum booking length" id="help_min_booking_time">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Maximum Booking Time</td>
+				<td class="cellColor"><select name="maxH" class="textbox" id="maxH">
+					<option value="0">0 hours</option>
+<option value="1">1 hours</option>
+<option value="2" selected="selected">2 hours</option>
+<option value="3">3 hours</option>
+<option value="4">4 hours</option>
+<option value="5">5 hours</option>
+<option value="6">6 hours</option>
+<option value="7">7 hours</option>
+<option value="8">8 hours</option>
+<option value="9">9 hours</option>
+<option value="10">10 hours</option>
+<option value="11">11 hours</option>
+<option value="12">12 hours</option>
+<option value="13">13 hours</option>
+<option value="14">14 hours</option>
+<option value="15">15 hours</option>
+<option value="16">16 hours</option>
+<option value="17">17 hours</option>
+<option value="18">18 hours</option>
+<option value="19">19 hours</option>
+<option value="20">20 hours</option>
+<option value="21">21 hours</option>
+<option value="22">22 hours</option>
+<option value="23">23 hours</option>
+<option value="24">24 hours</option>
+				</select> <select name="maxM" class="textbox" id="maxM">
+					<option value="0" selected="selected">0 minutes</option>
+<option value="30">30 minutes</option>
+				</select>
+				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The maximum booking length" id="help_max_booking_time">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Minimum Booking Notice</td>
+				<td class="cellColor"><input type="text" name="min_notice_time" id="min_notice_time" class="textbox" size="3" value="0"> hours prior to the start time					&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The minimum booking noticed required" id="help_min_booking_notice">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Maximum Booking Notice</td>
+				<td class="cellColor"><input type="text" name="max_notice_time" id="max_notice_time" class="textbox" size="3" value="168"> hours from the current time					&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The maximum booking notice required" id="help_max_booking_notice">
+				</td>
+			</tr>
+			<tr>
+				<td class="formNames">Maximum Participant Capacity</td>
+				<td class="cellColor"><input type="text" name="max_participants" size="3" class="textbox" value="6">
+				* Leave blank for unlimited				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="The maximum capacity for the resource" id="help_max_part_cap">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="formNames">Schedule</td>
+				<td class="cellColor"><select name="scheduleid" class="textbox" id="schedule">
+				<option value="sc149bdf3d86d07d">Dentistry Library Clinical Bldg, Lvl 1 -  Sch of Dentistry, Turbot St Brisb - eZones</option>
+<option value="sc14a5179d427848">Gatton Library - Gatton Campus (Bldg 8102) - Data Projector</option>
+<option value="sc14a5164635eed3">Gatton Library - Gatton Campus (Bldg 8102) - Group Study Rooms - Lower Level</option>
+<option value="sc1531f93210cdb6">Gatton Library - Gatton Campus (Bldg 8102) - Semester 1 2014</option>
+<option value="sc149d43fe58c1d5">Gatton Library - Gatton Campus (Bldg 8102) - eZones - Lower Level</option>
+<option value="sc149d4133b2a15b">Herston Health Sciences Library, Herston Bldg, Block 6 - Group Study Rooms - level 6</option>
+<option value="sc14b6946adc35de">Herston Health Sciences Library, Herston Bldg, Block 6 - Laptops (UQ students only)</option>
+<option value="sc149d4152ab7c6c">Herston Health Sciences Library, Herston Bldg, Block 6 - eZones - Level 6</option>
+<option value="sc149d44a56c6a7a">Ipswich Library, Ipswich Campus (Bldg #8 level 2) - Conference &amp; Other - Level 3</option>
+<option value="sc149d41641cd8eb">Ipswich Library, Ipswich Campus (Bldg #8 level 2) - Group Study Rooms - Level 3</option>
+<option value="sc149d4173f161be">Ipswich Library, Ipswich Campus (Bldg #8 level 2) - Single Study Rooms - Level 3</option>
+<option value="sc149d44aa521917">Ipswich Library, Ipswich Campus (Bldg #8 level 2) - eZones - Level 2</option>
+<option value="sc149d429d44a060">Mater McAuley Library, Mater Hospital Bldg, Aubigny Place - Group Rooms</option>
+<option value="sc149d42b76e4aa4">Mater McAuley Library, Mater Hospital Bldg, Aubigny Place - eZones</option>
+<option value="sc14b0f178466051">PACE Health Sciences Library, PACE Precinct, PA Hospital (#870) - Group Study Rooms</option>
+<option value="sc14b0f179432f81">PACE Health Sciences Library, PACE Precinct, PA Hospital (#870) - eZones</option>
+<option value="sc1507645e019571">Princess Alexandra Hospital/UQ Library, (Bldg #1) - Consultation Room</option>
+<option value="sc149d42e51db3ed">Princess Alexandra Hospital/UQ Library, (Bldg #1) - Group Study Rooms</option>
+<option value="sc149d44bbbf0e66">Princess Alexandra Hospital/UQ Library, (Bldg #1) - eZones</option>
+<option value="sc14b67848b8703f">St Lucia - Architecture / Music Library, Zelman Cowan Bldg (#51) - Data Projector</option>
+<option value="sc149bddac733c01">St Lucia - Architecture / Music Library, Zelman Cowan Bldg (#51) - Group  Rooms - Level 3</option>
+<option value="sc149bde8e25e066">St Lucia - Architecture / Music Library, Zelman Cowan Bldg (#51) - Individual Rooms - Level 3</option>
+<option value="sc1537ace60c914f">St Lucia - Architecture / Music Library, Zelman Cowan Bldg (#51) - Intersemester Recess 2014</option>
+<option value="sc149bde8fb6fc15">St Lucia - Architecture / Music Library, Zelman Cowan Bldg (#51) - Lockable Desks - Level 3</option>
+<option value="sc149bde911a70fd">St Lucia - Architecture / Music Library, Zelman Cowan Bldg (#51) - eZones - Level 3</option>
+<option value="sc149bdef633f1d9">St Lucia - Biological Sciences Library (#94) - Data Projectors</option>
+<option value="sc149bdef46eab95" selected="selected">St Lucia - Biological Sciences Library (#94) - Group  Rooms - Level 3</option>
+<option value="sc14a5422aed3104">St Lucia - Biological Sciences Library (#94) - Keepad Receiver</option>
+<option value="sc149bdef7bb3d8c">St Lucia - Biological Sciences Library (#94) - Lockers - Level 4</option>
+<option value="sc149bdef90f28f8">St Lucia - Biological Sciences Library (#94) - eZones - Level 2</option>
+<option value="sc14d896ac61ad24">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Data Projectors</option>
+<option value="sc14d4a3820e0860">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Don Carruthers eXchange Zone - Level 5</option>
+<option value="sc149bdf1be64092">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Group Rooms (UQ Students only) - Level 3</option>
+<option value="sc149bdf1d7ba22a">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Individual Rooms (UQ students only) - Level 4</option>
+<option value="sc14f46f4ca7c75a">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Keypad Receiver (Library Staff)</option>
+<option value="sc149bdf1f5c2f07">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Laptops (UQ students only)</option>
+<option value="sc1521e9b2408be7">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Laser Presentation Pointer (Library staff only)</option>
+<option value="sc14a52ca4e56947">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Research Centre - Staff Laptop (RIS Staff only)</option>
+<option value="sc14a529aafdd188">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - Research Information Service consultation room (RIS &amp; TALS Staff only)</option>
+<option value="sc149bdf210d0caf">St Lucia - Dorothy Hill Engineering &amp; Sciences Library, Hawken Bldg,(#50) - eZones (Library staff only) - Level 2</option>
+<option value="sc149bdf526c95ff">St Lucia - Duhig Building (#2) - Assistive Technology Rooms - Level 4</option>
+<option value="sc14a4bf8ec5a20f">St Lucia - Duhig Building (#2) - Conference Room</option>
+<option value="sc149d442b2d166e">St Lucia - Duhig Building (#2) - Data Projectors - Collect from Ask IT desk, level 2</option>
+<option value="sc149bdf4efab5ef">St Lucia - Duhig Building (#2) - Group Rooms - Level 5 (No key required)</option>
+<option value="sc149bdf507e90e2">St Lucia - Duhig Building (#2) - Individual Rooms - Level 5 (No key required)</option>
+<option value="sc149bdf5469e8a6">St Lucia - Duhig Building (#2) - Lockable Desks - Level 4 (collect key from Ask IT Desk)</option>
+<option value="sc149bdf560eb7a6">St Lucia - Duhig Building (#2) - Lockable Desks - Level 5 (collect key from Ask IT desk)</option>
+<option value="sc149bdf580c4457">St Lucia - Duhig Building (#2) - Lockable Desks - Level 5 Circle (collect key from Ask IT desk)</option>
+<option value="sc1508dcdcc42af1">St Lucia - Duhig Building (#2) - Meeting Room - Level 6</option>
+<option value="sc15118560cccddb">St Lucia - Duhig Building (#2) - USBs</option>
+<option value="sc149bdf595e4972">St Lucia - Duhig Building (#2) - eZones</option>
+<option value="sc149d40b1d81b1f">St Lucia - Graduate Economics &amp; Business Library, Lvl 2 Colin Clark Bldg, ( - Group Study Rooms</option>
+<option value="sc149d412ae255a0">St Lucia - Graduate Economics &amp; Business Library, Lvl 2 Colin Clark Bldg, ( - eZones</option>
+<option value="sc150bd7c7ae6f17">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - 3M Pocket Projector</option>
+<option value="sc152ae6d4cd2792">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Ask I.T.</option>
+<option value="sc149d430e5b3824">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Data Projectors</option>
+<option value="sc149d42f79e4586">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Group Rooms, Levels 2, 3 &amp; 4</option>
+<option value="sc14a68f80e8e246">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Keypad Receiver</option>
+<option value="sc14a6905e0be576">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Keypads</option>
+<option value="sc14f614f559cd4e">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Law Library</option>
+<option value="sc149d431e55f6a8">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Lockable Desks - Level 3</option>
+<option value="sc149d432d9a6cda">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Lockable Desks - Level 4</option>
+<option value="sc1539e3bbc1f6bc">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Meeting Room (Level 1, IAS)</option>
+<option value="sc149d4340d09673">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Multimedia Viewing Rooms - Level 1</option>
+<option value="sc14f9904903ca81">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Research Information Service Consultation Room (RIS STAFF ONLY)</option>
+<option value="sc14f6fbc946bd3f">St Lucia - Social Sciences &amp; Humanities Library, (#12 &amp; 12A) - Wireless microphone for central teaching areas</option>
+<option value="sc149d41a61bec70">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - Data Projector</option>
+<option value="sc149d418d0a3008">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - Group Rooms - Levels 2, 3 &amp; 4</option>
+<option value="sc149d4432c7902d">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - Individual Rooms - Levels 3 &amp; 4</option>
+<option value="sc149d41fda64082">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - Laptop Recharge Lockers - Level 2</option>
+<option value="sc149d41ac4e1189">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - Lockable Desks - Level 4 (east)</option>
+<option value="sc149d41d4b7f20a">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - Lockers</option>
+<option value="sc149d423a5cc708">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - Moot Court - Level 2</option>
+<option value="sc149d42299742c7">St Lucia - Walter Harrison Law Library, Forgan Smith Bldg, West Wing (#1) - eZones - Level 3</option>
+				</select>
+				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="Change which schedule this resource belongs to" id="help_schedule">
+				</td>
+			</tr>
+
+
+			<!-- <tr>
+		  <td class="formNames">Approval Required</td>
+		  <td class="cellColor"><input type="checkbox" name="approval" />
+		  </td>
+		</tr>
+		<tr>
+		  <td class="formNames">Allow Multiple Day Bookings</td>
+		  <td class="cellColor"><input type="checkbox" name="allow_multi"  onclick="showHideMinMax(this);" />
+		  </td>
+		</tr>-->
+		</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<br>
+		  	<input type="submit" name="submit" value="Edit Resource" class="button">
+<input type="hidden" name="get" value="machid">
+<input type="hidden" name="fn" value="editResource">
+<input type="hidden" name="machid" value="sc149bda3e890d16">
+</form>
+ <br>
+<h3>Permissions and Status</h3>
+<table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
+	<tbody><tr>
+		<td class="tableBorder">
+		<table width="100%" border="0" cellspacing="1" cellpadding="0">
+			<tbody><tr>
+				<td width="200" class="formNames">Edit Groups</td>
+				<td class="cellColor"><a href="javascript:popResourceGroupEdit('sc149bda3e890d16');">Edit</a>
+				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="Click to edit the groups with permission to make bookings" id="help_groups"></td>
+			</tr>
+			<tr>
+				<td width="200" class="formNames">Edit Patrons</td>
+				<td class="cellColor"><a href="javascript:popResourcePatronTypeEdit('sc149bda3e890d16');">Edit</a>
+				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="Click to edit the patron types with permission to make bookings" id="help_patrons"></td>
+			</tr>
+			<tr>
+				<td width="200" class="formNames">Toggle Status</td>
+				<td class="cellColor"><a href="https://www.library.uq.edu.au/fbs/admin_update.php?fn=togResource&machid=sc149bda3e890d16&status=a">Active</a>
+				&nbsp;<img src="System%20Administration_files/contexthelp.png" width="18" height="18" alt="Help" title="Click to change the status of the resource. An inactive resource&lt;br /&gt;is not displayed to patrons and is not bookable" id="help_status"></td>
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<br>
+		  		<form name="delResource" method="post" action="https://www.library.uq.edu.au/fbs/admin_update.php"><input type="submit" name="submit" value="Delete Resource" class="button">
+<input type="hidden" name="get" value="machid">
+<input type="hidden" name="fn" value="delResource">
+<input type="hidden" name="scheduleid" value="sc149bdef46eab95">
+<input type="hidden" name="machid[]" value="sc149bda3e890d16"></form>  </div>
+  <div class="clear">&nbsp;</div>
+  </div>
+  <!-- END: Content -->
+</div>
+  <!-- END: Wrapper -->
+  <!-- START: Footer  -->
+  <div id="footer">
+    <div class="wrapper">
+      <div id="siteinfo" class="vcard">
+        <div class="org fn"><a href="http://www.uq.edu.au/">The University of Queensland</a></div>
+        <address id="uq-address" class="adr"><span class="street-address">Brisbane</span>
+          <span class="locality">St Lucia</span>, <span class="region">QLD</span> <span class="postal-code">4072</span></address>
+        <div class="tel">+61 7 3365 1111</div>
+        <div class="campus">Other Campuses: <a href="http://www.uq.edu.au/ipswich/">UQ Ipswich</a>, <br><a href="http://www.uq.edu.au/gatton/">UQ Gatton</a>, <a href="http://www.uq.edu.au/about/herston-campus">UQ Herston</a></div>
+        <div class="directions"><a href="http://www.uq.edu.au/maps/">Maps and Directions</a></div>
+        <div id="copyright">© 2009 The University of Queensland</div>
+      </div>
+      <div id="footer-resources">
+        <h2>Supplemental Resources</h2>
+        <div id="navResources">
+          <h3>A Member of</h3>
+          <div class="member-logo">
+            <a href="http://www.universitas21.com/"><img src="System%20Administration_files/logo-universitas.gif" width="25" height="25" alt="Universitas 21"></a> &nbsp;&nbsp;
+            <a href="http://www.go8.edu.au/"><img src="System%20Administration_files/logo-go8.gif" width="123" height="18" alt="Group of 8"></a>
+          </div>
+          <p><a href="http://www.uq.edu.au/terms-of-use/">Terms of use</a> |
+            <a href="http://www.library.uq.edu.au/feedback/add">Feedback</a></p><br>
+          <p>Authorised by: University Librarian</p>
+          <p>Maintained by: <a href="mailto:webmaster@library.uq.edu.au">webmaster@library.uq.edu.au</a></p>
+          <p>ABN 63 942 912 684</p>
+          <p>CRICOS Provider No:<a class="footerlinks" href="http://www.uq.edu.au/about/cricos-link">00025B</a></p>
+        </div>
+        <div id="navQuick">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="http://www.uq.edu.au/news/">For Media</a></li>
+            <li><a href="http://www.uq.edu.au/contacts/">Emergency Contact</a></li>
+          </ul>
+        </div>
+        <div id="navSocial">
+          <h3>Social Media</h3>
+          <ul>
+            <li><a href="http://www.flickr.com/photos/uqnews/sets/">Flickr</a></li>
+            <li><a href="http://twitter.com/uqnewsonline">Twitter</a></li>
+            <li><a href="http://www.youtube.com/universityqueensland">YouTube Channel</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer-right">
+        <div id="navExplore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="http://www.alumni.uq.edu.au/supporting-uq">Giving to UQ</a></li>
+            <li><a href="http://www.uq.edu.au/departments/">Faculties &amp; Divisions</a></li>
+            <li><a href="http://www.uq.edu.au/staff/">Jobs at UQ</a></li>
+            <li><a href="http://www.uq.edu.au/contacts/">Contact UQ</a></li>
+            <li><a href="http://www.uq.edu.au/services/">Services &amp; Facilities</a></li>
+          </ul>
+        </div>
+        <div id="navLogos">
+          <p class="centenary"><a href="http://www.uq.edu.au/centenary/" class="opacity-toggle"><img src="System%20Administration_files/logo-centenary.png" width="102" height="69" alt="UQ Centenary"></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Added Google Analytics Code-->
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4365437-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  <!-- END: Footer  -->
+
+  
+<style>.footerlinks.social,
+#content > #center > .dose > .dosesingle,
+#content > #right > .dose > .dosesingle,
+#header + #content > #left > #rlblock_left,
+[href^="https://twitter.com/share?"],
+[href^="https://twitter.com/intent/tweet?"],
+[href^="https://twitter.com/intent/retweet?tweet_id"],
+[href^="https://twitter.com/intent/follow?"],
+[href^="http://twitter.com/share?"],
+[href^="http://twitter.com/intent/tweet?"],
+[href^="http://twitter.com/intent/tweet/?url="],
+[href^="http://twitter.com/home?"],
+[href^="http://twitter.com/home/?"],
+[href^="http://twitter.com/?status="]
+{display:none !important;}</style></body></html>
