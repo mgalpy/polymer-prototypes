@@ -314,18 +314,29 @@
         .title {
             text-decoration: none;
             padding-bottom: 8px;
+            font-weight: 300;
+        }
+        .new-title {
+            text-decoration: none;
+            padding-bottom: 8px;
+            font-weight: 300;
         }
         .authors {
             /*color: #38852e;*/
             padding-bottom: 8px;
-            font-weight: 800;
+            font-weight: 400;
         }
         .journal {
             padding-bottom: 4px;
+            font-weight: 300;
         }
         .type {
             /*color: #666;*/
             padding-left: 16px;
+        }
+        .title-type {
+            padding-left: 16px;
+            /*font-weight: 500;*/
         }
         hr {
             margin: 0;
@@ -385,10 +396,12 @@
         }
         .num-cites {
             font-size: 24px;
+            font-weight: 300;
         }
         .type-cites {
             color: #333 !important;
             font-size: 11px;
+            font-weight: 300;
         }
         .border-top {
             border-top: 1px solid #ccc;
@@ -439,7 +452,7 @@
         .metric-text {
             margin-left: 8px;
         }
-        core-icon[icon="arrow-drop-up"] {
+        .trending, core-icon[icon="arrow-drop-up"] {
             /*color: #8cb800;*/
             margin: -10px;
             padding: 0;
@@ -453,6 +466,13 @@
         .type-cites-header {
             /*vertical-align: middle;*/
         }
+        .metric-list {
+            padding: 15px 15px 14px 15px;
+        }
+        .thin {
+            border: 1px solid #ccc;
+        }
+
     </style>
 
 </head>
@@ -520,6 +540,7 @@
             </div>
         </template>
         <paper-tabs selected="0">
+            <paper-tab>Simplified Trending</paper-tab>
             <paper-tab>Trending</paper-tab>
             <paper-tab>Metrics</paper-tab>
             <paper-tab>Mine to Claim</paper-tab>
@@ -534,6 +555,64 @@
             </paper-shadow>
         </div>
         <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+            <div>
+                <div id="cards" vertical center-justified layout>
+                    <paper-shadow class="card" z="1">
+                        <p class="title-type">Altmetrics</p>
+                        <hr>
+                        <!--<div horizontal layout class="metric-list"><div class="title">An organizational resilience-based human factors safety method: the development and testing of SAfER</div>-->
+                            <!--<div flex></div>-->
+                            <!--<div class="num-cites border-left border-bottom">86</div>-->
+                        <!--</div>-->
+                        <div horizontal layout>
+                            <div flex>
+                                <div vertical layout class="metric-list">
+                                    <div horizontal layout>
+                                        <div class="new-title">An organizational resilience-based human factors safety method: the development and testing...</div><div flex></div>
+                                        <div>
+                                            <div vertical layout class="metrics" flex self-stretch>
+                                                <div self-stretch class="border-left border-bottom altmetrics">
+                                                    <div class="num-cites">86<core-icon class="trending" icon="trending-up"></core-icon></div>
+                                                    <div class="type-cites">Citations</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="thin">
+                                <div vertical layout class="metric-list">
+                                    <div horizontal layout>
+                                        <div class="new-title">Title</div><div flex></div>
+                                        <div>
+                                            <div vertical layout class="metrics" flex self-stretch>
+                                                <div self-stretch class="border-left border-bottom altmetrics">
+                                                    <div class="num-cites">23</div>
+                                                    <div class="type-cites">Citations</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="thin">
+                                <div vertical layout class="metric-list">
+                                    <div horizontal layout>
+                                        <div class="new-title">Title</div><div flex></div>
+                                        <div>
+                                            <div vertical layout class="metrics" flex self-stretch>
+                                                <div self-stretch class="border-left border-bottom altmetrics">
+                                                    <div class="num-cites">12</div>
+                                                    <div class="type-cites">Citations</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </paper-shadow>
+                </div>
+            </div>
             <div>
                 <div id="cards" vertical center-justified layout>
 
