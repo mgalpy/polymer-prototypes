@@ -112,12 +112,10 @@
             white-space: nowrap;
             background-color: #49075E;
             color: #fff;
-            z-index: 1;
             transition: 300ms ease-in-out;
         }
         paper-tab {
             background-color: #fafafa;
-            z-index: 1;
         }
         paper-tabs {
             transition: 300ms ease-in-out;
@@ -125,19 +123,15 @@
             background-color: #fafafa;
             color: #333;
             box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
-            z-index: 1;
         }
         paper-tabs[noink][nobar] paper-tab.core-selected {
             color: #8BC34A;
-            z-index: 1;
         }
         paper-tabs::shadow #selectionBar {
             background-color: #8BC34A;
-            z-index: 1;
         }
         paper-tabs paper-tab::shadow #ink {
             color: #8BC34A;
-            z-index: 1;
         }
         [drawer] {
             background-color: #fafafa;
@@ -388,11 +382,11 @@
             var t = e.target;
             showToast("Clicked " + t.id);
             if (t.localName === 'paper-icon-button') {
-                slideElements('#search', 'iconSlide');
-                slideElements('#searchInput', 'slideIn');
-                // if user clicks 'search'
-                if (t.id == "search") {
 
+                // if user clicks 'search'
+                if (t.id == "search" || t.id == "more") {
+                    slideElements('#search', 'iconSlide');
+                    slideElements('#searchInput', 'slideIn');
 //                    document.querySelector('#search').classList.toggle('iconSlide');
 //                    document.querySelector('#searchInput').classList.toggle('slideIn');
 
