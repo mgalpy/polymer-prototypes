@@ -317,6 +317,15 @@ paper-tabs paper-tab::shadow #ink {
 }
 paper-slider {
   width: 100%;
+  &::shadow {
+    #sliderBar::shadow #activeProgress {
+      background-color: $uq-aqua;
+    }  #sliderKnobInner {
+    background-color: $uq-aqua;
+  }  #sliderKnobInner::before {
+    background-color: $uq-aqua;
+  }
+}
 }
 [drawer] {
   background-color: #fafafa;
@@ -428,6 +437,10 @@ paper-input-decorator {
 //  height: 109px;
   background-color: $uq-purple;
 }
+#player {
+  border-top: 1px solid $uq-divider;
+  padding: 2px 0 0 2px;
+}
 paper-item {
   color: $uq-text;
   text-decoration: none;
@@ -474,7 +487,7 @@ paper-icon-button {
 paper-icon-button:hover {
   transition: 150ms ease-in-out;
   border-radius: 50%;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(0,0,0,0.1);
 }
 .sidebar-header {
   margin-left: 12px;

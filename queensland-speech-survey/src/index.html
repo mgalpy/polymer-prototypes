@@ -13,7 +13,7 @@
     <link href="../resources/theme/styles.css" rel="stylesheet">
 </head>
 
-<body fullbleed unresolved>
+<body fullbleed unresolved onresize="drawerHeightFix()">
 
     <core-drawer-panel responsiveWidth="1400px">
 
@@ -104,8 +104,8 @@
 
               <core-drawer-panel id="marker-info" rightDrawer responsiveWidth="1200px" drawerWidth="480px">
 
-                <div drawer>
-                    <div vertical layout>
+                <div drawer vertical layout>
+                    <!--<div vertical layout>-->
                         <div horizontal layout center-center>
                             <div>
                                 <core-icon class="huge sidebar-header-icon" icon="hardware:headset"></core-icon>
@@ -114,11 +114,10 @@
                                 <h1 class="sidebar-header">Alyawarr</h1>
                             </div>
                         </div>
-                        <div>
+                        <div flex>
                             <img src="../resources/images/list-sample.png" width="100%">
                         </div>
-                        <div flex></div>
-                        <div horizontal layout center-center>
+                        <div horizontal layout center-center id="player">
                             <div>
                                 <paper-icon-button class="huge" icon="av:play-circle-outline"></paper-icon-button>
                             </div>
@@ -129,13 +128,13 @@
                                 <paper-icon-button icon="av:volume-down"></paper-icon-button>
                             </div>
                         </div>
-                    </div>
+                    <!--</div>-->
                 </div>
 
                 <div main>
-                  <google-map latitude="-20.2" longitude="156.2" disableDefaultUI zoom="6">
+                  <google-map latitude="-21.488403" longitude="147.1480151" disableDefaultUI zoom="6">
 
-                    <google-map-marker latitude="-19.265433" longitude="146.816289" clickEvents></google-map-marker>
+                    <!--<google-map-marker latitude="-19.265433" longitude="146.816289" clickEvents></google-map-marker>-->
                     <google-map-marker latitude="-21.392335" longitude="145.101973" clickEvents></google-map-marker>
 
                   </google-map>
@@ -178,7 +177,14 @@
           }
         }
 
+        // temporary hack to get drawer height to equal visible height
+        function drawerHeightFix() {
+            var drawerHeight = document.querySelector('body').offsetHeight-110;
+            document.querySelector('#marker-info').style.height = (drawerHeight + "px");
+        }
+
         addEventListener('template-bound', function (e) {
+            drawerHeightFix();
           e.target.clickAction = clickAction;
           slideElements('#search', 'iconSlide');
           slideElements('#searchInput', 'slideIn');

@@ -243,6 +243,12 @@ paper-tabs paper-tab::shadow #ink {
 
 paper-slider {
   width: 100%; }
+  paper-slider::shadow #sliderBar::shadow #activeProgress {
+    background-color: #007e9e; }
+  paper-slider::shadow #sliderKnobInner {
+    background-color: #007e9e; }
+  paper-slider::shadow #sliderKnobInner::before {
+    background-color: #007e9e; }
 
 [drawer] {
   background-color: #fafafa;
@@ -339,6 +345,10 @@ paper-input-decorator {
   height: 64px;
   background-color: #49075e; }
 
+#player {
+  border-top: 1px solid #ccc;
+  padding: 2px 0 0 2; }
+
 paper-item {
   color: #333333;
   text-decoration: none; }
@@ -381,7 +391,7 @@ paper-icon-button {
 paper-icon-button:hover {
   transition: 150ms ease-in-out;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2); }
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .sidebar-header {
   margin-left: 12px;
