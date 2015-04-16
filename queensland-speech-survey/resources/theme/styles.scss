@@ -200,7 +200,7 @@ core-toolbar {
   }
 
   .responsive-menu-icon {
-    @media (min-width: 1200px) {
+    @media (min-width: 1020px) {
       display: none;
     }
   }
@@ -471,6 +471,13 @@ html /deep/ .huge {
   color: $uq-text-secondary;
   width: 44px;
   height: 44px;
+}
+#close-drawer {
+  color: $uq-text-secondary;
+  @media (min-width: 1020px) {
+
+    display: none;
+  }
 }
 paper-icon-button.huge::shadow #icon {
   color: $uq-text-secondary;

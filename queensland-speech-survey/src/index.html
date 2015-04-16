@@ -81,15 +81,15 @@
                     <core-toolbar>
                         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
                         <div class="glow">
-                            <a href="#" class="uq-header-links">Queensland Speech Survey</a>
+                            <a href="#" class="uq-header-links">Indigenous Voices</a>
                         </div>
                         <div flex>
-                            <paper-input-decorator label="Search for a language or speaker" id="searchInput">
-                                <input is="core-input">
-                            </paper-input-decorator>
+                            <!--<paper-input-decorator label="Search for a language or speaker" id="searchInput">-->
+                                <!--<input is="core-input">-->
+                            <!--</paper-input-decorator>-->
                         </div>
-                        <paper-icon-button icon="search" id="search"></paper-icon-button>
-                        <paper-icon-button icon="more-vert" id="more" class="responsive-menu-icon"></paper-icon-button>
+                        <!--<paper-icon-button icon="search" id="search"></paper-icon-button>-->
+                        <paper-icon-button icon="communication:clear-all" id="more" class="responsive-menu-icon"></paper-icon-button>
                     </core-toolbar>
                 </div>
             </template>
@@ -102,7 +102,7 @@
 
             <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
 
-              <core-drawer-panel id="marker-info" rightDrawer responsiveWidth="1200px" drawerWidth="480px" disableSwipe="true">
+              <core-drawer-panel id="marker-info" rightDrawer responsiveWidth="1020px" drawerWidth="360px" disableSwipe="true">
 
                 <div drawer vertical layout>
                     <!--<div vertical layout>-->
@@ -112,6 +112,9 @@
                             </div>
                             <div flex>
                                 <h1 class="sidebar-header">Alyawarr</h1>
+                            </div>
+                            <div>
+                                <paper-icon-button icon="close" id="close-drawer" class="responsive-menu-icon" onclick="closeDrawer()"></paper-icon-button>
                             </div>
                         </div>
                         <div flex>
@@ -160,6 +163,10 @@
           document.querySelector(name).classList.toggle(type);
         }
 
+        function closeDrawer() {
+            document.querySelector('#marker-info').togglePanel();
+        }
+
         function clickAction(e) {
           var t = e.target;
           if (t.localName === 'core-toolbar') {
@@ -186,10 +193,10 @@
         addEventListener('template-bound', function (e) {
             drawerHeightFix();
           e.target.clickAction = clickAction;
-          slideElements('#search', 'iconSlide');
-          slideElements('#searchInput', 'slideIn');
+//          slideElements('#search', 'iconSlide');
+//          slideElements('#searchInput', 'slideIn');
           document.querySelector('#marker-info').openDrawer();
-            document.querySelector('#warning').toggle();
+//            document.querySelector('#warning').toggle();
         });
 
         addEventListener('google-map-marker-click', function (e) {

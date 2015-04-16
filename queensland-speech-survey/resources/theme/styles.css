@@ -146,7 +146,7 @@ core-toolbar {
   transition: 300ms ease-in-out; }
   core-toolbar #uq-link {
     margin: 0; }
-  @media (min-width: 1200px) {
+  @media (min-width: 1020px) {
     core-toolbar .responsive-menu-icon {
       display: none; } }
   core-toolbar div ul {
@@ -347,7 +347,7 @@ paper-input-decorator {
 
 #player {
   border-top: 1px solid #ccc;
-  padding: 2px 0 0 2; }
+  padding: 2px 0 0 2px; }
 
 paper-item {
   color: #333333;
@@ -376,6 +376,12 @@ html /deep/ .huge {
   color: #757575;
   width: 44px;
   height: 44px; }
+
+#close-drawer {
+  color: #757575; }
+  @media (min-width: 1020px) {
+    #close-drawer {
+      display: none; } }
 
 paper-icon-button.huge::shadow #icon {
   color: #757575;
