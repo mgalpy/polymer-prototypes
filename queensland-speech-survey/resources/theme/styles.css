@@ -390,7 +390,8 @@ paper-icon-button.huge::shadow #icon {
 
 paper-icon-button {
   transition: 150ms ease-in-out;
-  border-radius: 50%; }
+  border-radius: 50%;
+  color: #757575; }
   paper-icon-button ::shadow core-icon {
     color: #757575; }
 
