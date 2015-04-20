@@ -279,6 +279,19 @@ core-toolbar {
       transition: $shadow-transition;
     }
   }
+  paper-icon-button {
+    transition: 150ms ease-in-out;
+    border-radius: 50%;
+    color: white;
+    ::shadow core-icon {
+      color: white;
+    }
+    &:hover {
+      transition: 150ms ease-in-out;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+    }
+  }
 }
 paper-tab {
   cursor: pointer;
@@ -491,16 +504,15 @@ paper-icon-button {
   ::shadow core-icon {
     color: $uq-text-secondary;
   }
-}
-paper-icon-button:hover {
-  transition: 150ms ease-in-out;
-  border-radius: 50%;
-  background-color: rgba(0,0,0,0.1);
+  &:hover {
+    transition: 150ms ease-in-out;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.1);
+  }
 }
 .sidebar-header {
   margin-left: 12px;
   font-weight: 400;
-  /* Wakka Wakka: */
   font-size: 24px;
 }
 .sidebar-header-icon {

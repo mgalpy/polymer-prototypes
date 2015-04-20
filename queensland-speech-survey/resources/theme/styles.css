@@ -208,6 +208,16 @@ core-toolbar {
       text-decoration: none;
       -webkit-filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
       transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1); }
+  core-toolbar paper-icon-button {
+    transition: 150ms ease-in-out;
+    border-radius: 50%;
+    color: white; }
+    core-toolbar paper-icon-button ::shadow core-icon {
+      color: white; }
+    core-toolbar paper-icon-button:hover {
+      transition: 150ms ease-in-out;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1); }
 
 paper-tab {
   cursor: pointer;
@@ -394,16 +404,14 @@ paper-icon-button {
   color: #757575; }
   paper-icon-button ::shadow core-icon {
     color: #757575; }
-
-paper-icon-button:hover {
-  transition: 150ms ease-in-out;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.1); }
+  paper-icon-button:hover {
+    transition: 150ms ease-in-out;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1); }
 
 .sidebar-header {
   margin-left: 12px;
   font-weight: 400;
-  /* Wakka Wakka: */
   font-size: 24px; }
 
 .sidebar-header-icon {
