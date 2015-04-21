@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <title>Queensland Speech Survey</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" user-scalable="no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" type="image/x-icon" href="../resources/images/favicon.ico">
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="polymer-components.html">
+    <link rel="import" href="bower_components/google-map/google-map.html">
+    <link href="../resources/theme/styles.css" rel="stylesheet">
+</head>
+
+<body fullbleed unresolved>
+
+<core-drawer-panel responsiveWidth="1500px">
+    <div drawer class="left-drawer">
+        <core-toolbar>
+        <div vertical layout id="account">
+            <div horizontal layout>
+                <div>
+                    <a href="http://www.uq.edu.au" class="uq-link"><img src="https://app.library.uq.edu.au/images/uq_theme/uq.png" id="mini-logo"></a>
+                    <a href="http://www.uq.edu.au"><img src="https://www.library.uq.edu.au/360Link/Current/uq-logo.svg" id="main-logo"></a>
+                    <a class="uq-library-header-logo" href="https://www.library.uq.edu.au">Library</a>
+                    <a class="uq-library-header-logo-mini" href="https://www.library.uq.edu.au">UQ Library</a>
+                </div>
+            </div>
+            <div flex></div>
+        </div>
+        </core-toolbar>
+
+        <core-menu selectedAttribute="">
+            <paper-item on-tap="{{togglePage}}">
+                <core-icon icon="home"></core-icon>UQ Library</paper-item>
+            <paper-item>
+                <core-icon icon="info"></core-icon>About</paper-item>
+            <hr>
+            <paper-item>
+                <core-icon icon="help"></core-icon>Help &amp; Feedback</paper-item>
+        </core-menu>
+
+    </div>
+
+    <core-drawer-panel main rightDrawer responsiveWidth="750px" drawerWidth="360px" disableSwipe>
+        <div drawer class="right-drawer">
+            <!--<core-toolbar class="medium item-info">-->
+                <!--<span class="bottom">Guugu Yimithirr / Guugu Yimidhirr / Gugu Yimithirr / Kuku Yimidhirr</span>-->
+            <!--</core-toolbar>-->
+            <div horizontal layout center-center class="medium item-info">
+                <div>
+                    <core-icon class="huge sidebar-header-icon" icon="hardware:headset"></core-icon>
+                </div>
+                <div flex>
+                    <h2 class="sidebar-header">Guugu Yimithirr / Guugu Yimidhirr / Gugu Yimithirr / Kuku Yimidhirr</h2>
+                </div>
+                <div>
+                    <paper-icon-button icon="close" id="close-drawer" class="responsive-menu-toggle-icon" onclick="closeDrawer()"></paper-icon-button>
+                </div>
+            </div>
+            <div flex>
+                <img src="../resources/images/list-sample.png" width="100%">
+            </div>
+            <div horizontal layout center-center id="player">
+                <div>
+                    <paper-icon-button class="huge" icon="av:play-circle-outline" class="material-dark"></paper-icon-button>
+                </div>
+                <div flex>
+                    <paper-slider></paper-slider>
+                </div>
+                <div>
+                    <paper-icon-button icon="av:volume-down"></paper-icon-button>
+                </div>
+            </div>
+        </div>
+        <div main>
+
+            <core-toolbar>
+                <!--<paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>-->
+                <paper-icon-button icon="menu" class="responsive-menu-icon" onclick="closeMenu()"></paper-icon-button>
+                <div class="glow">
+                    <a href="#" class="uq-header-links">Indigenous Voices</a>
+                </div>
+            </core-toolbar>
+
+            <paper-tabs selected="0">
+                <paper-tab>Map</paper-tab>
+                <paper-tab>Languages</paper-tab>
+                <paper-tab>Voices</paper-tab>
+                <paper-tab>Search</paper-tab>
+            </paper-tabs>
+            <core-animated-pages selected="{{selected}}" transitions="slide-from-right">
+                <div>
+                    <google-map latitude="-21.488403" longitude="147.1480151" disableDefaultUI zoom="6">
+
+                        <google-map-marker latitude="-19.265433" longitude="146.816289" clickEvents></google-map-marker>
+                        <google-map-marker latitude="-21.392335" longitude="145.101973" clickEvents></google-map-marker>
+
+                    </google-map>
+                </div>
+                <div>
+                    LANGUAGE CONTENT
+                </div>
+                <div>
+                    VOICES CONTENT
+                </div>
+                <div>
+                    SEARCH CONTENT
+                </div>
+            </core-animated-pages>
+        </div>
+    </core-drawer-panel>
+
+</core-drawer-panel>
+
+<script>
+    var tabs = document.querySelector('paper-tabs');
+    var pages = document.querySelector('core-animated-pages');
+
+    tabs.addEventListener('core-select', function () {
+        pages.selected = tabs.selected;
+    });
+
+    function closeDrawer() {
+        document.querySelector('core-drawer-panel [rightDrawer]').togglePanel();
+    }
+
+    function closeMenu() {
+        document.querySelector('core-drawer-panel').togglePanel();
+    }
+
+    addEventListener('google-map-marker-click', function (e) {
+        closeDrawer();
+    });
+</script>
+</body>
+</html>
